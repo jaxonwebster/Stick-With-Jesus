@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stick With Jesus | Premium Faith-Filled Stickers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+    <!-- Hamburger button layer handles dropdown calls natively -->
+    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu()" aria-label="Toggle Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+
+    <div class="logo">Stick With <span>Jesus</span></div>
+    
+    <ul class="nav-links" id="navbar-links-drawer">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop Stickers</a></li>
+        <li><a href="blog.html">Faith Blog</a></li>
+    </ul>
+
+    <div class="cart-container-item">
+        <a href="cart.html" class="cart-anchor-wrapper">
+            <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+            </svg>
+            <span id="cart-count-badge" class="cart-count-badge">0</span>
+        </a>
+    </div>
+</nav>
+    </header>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero-large">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="stagger-title">
+                <span>S</span><span>t</span><span>i</span><span>c</span><span>k</span>&nbsp;
+                <span>W</span><span>i</span><span>t</span><span>h</span>&nbsp;
+                <span>J</span><span>e</span><span>s</span><span>u</span><span>s</span>
+            </h1>
+            <p>Premium, weather-proof vinyl stickers built to share scripture and grace beautifully.</p>
+            <a href="products.html" class="btn-cute">Browse Collection</a>
+        </div>
+    </section>
+
+    <!-- 2. ABOUT US SECTION (Alternating Layout Style 1: White) -->
+    <section class="home-section bg-white-zone">
+        <div class="container about-split">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=800" alt="Stick With Jesus Workspace" class="about-img">
+            <div class="about-text">
+                <h2>Our Mission</h2>
+                <p>Welcome to Stick With Jesus. We believe that small, everyday items can carry incredible reminders of truth, hope, and unwavering faith.</p>
+                <p>Every single piece in our collection is meticulously planned and custom designed to stand up to daily use. Whether placed on your daily travel tumbler, your laptop lid, or your scripture study journal, our waterproof vinyl products are built to look professional, elegant, and modern.</p>
+                <a href="blog.html" class="btn-cute btn-secondary" style="margin-top: 15px;">Read Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. STATS BAR SECTION (Alternating Layout Style 2: Soft Sage) -->
+    <section class="home-section bg-sage-zone">
+        <div class="container stats-banner">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2 class="stat-counter" data-target="15000">0</h2>
+                    <p>Stickers Shipped</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-counter" data-target="4800">0</h2>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-counter" data-target="50">0</h2>
+                    <p>Unique Layouts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FEATURED PRODUCTS SECTION (Alternating Layout Style 3: White) -->
+    <section class="home-section bg-white-zone">
+        <div class="container">
+            <h2 class="section-title">Featured Collections</h2>
+            <div class="grid-gallery">
+                <div class="product-card" onclick="location.href='products.html?id=1'">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=600" alt="Missionary Tag" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Missionary Tag Sticker</h3>
+                        <p class="product-price">$5.00</p>
+                    </div>
+                </div>
+                <div class="product-card" onclick="location.href='products.html?id=2'">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1572375995301-4516aa31b249?q=80&w=600" alt="Faith Move Mountains" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Faith Moves Mountains</h3>
+                        <p class="product-price">$4.50</p>
+                    </div>
+                </div>
+                <div class="product-card" onclick="location.href='products.html?id=3'">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=600" alt="Grace Upon Grace" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Grace Upon Grace</h3>
+                        <p class="product-price">$4.50</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. REVIEWS SECTION (Alternating Layout Style 4: Soft Terracotta) -->
+    <section class="home-section bg-terracotta-zone">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>"The aesthetic quality of these stickers is top notch. The lavender text looks absolutely beautiful on my commuter bottle, and it has gone through the dishwasher multiple times without peeling."</p>
+                    <div class="review-author">Sarah M.</div>
+                </div>
+                <div class="review-card">
+                    <p>"Clean typography, high-grade vinyl, and incredibly fast delivery. It is refreshing to buy professional-quality decals that share elegant messages."</p>
+                    <div class="review-author">David K.</div>
+                </div>
+                <div class="review-card">
+                    <p>"I bought several as gifts for my bible study group, and everyone loved them. The minimal designs are professional and stylish."</p>
+                    <div class="review-author">Hannah P.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2>Stick With Jesus</h2>
+                <p>Premium faith-filled stickers crafted to share light, beauty, and truth daily.</p>
+                <div class="social-links">
+                    <a href="#">IG</a>
+                    <a href="#">FB</a>
+                    <a href="#">PT</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Sticker Shop</a></li>
+                    <li><a href="blog.html">Faith Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Shipping FAQ</a></li>
+                    <li><a href="cart.html">Order Form</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Payments</h3>
+                <ul>
+                    <li><a href="https://venmo.com" target="_blank">Venmo Transfer</a></li>
+                    <li><a href="https://paypal.com" target="_blank">PayPal Cash</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stick With Jesus. All rights reserved.</p>
+            <p>Designed for Purpose</p>
+        </div>
+    </footer>
+
+    <script src="shop-engine.js"></script>
+</body>
+</html>

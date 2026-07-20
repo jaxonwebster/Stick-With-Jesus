@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Stick With Jesus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+    <!-- Hamburger button layer handles dropdown calls natively -->
+    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu()" aria-label="Toggle Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+
+    <div class="logo">Stick With <span>Jesus</span></div>
+    
+    <ul class="nav-links" id="navbar-links-drawer">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop Stickers</a></li>
+        <li><a href="blog.html">Faith Blog</a></li>
+    </ul>
+
+    <div class="cart-container-item">
+        <a href="cart.html" class="cart-anchor-wrapper">
+            <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+            </svg>
+            <span id="cart-count-badge" class="cart-count-badge">0</span>
+        </a>
+    </div>
+</nav>
+    </header>
+
+    <section class="hero-small">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="stagger-title">Your Basket</h1>
+            <p>Review current selections and submit delivery details below.</p>
+        </div>
+    </section>
+
+    <div class="interior-content-space">
+        <main class="container">
+            <div class="cart-layout">
+                <div>
+                    <h3 style="font-family: var(--font-heading); text-transform: uppercase; margin-bottom: 25px;">Current Order Selection</h3>
+                    <div class="cart-items-list" id="cart-items-hook"></div>
+                </div>
+                <div class="checkout-box">
+                    <h3>Checkout Submittals</h3>
+                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-subtle);">
+                    <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <span>Calculated Due:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
+                    </p>
+                    <div class="payment-links">
+                        <p style="font-size: 0.85rem; color: #515779; line-height: 1.5; margin-bottom: 5px;"><strong>Step 1:</strong> Process the exact total shown via our authorized profile routers below:</p>
+                        <a href="https://venmo.com/YOUR_USERNAME" target="_blank" class="pay-btn venmo">Complete via Venmo</a>
+                        <a href="https://paypal.me/YOUR_USERNAME" target="_blank" class="pay-btn paypal">Complete via PayPal</a>
+                    </div>
+                    <form id="order-form" style="margin-top: 30px;" onsubmit="handleCheckout(event)">
+                        <p style="font-size: 0.85rem; color: #515779; margin-bottom: 15px; line-height: 1.4;"><strong>Step 2:</strong> Provide fulfillment destination details to match confirmation registers:</p>
+                        <div class="form-group">
+                            <label>Customer Name</label>
+                            <input type="text" id="cust-name" required placeholder="Jane Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Shipping Target Destination</label>
+                            <textarea id="cust-addr" rows="3" required placeholder="123 Blessing Lane, Apt 4B..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Transfer Reference Note ID</label>
+                            <input type="text" id="cust-notes" placeholder="Venmo name handle or receipt tracking ID number">
+                        </div>
+                        <button type="submit" class="btn-cute" style="width: 100%;">Verify and Submit Delivery Data</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2>Stick With Jesus</h2>
+                <p>Premium faith-filled stickers crafted to share light, beauty, and truth daily.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Sticker Shop</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Shipping FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Payments</h3>
+                <ul>
+                    <li><a href="https://venmo.com" target="_blank">Venmo</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stick With Jesus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="shop-engine.js"></script>
+</body>
+</html>
