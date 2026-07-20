@@ -78,22 +78,62 @@ header {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     display: block;
-    flex-shrink: 0; /* Ensures brand text never crushes on narrow laptops */
+    flex-shrink: 0;
 }
 
 .logo span {
     color: var(--brand-purple);
 }
 
-/* Right-aligning link hub engines */
+/* Playful Hamburger Menu Icon Trigger button */
+.menu-toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 5px;
+    order: 1;
+    z-index: 110;
+}
+
+/* Structured Hamburger Bars Layout */
+.hamburger-box {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.hamburger-inner {
+    width: 100%;
+    height: 2.5px;
+    background-color: currentColor;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Transformation animations when active menu opens up */
+.menu-toggle-btn.is-active .hamburger-inner:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle-btn.is-active .hamburger-inner:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle-btn.is-active .hamburger-inner:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
     gap: 25px;
     order: 2;
-    margin-left: auto; /* The Secret Weapon: automatically pushes links perfectly to the right side next to the cart */
-    margin-right: 25px; /* Adds clean spacing directly separating page text buttons from your cart icon */
+    margin-left: auto;
+    margin-right: 25px;
 }
 
 .nav-links a {
@@ -113,44 +153,7 @@ header {
     order: 3;
     display: flex;
     align-items: center;
-}
-
-/* --- Mobile Breakpoint Overrides (Ensures right-alignment clears out beautifully on phones) --- */
-@media (max-width: 768px) {
-    .logo {
-        display: none !important;
-    }
-    
-    .menu-toggle-btn {
-        display: block;
-        order: 1;
-    }
-
-    .nav-links {
-        display: none; 
-        flex-direction: column;
-        width: 100%;
-        background-color: var(--brand-navy);
-        border-bottom: 3px solid var(--brand-purple);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 20px;
-        gap: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        /* Resets desktop alignments natively for phone screens */
-        margin-left: 0; 
-        margin-right: 0;
-    }
-    
-    .nav-links.mobile-open {
-        display: flex;
-    }
-    
-    .cart-container-item {
-        order: 3;
-        margin-left: auto; /* Pulls the standalone mobile icon beautifully over to the right header side */
-    }
+    z-index: 110;
 }
 
 .cart-anchor-wrapper {
@@ -180,29 +183,40 @@ header {
     display: none;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* --- Hero Layout Engines & Subtle Staggered Letters --- */
-.hero-large {
+/* --- Hero Containers (HTML Image Mode) --- */
+.hero-large, .hero-small {
     position: relative;
-    height: 80vh;
-    background: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1800') no-repeat center center/cover;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: var(--white);
+    overflow: hidden; /* Prevents large images from spilling out */
+}
+
+.hero-large {
+    height: 80vh;
 }
 
 .hero-small {
-    position: relative;
     height: 40vh;
-    background: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1800') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--white);
+}
+
+/* The Secret Sauce: Stretches your HTML img tag to act as a full canvas background */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the graphic scales beautifully without stretching weirdly */
+    object-position: center;
+    z-index: 0; /* Pushes the picture behind your text */
 }
 
 .hero-overlay {
@@ -212,12 +226,12 @@ header {
     width: 100%;
     height: 100%;
     background-color: var(--overlay);
-    z-index: 1;
+    z-index: 1; /* Sits on top of the image to keep text highly readable */
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Keeps the typography floating completely on top */
     padding: 60px 20px 0 20px;
     max-width: 800px;
 }
@@ -314,6 +328,12 @@ header {
     padding-bottom: 80px;
 }
 
+/* Dedicated modifier specifically for product listing views to prevent squishing */
+.product-detail-layout-padding {
+    padding-top: 140px; 
+    padding-bottom: 80px;
+}
+
 .section-title {
     font-family: var(--font-heading);
     text-align: center;
@@ -381,7 +401,6 @@ header {
     border-radius: 8px;
     border: 1px solid var(--border-subtle);
     box-shadow: 0 4px 15px rgba(18, 24, 58, 0.02);
-    /* Playful tilting angles */
     transform: rotate(calc(var(--stat-tilt, 1) * 1.5deg));
 }
 .stat-item:nth-child(1) { --stat-tilt: -1.2; }
@@ -474,7 +493,6 @@ header {
     border-radius: 8px;
     padding: 35px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.01);
-    /* Playful alternating tilt angles */
     transform: rotate(calc(var(--rev-tilt, 1) * 1.5deg));
 }
 .review-card:nth-child(3n+1) { --rev-tilt: -1.2; }
@@ -834,39 +852,60 @@ footer {
     opacity: 0.6;
 }
 
-/* --- Mobile Optimization Engine: Dropdown Overhaul --- */
+/* --- Comprehensive Mobile Optimization & Hamburgers Overhaul --- */
 @media (max-width: 768px) {
-    /* Hide shop identity text purely on phone navigation windows */
     .logo {
         display: none !important;
     }
     
     .menu-toggle-btn {
-        display: block; /* Hamburger viewable */
+        display: block;
+        order: 1;
     }
 
-    /* Transform navigation links container into absolute structural slide-down drawer */
+    /* Upgraded, highly creative slide-down menu card design for mobile */
     .nav-links {
         display: none; 
         flex-direction: column;
-        width: 100%;
+        width: calc(100% - 30px);
         background-color: var(--brand-navy);
-        border-bottom: 3px solid var(--brand-purple);
+        border: 2px solid var(--brand-purple);
+        border-radius: 12px;
         position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 20px;
-        gap: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        top: calc(100% - 10px);
+        left: 15px;
+        padding: 30px 20px;
+        gap: 25px;
+        box-shadow: 0 12px 30px rgba(18, 24, 58, 0.25);
+        margin-left: 0; 
+        margin-right: 0;
+        text-align: center;
+        background: linear-gradient(145deg, #161c42, var(--brand-navy));
     }
     
-    /* Toggle show drawer state hook */
     .nav-links.mobile-open {
         display: flex;
+        animation: menuPopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .nav-links a {
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        justify-content: center;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(170, 130, 173, 0.15);
+        width: 100%;
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
     }
     
-    .navbar {
-        padding: 20px;
+    .cart-container-item {
+        order: 3;
+        margin-left: auto; 
     }
 
     .hero-large { height: 65vh; }
@@ -888,8 +927,20 @@ footer {
     .home-section { padding: 60px 0; }
     .container { padding: 0 15px; }
     .interior-content-space { padding-top: 30px; padding-bottom: 40px; }
+    
+    /* Dedicated adjustment ensures custom product pages shift smoothly on mobile without a hero banner */
+    .product-detail-layout-padding {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    
     .section-title { font-size: 1.6rem; margin-bottom: 30px; }
     
     .footer-top { grid-template-columns: 1fr; gap: 30px; }
     .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+}
+
+@keyframes menuPopIn {
+    0% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
 }

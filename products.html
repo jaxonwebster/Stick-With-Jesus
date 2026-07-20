@@ -10,9 +10,13 @@
 
     <header>
         <nav class="navbar">
-    <!-- Hamburger button layer handles dropdown calls natively -->
-    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu()" aria-label="Toggle Menu">
-        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    <!-- True CSS Animation Hamburger Menu Trigger Button -->
+    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+        <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+            <div class="hamburger-inner"></div>
+            <div class="hamburger-inner"></div>
+        </div>
     </button>
 
     <div class="logo">Stick With <span>Jesus</span></div>
@@ -34,14 +38,17 @@
 </nav>
     </header>
 
-    <section class="hero-small">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <!-- Unified ID container hooks prevent any property setup crashes -->
-            <h1 class="stagger-title" id="page-main-title">Store Catalog</h1>
-            <p id="page-sub-title">Explore our full collection of premium waterproof vinyl scriptural art.</p>
-        </div>
-    </section>
+    <section class="hero-small" id="shop-hero-banner">
+    <!-- Using a completely distinct image file for the store view -->
+    <img src="images/shop-catalog-bg.jpg" alt="Our Sticker Store Collection" class="hero-bg-img">
+    
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+        <h1 class="stagger-title">Store Catalog</h1>
+        <p>Explore our full collection of premium waterproof vinyl scriptural art.</p>
+    </div>
+</section>
 
     <!-- Added specific spacing wrapper container layer -->
     <div class="interior-content-space">

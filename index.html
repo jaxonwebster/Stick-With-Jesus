@@ -10,9 +10,13 @@
 
     <header>
         <nav class="navbar">
-    <!-- Hamburger button layer handles dropdown calls natively -->
-    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu()" aria-label="Toggle Menu">
-        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    <!-- True CSS Animation Hamburger Menu Trigger Button -->
+    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+        <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+            <div class="hamburger-inner"></div>
+            <div class="hamburger-inner"></div>
+        </div>
     </button>
 
     <div class="logo">Stick With <span>Jesus</span></div>
@@ -36,17 +40,21 @@
 
     <!-- 1. HERO SECTION -->
     <section class="hero-large">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="stagger-title">
-                <span>S</span><span>t</span><span>i</span><span>c</span><span>k</span>&nbsp;
-                <span>W</span><span>i</span><span>t</span><span>h</span>&nbsp;
-                <span>J</span><span>e</span><span>s</span><span>u</span><span>s</span>
-            </h1>
-            <p>Premium, weather-proof vinyl stickers built to share scripture and grace beautifully.</p>
-            <a href="products.html" class="btn-cute">Browse Collection</a>
-        </div>
-    </section>
+    <!-- Pointing directly to your local images folder -->
+    <img src="images/home-hero-bg.jpg" alt="Stick With Jesus Sticker Banner" class="hero-bg-img">
+    
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+        <h1 class="stagger-title">
+            <span>S</span><span>t</span><span>i</span><span>c</span><span>k</span> 
+            <span>W</span><span>i</span><span>t</span><span>h</span> 
+            <span>J</span><span>e</span><span>s</span><span>u</span><span>s</span>
+        </h1>
+        <p>Premium waterproof vinyl faith scripts designed to share truth daily.</p>
+        <a href="products.html" class="btn-cute">Shop Collection</a>
+    </div>
+</section>
 
     <!-- 2. ABOUT US SECTION (Alternating Layout Style 1: White) -->
     <section class="home-section bg-white-zone">

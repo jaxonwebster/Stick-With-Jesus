@@ -10,9 +10,13 @@
 
     <header>
         <nav class="navbar">
-    <!-- Hamburger button layer handles dropdown calls natively -->
-    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu()" aria-label="Toggle Menu">
-        <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    <!-- True CSS Animation Hamburger Menu Trigger Button -->
+    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+        <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+            <div class="hamburger-inner"></div>
+            <div class="hamburger-inner"></div>
+        </div>
     </button>
 
     <div class="logo">Stick With <span>Jesus</span></div>
@@ -35,12 +39,16 @@
     </header>
 
     <section class="hero-small">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="stagger-title">The Faith Blog</h1>
-            <p>Devotionals and creative insights directly from our studio.</p>
-        </div>
-    </section>
+    <!-- A unique open Bible or journaling image for your writing space -->
+    <img src="images/blog-banner-bg.jpg" alt="Faith Blog Musings" class="hero-bg-img">
+    
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+        <h1 class="stagger-title">Faith Blog</h1>
+        <p>Devotionals, updates, and scriptural inspiration behind the art.</p>
+    </div>
+</section>
 
     <div class="interior-content-space">
         <main class="container blog-layout" id="blog-posts-container"></main>
