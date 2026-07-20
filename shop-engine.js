@@ -1,7 +1,11 @@
-// --- Product Database (12 Items with Tiered Pricing & Customization) ---
+// Initialize Stripe with your Publishable Key (Replace with your actual pk_test_... key later)
+const stripe = typeof Stripe !== 'undefined' ? Stripe('pk_live_51TvOw0Ro3U7iX6n70n5R4pFcXXF0u8I4HlBmII94w02RSTFVDjj6fNOOJ5ZVdAu7lebXSHRC64aQfH4DsyZGzB4s00tbw9BVG5') : null;
+
+// --- Product Database (12 Items with Tiered Pricing, Customization & Stripe Hooks) ---
 const STICKER_PRODUCTS = [
     { 
         id: 1, 
+        stripePriceId: "", // Leave blank for later configuration
         name: "Customizable Missionary Name Tag Sticker", 
         price: 5.00, 
         isCustomizable: true,
@@ -11,17 +15,17 @@ const STICKER_PRODUCTS = [
         desc: "Our best-selling classic elder/sister replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to basket.", 
         reviews: ["Looks exactly like the real thing! Perfect for my mission journal. - Sister Adams."] 
     },
-    { id: 2, name: "Faith Moves Mountains", price: 4.50, isCustomizable: false, category: "nature", color: "pastel", photos: ["https://images.unsplash.com/photo-1572375995301-4516aa31b249?q=80&w=600", "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600"], desc: "Premium thick die-cut outdoor weather-proof vinyl statement piece.", reviews: ["Stunning colors. Looks fantastic on water bottles. - Sarah M."] },
-    { id: 3, name: "Be Still & Know", price: 4.50, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=600"], desc: "Clean typography sticker designed to remind you of His constant protective cover.", reviews: ["Beautiful text clarity. - Grace L."] },
-    { id: 4, name: "Grace Upon Grace", price: 4.50, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=600"], desc: "Delicate lavender-toned script wrapped with pristine wildflower outlines.", reviews: ["Perfect addition to my scripture journal. - Hannah P."] },
-    { id: 5, name: "Walk By Faith", price: 3.95, isCustomizable: false, category: "minimal", color: "pastel", photos: ["https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"], desc: "Understated minimalist styling detailing 2 Corinthians 5:7.", reviews: ["Subtle, clean, elegant layout. - Mark T."] },
-    { id: 6, name: "Light of the World", price: 4.95, isCustomizable: false, category: "nature", color: "dark", photos: ["https://images.unsplash.com/photo-1509803874385-db7c23652552?q=80&w=600"], desc: "Bold astronomical sunrise landscape highlighting shared global purpose.", reviews: ["Striking background art depth. - Anna V."] },
-    { id: 7, name: "Rooted in Love", price: 4.25, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600"], desc: "Organic, earthy floral layout defining Ephesians structural context.", reviews: ["High-grade adhesion, colors don't sun-fade. - Lucas R."] },
-    { id: 8, name: "Fearfully Made", price: 4.50, isCustomizable: false, category: "floral", color: "pastel", photos: ["https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"], desc: "Delicate composition summarizing beautiful structural design statements.", reviews: ["Sweet gift layout for daughters! - Kelly O."] },
-    { id: 9, name: "It Is Well", price: 3.75, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600"], desc: "Classic traditional foundational hymn quote formatted cleanly.", reviews: ["Calming and elegant text layout. - James P."] },
-    { id: 10, name: "Abide In Me", price: 4.50, isCustomizable: false, category: "nature", color: "lavender", photos: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600"], desc: "Forest woodland layout profile mirroring peaceful vine branches.", reviews: ["Deep artistic detailing. - Chloe B."] },
-    { id: 11, name: "Strong & Courageous", price: 4.95, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"], desc: "Bold ocean wave graphic displaying Joshua text definitions.", reviews: ["Powerful reminder for daily workspace views. - Eric W."] },
-    { id: 12, name: "Blessed Assurance", price: 4.50, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600"], desc: "Elegant floral garland framing historic trust statements perfectly.", reviews: ["The matte texture feels premium. - Megan H."] }
+    { id: 2, stripePriceId: "price_1TvPApRo3U7iX6n7a2b0j8j3", name: "Faith Moves Mountains", price: 4.50, isCustomizable: false, category: "nature", color: "pastel", photos: ["https://images.unsplash.com/photo-1572375995301-4516aa31b249?q=80&w=600", "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600"], desc: "Premium thick die-cut outdoor weather-proof vinyl statement piece.", reviews: ["Stunning colors. Looks fantastic on water bottles. - Sarah M."] },
+    { id: 3, stripePriceId: "", name: "Be Still & Know", price: 4.50, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=600"], desc: "Clean typography sticker designed to remind you of His constant protective cover.", reviews: ["Beautiful text clarity. - Grace L."] },
+    { id: 4, stripePriceId: "", name: "Grace Upon Grace", price: 4.50, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=600"], desc: "Delicate lavender-toned script wrapped with pristine wildflower outlines.", reviews: ["Perfect addition to my scripture journal. - Hannah P."] },
+    { id: 5, stripePriceId: "", name: "Walk By Faith", price: 3.95, isCustomizable: false, category: "minimal", color: "pastel", photos: ["https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"], desc: "Understated minimalist styling detailing 2 Corinthians 5:7.", reviews: ["Subtle, clean, elegant layout. - Mark T."] },
+    { id: 6, stripePriceId: "", name: "Light of the World", price: 4.95, isCustomizable: false, category: "nature", color: "dark", photos: ["https://images.unsplash.com/photo-1509803874385-db7c23652552?q=80&w=600"], desc: "Bold astronomical sunrise landscape highlighting shared global purpose.", reviews: ["Striking background art depth. - Anna V."] },
+    { id: 7, stripePriceId: "", name: "Rooted in Love", price: 4.25, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600"], desc: "Organic, earthy floral layout defining Ephesians structural context.", reviews: ["High-grade adhesion, colors don't sun-fade. - Lucas R."] },
+    { id: 8, stripePriceId: "", name: "Fearfully Made", price: 4.50, isCustomizable: false, category: "floral", color: "pastel", photos: ["https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"], desc: "Delicate composition summarizing beautiful structural design statements.", reviews: ["Sweet gift layout for daughters! - Kelly O."] },
+    { id: 9, stripePriceId: "", name: "It Is Well", price: 3.75, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600"], desc: "Classic traditional foundational hymn quote formatted cleanly.", reviews: ["Calming and elegant text layout. - James P."] },
+    { id: 10, stripePriceId: "", name: "Abide In Me", price: 4.50, isCustomizable: false, category: "nature", color: "lavender", photos: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600"], desc: "Forest woodland layout profile mirroring peaceful vine branches.", reviews: ["Deep artistic detailing. - Chloe B."] },
+    { id: 11, stripePriceId: "", name: "Strong & Courageous", price: 4.95, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"], desc: "Bold ocean wave graphic displaying Joshua text definitions.", reviews: ["Powerful reminder for daily workspace views. - Eric W."] },
+    { id: 12, stripePriceId: "", name: "Blessed Assurance", price: 4.50, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600"], desc: "Elegant floral garland framing historic trust statements perfectly.", reviews: ["The matte texture feels premium. - Megan H."] }
 ];
 
 // --- Rich Blog Database Arrays ---
@@ -104,6 +108,7 @@ function initScrollAnimations() {
     }
 }
 
+// --- Dynamic Numeric Stats Ticker Engine ---
 function runStatsCounter() {
     const counters = document.querySelectorAll('.stat-counter');
     counters.forEach(counter => {
@@ -167,6 +172,7 @@ function applyFilters() {
     renderCatalog(filtered);
 }
 
+// --- Grid Item Layout Builders ---
 function renderCatalog(productsList) {
     const catalogGrid = document.getElementById('products-grid');
     if(!catalogGrid) return;
@@ -181,8 +187,6 @@ function renderCatalog(productsList) {
                 <div class="product-info">
                     <h3 class="product-title" style="margin:0;">${product.name}</h3>
                     <p class="product-price" style="margin:0; font-weight:700;">$${product.price.toFixed(2)}</p>
-                    
-                    <!-- Moved inside the info container for automatic flow protection -->
                     <button class="quick-add-btn" onclick="event.stopPropagation(); quickAddCatalogItem(${product.id});" aria-label="Quick Add to Cart">+ Add to Cart</button>
                 </div>
             </div>
@@ -196,7 +200,6 @@ function quickAddCatalogItem(productId) {
     const product = STICKER_PRODUCTS.find(p => p.id === productId);
     if (!product) return;
 
-    // Handle customizable exceptions gracefully safely
     if (product.isCustomizable) {
         alert("This design requires customization data! Click the product card layout to configure your name tag details.");
         window.location.href = `products.html?id=${product.id}`;
@@ -204,13 +207,10 @@ function quickAddCatalogItem(productId) {
     }
 
     let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
-    
-    // Look to see if it is already in the storage stack
     let existingIndex = cart.findIndex(item => item.id === productId && !item.customText);
 
     if (existingIndex > -1) {
         cart[existingIndex].chosenQty += 1;
-        // Recalculate tier cost mapping based on new total volume unit quantity
         const unitCost = getTieredPricePerUnit(product.price, cart[existingIndex].chosenQty);
         cart[existingIndex].totalLineCost = unitCost * cart[existingIndex].chosenQty;
     } else {
@@ -240,7 +240,6 @@ function renderProductDetails(id) {
 
     if (catalogElement) catalogElement.style.display = 'none';
     if (detailElement) detailElement.style.display = 'block';
-    
     if (mainTitleElement) mainTitleElement.innerText = product.name;
 
     const detailHook = document.getElementById('dynamic-product-content');
@@ -444,19 +443,82 @@ function toggleBlogPost(id) {
     }
 }
 
-// --- Dynamic Form Integration Handler ---
+// --- Dynamic Form Integration Handler (Stripe Connected checkout) ---
+// --- Dynamic Form Integration Handler (Stripe Connected checkout) ---
 function handleCheckout(event) {
     event.preventDefault();
-    let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
-    if(cart.length === 0) return;
 
-    // Correctly matches our updated split address variables
-    const firstName = document.getElementById('cust-first-name').value;
-    const lastName = document.getElementById('cust-last-name').value;
-    const email = document.getElementById('cust-email').value;
-    
-    alert(`Thank you, ${firstName} ${lastName}.\nYour order confirmation has been logged! Check ${email} for dispatch logs.`);
-    
-    localStorage.removeItem('sticker_cart');
-    window.location.href = 'index.html';
+    // 1. Check if Stripe is initialized safely
+    if (!stripe) {
+        alert("Stripe has not loaded properly yet. Please check that your Stripe script is embedded in your HTML template head.");
+        return;
+    }
+
+    // 2. Check if the selection basket contains products
+    let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
+    if (cart.length === 0) {
+        alert("Your cart is currently empty.");
+        return;
+    }
+
+    // 3. DECLARE CUSTOMER DATA FIRST: Grab customer email straight away to avoid initialization order errors
+    const clientEmail = document.getElementById('cust-email')?.value || '';
+
+    // 4. Compile items into Stripe line_items architecture map
+    const lineItemsArray = [];
+    for (const cartItem of cart) {
+        const catalogRef = STICKER_PRODUCTS.find(p => p.id === cartItem.id);
+        
+        if (!catalogRef || !catalogRef.stripePriceId) {
+            alert(`Configuration error: "${cartItem.name}" does not have a valid Stripe Price ID associated with it yet.`);
+            return;
+        }
+
+        lineItemsArray.push({
+            price: catalogRef.stripePriceId,
+            quantity: parseInt(cartItem.chosenQty) || 1
+        });
+    }
+
+    // 5. Establish local absolute path fallback routing contexts
+    const baseDomain = window.location.origin.startsWith('file://') 
+        ? 'http://localhost' 
+        : window.location.origin;
+
+    // 6. Fire the secure checkout redirection flow using our validated variables
+    stripe.redirectToCheckout({
+        lineItems: lineItemsArray,
+        mode: 'payment',
+        customerEmail: clientEmail,
+        successUrl: baseDomain + '/index.html?session_id={CHECKOUT_SESSION_ID}',
+        cancelUrl: baseDomain + '/cart.html'
+    })
+    .then((result) => {
+        if (result.error) {
+            alert("Stripe routing encounter: " + result.error.message);
+        } else {
+            localStorage.removeItem('sticker_cart');
+        }
+    });
 }
+
+    // 2. Extract customer information from the UI fields to sync with Stripe records
+    const clientEmail = document.getElementById('cust-email')?.value || '';
+
+    // 3. Fire the secure checkout redirection flow
+    stripe.redirectToCheckout({
+        lineItems: lineItemsArray,
+        mode: 'payment',
+        customerEmail: clientEmail,
+        // Replace with your real live deployment domain destinations later
+        successUrl: window.location.origin + '/index.html?session_id={CHECKOUT_SESSION_ID}',
+        cancelUrl: window.location.origin + '/cart.html'
+    })
+    .then((result) => {
+        if (result.error) {
+            alert("Stripe routing encounter: " + result.error.message);
+        } else {
+            // Clear storage contents safely upon confirmed handoff redirect
+            localStorage.removeItem('sticker_cart');
+        }
+    });

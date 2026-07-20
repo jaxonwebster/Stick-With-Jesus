@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart | Stick With Jesus</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Stripe JavaScript SDK Integration -->
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
@@ -39,19 +41,17 @@
         </nav>
     </header>
 
-    <!-- Small Page Hero Section with HTML Background Image -->
-    <!-- UPDATED: Swapped hero-small for hero-wrapper medium-hero -->
+    <!-- Medium Page Hero Section -->
     <section class="hero-wrapper medium-hero">
         <img src="images/carthero.JPG" alt="Your Cart Banner" class="hero-bg-img">
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
             <h1 class="stagger-title">
-    <span>Y</span><span>o</span><span>u</span><span>r</span>
-    &nbsp;
-    <span>C</span><span>a</span><span>r</span><span>t</span>
-</h1>
-            <!-- Added the hero-subtitle class to match our style engine -->
+                <span>Y</span><span>o</span><span>u</span><span>r</span>
+                &nbsp;
+                <span>C</span><span>a</span><span>r</span><span>t</span>
+            </h1>
             <p class="hero-subtitle">Review current selections and submit delivery details below.</p>
         </div>
     </section>
@@ -59,26 +59,24 @@
     <div class="interior-content-space">
         <main class="container">
             <div class="cart-layout">
+                <!-- Left Column: Basket Items -->
                 <div>
                     <h3 style="font-family: var(--font-heading); text-transform: uppercase; margin-bottom: 25px;">Current Order Selection</h3>
                     <div class="cart-items-list" id="cart-items-hook"></div>
                 </div>
                 
+                <!-- Right Column: Checkout Info & Form Structure -->
                 <div class="checkout-box">
                     <h3>Checkout Details</h3>
                     <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-subtle);">
-                    <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 15px;">
+                    
+                    <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 25px;">
                         <span>Calculated Due:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
                     </p>
-                    <div class="payment-links">
-                        <p style="font-size: 0.85rem; color: #515779; line-height: 1.5; margin-bottom: 5px;"><strong>Step 1:</strong> Process the exact total shown via our authorized profile routers below:</p>
-                        <a href="https://venmo.com/YOUR_USERNAME" target="_blank" class="pay-btn venmo">Complete via Venmo</a>
-                        <a href="https://paypal.me/YOUR_USERNAME" target="_blank" class="pay-btn paypal">Complete via PayPal</a>
-                    </div>
                     
-                    <!-- Adjusted Shipping & Checkout Form -->
-                    <form id="order-form" style="margin-top: 30px;" onsubmit="handleCheckout(event)">
-                        <p style="font-size: 0.85rem; color: #515779; margin-bottom: 15px; line-height: 1.4;"><strong>Step 2:</strong> Provide fulfillment destination details to match confirmation registers:</p>
+                    <!-- Form directly feeds handleCheckout() to open modern secure billing -->
+                    <form id="order-form" onsubmit="handleCheckout(event)">
+                        <p style="font-size: 0.85rem; color: #515779; margin-bottom: 15px; line-height: 1.4;">Provide fulfillment destination details to proceed to secure checkout:</p>
                         
                         <div class="form-group">
                             <label for="cust-first-name">First Name</label>
@@ -100,7 +98,8 @@
                             <input type="text" id="cust-address" required placeholder="123 Blessing Lane, Apt 4B">
                         </div>
 
-                        <div style="display: grid; grid-template-columns: 1s 1fr; gap: 15px;">
+                        <!-- Fixed grid alignment template definition typo -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                             <div class="form-group">
                                 <label for="cust-state">State</label>
                                 <input type="text" id="cust-state" required placeholder="UT">
@@ -111,7 +110,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn-cute" style="width: 100%; margin-top: 10px;">Verify and Submit Delivery Data</button>
+                        <button type="submit" class="btn-cute" style="width: 100%; margin-top: 20px;">Proceed to Secure Payment</button>
                     </form>
                 </div>
             </div>
@@ -138,9 +137,10 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Payments</h3>
+                <h3>Secure Payments</h3>
                 <ul>
-                    <li><a href="https://venmo.com" target="_blank">Venmo</a></li>
+                    <!-- Updated footer text references to state card security processing profiles -->
+                    <li><a href="https://stripe.com" target="_blank" rel="noopener">Powered by Stripe</a></li>
                 </ul>
             </div>
         </div>
