@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Praise | Stick With Jesus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Transparent Header Navigation -->
+    <header>
+        <nav class="navbar">
+            <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                </div>
+            </button>
+            <div class="logo">Stick With <span>Jesus</span></div>
+            <ul class="nav-links" id="navbar-links-drawer">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop Stickers</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <div class="cart-container-item">
+                <a href="cart.html" class="cart-anchor-wrapper">
+                    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span id="cart-count-badge" class="cart-count-badge">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Small Page Hero Section with HTML Background Image -->
+    <!-- UPDATED: Swapped hero-small for hero-wrapper medium-hero -->
+    <section class="hero-wrapper medium-hero">
+        <img src="images/reviews-hero-bg.jpg" alt="Customer Praise and Reviews Banner" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <!-- Kept your beautiful pop-art staggered letter animations intact -->
+            <h1 class="stagger-title">
+                <span>K</span><span>i</span><span>n</span><span>d</span>
+                &nbsp;
+                <span>W</span><span>o</span><span>r</span><span>d</span><span>s</span>
+            </h1>
+            <!-- Added the hero-subtitle class to match our global style rules -->
+            <p class="hero-subtitle">Read inspiring stories from our community about how these pieces share light daily.</p>
+        </div>
+    </section>
+
+    <!-- Main Content Review Panels -->
+    <div class="interior-content-space">
+        
+        <!-- Interactive Praise Callout Block -->
+        <section class="container scroll-reveal" style="text-align: center; margin-bottom: 70px;">
+            <div style="background: var(--white); padding: 40px; border-radius: 12px; border: 1px solid var(--border-subtle); max-width: 700px; margin: 0 auto; position: relative;">
+                <!-- "Taped-On" Sticker Accent Effect -->
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-1deg); background: rgba(170, 130, 173, 0.25); color: var(--brand-navy); padding: 4px 20px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 2px;">
+                    Etsy Star Seller
+                </div>
+                <h2 style="font-family: var(--font-heading); margin-bottom: 10px; font-size: 1.8rem; text-transform: uppercase;">Over 350 Five-Star Reviews!</h2>
+                <p style="color: #4f546d; margin-bottom: 25px;">We value quality products, timely shipping, and fast responses!Here's what your fellow friends are saying!</p>
+                <a href="products.html" class="btn-cute">Explore Our Products</a>
+            </div>
+        </section>
+
+        <!-- Staggered/Playful Reviews Layout Grid -->
+        <main class="container">
+            <div class="reviews-grid">
+                
+                <!-- Review Card 1 (Tilted Left) -->
+                <div class="review-card scroll-reveal">
+                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
+                    <p>"The missionary name tag stickers are absolute perfection! I ordered a pack of 12 for my son serving in Brazil. The vinyl is incredibly thick, completely waterproof, and his companions keep asking where he got them!"</p>
+                    <div class="review-author">— Sarah M., Utah</div>
+                </div>
+
+                <!-- Review Card 2 (Tilted Right) -->
+                <div class="review-card scroll-reveal">
+                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
+                    <p>"I put the floral scripture scripts directly onto my Hydro Flask water bottle. It has been through the dishwasher dozens of times now and the colors are still as vibrant and crisp as day one. Zero peeling!"</p>
+                    <div class="review-author">— Sister Elena G.</div>
+                </div>
+
+                <!-- Review Card 3 (Tilted Left) -->
+                <div class="review-card scroll-reveal">
+                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
+                    <p>"Stunning customer service and beautiful packaging! The typography layouts feel modern, artistic, and deeply meaningful. These make the perfect small gifts for youth groups and ministering friends."</p>
+                    <div class="review-author">— David L., Idaho</div>
+                </div>
+
+                <!-- Review Card 4 (Tilted Right) -->
+                <div class="review-card scroll-reveal">
+                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
+                    <p>"I am completely obsessed with the wholesale pack options. It was so affordable to grab 30 stickers to pass out to our class. The matte sticker texture is ultra-premium and luxurious to the touch."</p>
+                    <div class="review-author">— Amanda R.</div>
+                </div>
+
+                <!-- Review Card 5 (Tilted Left) -->
+                <div class="review-card scroll-reveal">
+                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
+                    <p>"Every time I open my laptop in class, someone asks about my 'Stick With Jesus' decal. It's a quiet, artistic way to represent my faith and start conversations without saying a word."</p>
+                    <div class="review-author">— Elder Thomas</div>
+                </div>
+
+                <!-- Review Card 6 (Tilted Right) -->
+                <div class="review-card scroll-reveal">
+                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
+                    <p>"Fast shipping, lovely custom personalizations, and excellent prices. The bulk wholesale pricing calculation made planning gifts for our church girls group completely stress-free!"</p>
+                    <div class="review-author">— Michelle K., Arizona</div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Corporate Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2>Stick With Jesus</h2>
+                <p>Premium faith-filled stickers crafted to share light, beauty, and truth daily.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Sticker Shop</a></li>
+                    <li><a href="blog.html">Faith Blog</a></li>
+                    <li><a href="reviews.html">Kind Words</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Shipping FAQ</a></li>
+                    <li><a href="cart.html">Order Form</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Payments</h3>
+                <ul>
+                    <li><a href="https://venmo.com" target="_blank">Venmo</a></li>
+                    <li><a href="https://paypal.com" target="_blank">PayPal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stick With Jesus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script triggers for animations and cart logic -->
+    <script src="shop-engine.js"></script>
+    <script>
+        // Trigger scroll reveals safely specifically for this page if standalone
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.scroll-reveal');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            reveals.forEach(r => observer.observe(r));
+        });
+    </script>
+</body>
+</html>

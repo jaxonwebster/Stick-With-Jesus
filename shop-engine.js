@@ -167,7 +167,6 @@ function applyFilters() {
     renderCatalog(filtered);
 }
 
-// --- Catalog Grid Rendering ---
 function renderCatalog(productsList) {
     const catalogGrid = document.getElementById('products-grid');
     if(!catalogGrid) return;
@@ -180,13 +179,54 @@ function renderCatalog(productsList) {
                     <img src="${product.photos[0]}" alt="${product.name}" class="product-img">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">${product.name}</h3>
-                    <p class="product-price">$${product.price.toFixed(2)}</p>
+                    <h3 class="product-title" style="margin:0;">${product.name}</h3>
+                    <p class="product-price" style="margin:0; font-weight:700;">$${product.price.toFixed(2)}</p>
+                    
+                    <!-- Moved inside the info container for automatic flow protection -->
+                    <button class="quick-add-btn" onclick="event.stopPropagation(); quickAddCatalogItem(${product.id});" aria-label="Quick Add to Cart">+ Add to Cart</button>
                 </div>
             </div>
         `;
         catalogGrid.insertAdjacentHTML('beforeend', cardHtml);
     });
+}
+
+// --- Background Grid Quick Add Action Function ---
+function quickAddCatalogItem(productId) {
+    const product = STICKER_PRODUCTS.find(p => p.id === productId);
+    if (!product) return;
+
+    // Handle customizable exceptions gracefully safely
+    if (product.isCustomizable) {
+        alert("This design requires customization data! Click the product card layout to configure your name tag details.");
+        window.location.href = `products.html?id=${product.id}`;
+        return;
+    }
+
+    let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
+    
+    // Look to see if it is already in the storage stack
+    let existingIndex = cart.findIndex(item => item.id === productId && !item.customText);
+
+    if (existingIndex > -1) {
+        cart[existingIndex].chosenQty += 1;
+        // Recalculate tier cost mapping based on new total volume unit quantity
+        const unitCost = getTieredPricePerUnit(product.price, cart[existingIndex].chosenQty);
+        cart[existingIndex].totalLineCost = unitCost * cart[existingIndex].chosenQty;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            photo: product.photos[0],
+            chosenQty: 1,
+            customText: "",
+            totalLineCost: product.price
+        });
+    }
+
+    localStorage.setItem('sticker_cart', JSON.stringify(cart));
+    updateCartBadge();
+    alert(`Added "${product.name}" to your basket successfully!`);
 }
 
 // --- Dynamic Product Detail View ---
@@ -208,14 +248,14 @@ function renderProductDetails(id) {
     
     let thumbsHtml = product.photos.map((photo, i) => `
         <img src="${photo}" class="thumb-item ${i === 0 ? 'active' : ''}" onclick="switchDetailPhoto(this, '${photo}')" alt="Product view ${i+1}">
-    `).join('');
+     `).join('');
 
     let reviewsHtml = product.reviews.map(r => `
         <div class="review-item">
             <div class="review-stars">★★★★★</div>
             <p style="font-weight: 500; font-size:0.95rem;">"${r}"</p>
         </div>
-    `).join('');
+     `).join('');
 
     let personalizationBoxHtml = '';
     if (product.isCustomizable) {
@@ -335,7 +375,6 @@ function renderCart() {
     let totalCartDue = 0;
 
     cart.forEach((item, index) => {
-        // Bulletproof fix: handles older string objects gracefully by defaulting to 0 instead of crashing loops
         const currentLineCost = parseFloat(item.totalLineCost) || 0;
         totalCartDue += currentLineCost;
         
@@ -405,13 +444,18 @@ function toggleBlogPost(id) {
     }
 }
 
+// --- Dynamic Form Integration Handler ---
 function handleCheckout(event) {
     event.preventDefault();
     let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
     if(cart.length === 0) return;
 
-    const name = document.getElementById('cust-name').value;
-    alert(`Thank you, ${name}.\nYour sticker order tracking data form has been recorded successfully!`);
+    // Correctly matches our updated split address variables
+    const firstName = document.getElementById('cust-first-name').value;
+    const lastName = document.getElementById('cust-last-name').value;
+    const email = document.getElementById('cust-email').value;
+    
+    alert(`Thank you, ${firstName} ${lastName}.\nYour order confirmation has been logged! Check ${email} for dispatch logs.`);
     
     localStorage.removeItem('sticker_cart');
     window.location.href = 'index.html';

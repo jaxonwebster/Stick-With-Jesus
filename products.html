@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Collection | Stick With Jesus</title>
+    <title>Shop All Stickers | Stick With Jesus</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,7 +24,8 @@
     <ul class="nav-links" id="navbar-links-drawer">
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Shop Stickers</a></li>
-        <li><a href="blog.html">Faith Blog</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="blog.html">Blog</a></li>
     </ul>
 
     <div class="cart-container-item">
@@ -38,31 +39,32 @@
 </nav>
     </header>
 
-    <section class="hero-small" id="shop-hero-banner">
-    <!-- Using a completely distinct image file for the store view -->
-    <img src="images/shop-catalog-bg.jpg" alt="Our Sticker Store Collection" class="hero-bg-img">
-    
-    <div class="hero-overlay"></div>
-    
-    <div class="hero-content">
-        <h1 class="stagger-title">Store Catalog</h1>
-        <p>Explore our full collection of premium waterproof vinyl scriptural art.</p>
-    </div>
-</section>
+    <!-- UPDATED: Swapped hero-small for hero-wrapper medium-hero -->
+    <section class="hero-wrapper medium-hero" id="shop-hero-banner">
+        <!-- Keep your background image and overlay elements right here -->
+        <img src="images/productshero.jpg" alt="Our Sticker Store Collection" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+        
+        <!-- Wrap your text in a structural class to keep it centered over the image -->
+        <div class="hero-content">
+            <h1 class="stagger-title">All Stickers</h1>
+            <p class="hero-subtitle">Explore our full collection of premium waterproof and scratch resistant stickers.</p>
+        </div>
+    </section>
 
     <!-- Added specific spacing wrapper container layer -->
     <div class="interior-content-space">
         <!-- Master Catalog Presentation Layer -->
         <main class="container" id="catalog-view">
             <div class="filter-toggle-container">
-                <button class="btn-cute btn-secondary" onclick="toggleFilterPanel(true)">Filter Collection</button>
+                <button class="btn-cute btn-secondary" onclick="toggleFilterPanel(true)">Filter</button>
             </div>
             <div class="grid-gallery" id="products-grid"></div>
         </main>
 
         <!-- Dynamic Item Details Layer -->
         <main class="container" id="detail-view" style="display: none;">
-            <button class="btn-cute btn-secondary" style="margin-bottom:40px;" onclick="window.location.href='products.html'">← Back to Catalog</button>
+            <button class="btn-cute btn-secondary" style="margin-bottom:40px;" onclick="window.location.href='products.html'">← Back to stickers</button>
             <div class="product-detail-container" id="dynamic-product-content"></div>
         </main>
     </div>
@@ -70,7 +72,7 @@
     <!-- Side Popup Filter Panel Drawer Modal -->
     <div class="side-panel" id="filter-panel">
         <div class="side-panel-header">
-            <h3>Filter Collection</h3>
+            <h3>Filter Stickers</h3>
             <span class="close-panel" onclick="toggleFilterPanel(false)">&times;</span>
         </div>
         <div class="filter-group">
