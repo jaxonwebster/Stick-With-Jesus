@@ -162,9 +162,9 @@ const STICKER_PRODUCTS = [
 ];
 
 function toggleMobileNavMenu(btn) {
-  const drawer = document.getElementById('navbar-links-drawer');
-  drawer.classList.toggle('mobile-open');
-  btn.classList.toggle('is-active'); // Adds 'is-active' class to switch hamburger to X
+    const drawer = document.getElementById('navbar-links-drawer');
+    if (drawer) drawer.classList.toggle('mobile-open');
+    if (btn) btn.classList.toggle('is-active');
 }
 
 // --- Tiered Pricing Matrix Calculator ---
@@ -221,54 +221,101 @@ function initScrollAnimations() {
     targets.forEach(sec => revealObserver.observe(sec));
 }
 
-// --- Cart Badge Management (Badge Removed) ---
+// --- Cart Badge Management ---
 function updateCartBadge() {
-  const badge = document.querySelector('.cart-badge'); // Update selector if your badge uses a different class
-  if (!badge) return;
+    const badge = document.getElementById('cart-count-badge') || document.querySelector('.cart-count-badge');
+    if (!badge) return;
 
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  
-  // Calculate total quantity of items in the cart
-  const totalCount = cart.reduce((sum, item) => sum + (parseInt(item.chosenQty) || 1), 0);
+    const cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
+    const totalCount = cart.reduce((sum, item) => sum + (parseInt(item.chosenQty) || 1), 0);
 
-  if (totalCount > 0) {
-    badge.textContent = totalCount;
-    badge.style.display = 'inline-block'; // Or 'flex' / 'block' depending on your CSS styling
-  } else {
-    badge.style.display = 'none'; // Keeps it hidden when cart is empty (0)
-  }
+    if (totalCount > 0) {
+        badge.textContent = totalCount;
+        badge.style.display = 'inline-block';
+    } else {
+        badge.style.display = 'none';
+    }
 }
 
+// --- Filter Engine & Side Panel ---
 function toggleFilterPanel(open) {
     const panel = document.getElementById('filter-panel');
-    if(panel) {
-        if (open) panel.classList.add('open');
-        else panel.classList.remove('open');
+    const backdrop = document.getElementById('filter-backdrop');
+
+    if (panel) {
+        if (open) {
+            panel.classList.add('open');
+            if (backdrop) backdrop.classList.add('open');
+        } else {
+            panel.classList.remove('open');
+            if (backdrop) backdrop.classList.remove('open');
+        }
     }
 }
 
 function applyFilters() {
-    const categoryValue = document.querySelector('input[name="category"]:checked')?.value || 'all';
-    const colorValue = document.querySelector('input[name="color-filter"]:checked')?.value || 'all';
-    const priceLimit = document.querySelector('input[name="price-filter"]:checked')?.value || 'all';
+    const categoryRadio = document.querySelector('input[name="category"]:checked');
+    const colorRadio = document.querySelector('input[name="color-filter"]:checked');
+
+    const categoryValue = categoryRadio ? categoryRadio.value : 'all';
+    const colorValue = colorRadio ? colorRadio.value : 'all';
 
     let filtered = STICKER_PRODUCTS;
 
-    if (categoryValue !== 'all') filtered = filtered.filter(p => p.category === categoryValue);
-    if (colorValue !== 'all') filtered = filtered.filter(p => p.color === colorValue);
-    if (priceLimit !== 'all') {
-        const max = parseFloat(priceLimit);
-        filtered = filtered.filter(p => p.price <= max);
+    if (categoryValue !== 'all') {
+        filtered = filtered.filter(p => p.category === categoryValue);
+    }
+    if (colorValue !== 'all') {
+        filtered = filtered.filter(p => p.color === colorValue);
     }
 
-    toggleFilterPanel(false);
     renderCatalog(filtered);
+    renderActiveFilterBadges(categoryRadio, colorRadio);
+}
+
+function renderActiveFilterBadges(categoryRadio, colorRadio) {
+    const badgesContainer = document.getElementById('active-filter-badges');
+    if (!badgesContainer) return;
+
+    badgesContainer.innerHTML = '';
+
+    const categoryValue = categoryRadio ? categoryRadio.value : 'all';
+    const colorValue = colorRadio ? colorRadio.value : 'all';
+
+    if (categoryValue !== 'all') {
+        const catLabel = categoryRadio.parentElement.textContent.trim();
+        const badge = document.createElement('span');
+        badge.className = 'filter-badge';
+        badge.innerHTML = `${catLabel} <button onclick="resetFilterGroup('category')">&times;</button>`;
+        badgesContainer.appendChild(badge);
+    }
+
+    if (colorValue !== 'all') {
+        const colorLabel = colorRadio.parentElement.textContent.trim();
+        const badge = document.createElement('span');
+        badge.className = 'filter-badge';
+        badge.innerHTML = `${colorLabel} <button onclick="resetFilterGroup('color-filter')">&times;</button>`;
+        badgesContainer.appendChild(badge);
+    }
+}
+
+function resetFilterGroup(groupName) {
+    const defaultRadio = document.querySelector(`input[name="${groupName}"][value="all"]`);
+    if (defaultRadio) {
+        defaultRadio.checked = true;
+        applyFilters();
+    }
 }
 
 function renderCatalog(productsList) {
     const catalogGrid = document.getElementById('products-grid');
-    if(!catalogGrid) return;
+    if (!catalogGrid) return;
     catalogGrid.innerHTML = '';
+
+    if (productsList.length === 0) {
+        catalogGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 40px 0; font-weight: 600; color: #64748b;">No stickers match your active filters.</p>`;
+        return;
+    }
 
     productsList.forEach(product => {
         const cardHtml = `
@@ -287,14 +334,13 @@ function renderCatalog(productsList) {
     });
 }
 
-// Helper to animate button checkmark state
 function triggerButtonCheckmark(btnElement, originalText) {
     if (!btnElement) return;
     const oldBg = btnElement.style.backgroundColor;
     const oldColor = btnElement.style.color;
 
     btnElement.innerText = "✓ Added!";
-    btnElement.style.backgroundColor = "#2e7d32"; // Green success state
+    btnElement.style.backgroundColor = "#2e7d32";
     btnElement.style.color = "#ffffff";
 
     setTimeout(() => {
@@ -339,7 +385,7 @@ function quickAddCatalogItem(productId, btnElement) {
 
 function renderProductDetails(id) {
     const product = STICKER_PRODUCTS.find(p => p.id === id);
-    if(!product) return;
+    if (!product) return;
 
     const catalogElement = document.getElementById('catalog-view');
     const detailElement = document.getElementById('detail-view');
@@ -466,13 +512,13 @@ function processAddToBag(id, btnElement) {
 function renderCart() {
     const cartHook = document.getElementById('cart-items-hook');
     const totalHook = document.getElementById('cart-total-price');
-    if(!cartHook) return;
+    if (!cartHook) return;
 
     let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
 
-    if(cart.length === 0) {
+    if (cart.length === 0) {
         cartHook.innerHTML = `<p style="text-align:center; padding: 40px 0; font-weight: 500;">Your selection basket is empty.</p>`;
-        totalHook.innerText = "$0.00";
+        if (totalHook) totalHook.innerText = "$0.00";
         return;
     }
 
@@ -502,7 +548,7 @@ function renderCart() {
         cartHook.insertAdjacentHTML('beforeend', itemHtml);
     });
 
-    totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
+    if (totalHook) totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
 }
 
 function removeFromCart(index) {

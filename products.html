@@ -11,58 +11,56 @@
 
     <header>
         <nav class="navbar">
-    <!-- True CSS Animation Hamburger Menu Trigger Button -->
-    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
-        <div class="hamburger-box">
-            <div class="hamburger-inner"></div>
-            <div class="hamburger-inner"></div>
-            <div class="hamburger-inner"></div>
-        </div>
-    </button>
+            <!-- True CSS Animation Hamburger Menu Trigger Button -->
+            <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                </div>
+            </button>
 
-    <div class="logo">Stick With <span>Jesus</span></div>
-    
-    <ul class="nav-links" id="navbar-links-drawer">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Shop Stickers</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
+            <div class="logo">Stick With <span>Jesus</span></div>
+            
+            <ul class="nav-links" id="navbar-links-drawer">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop Stickers</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
 
-    <div class="cart-container-item">
-        <a href="cart.html" class="cart-anchor-wrapper">
-            <svg class="cart-icon-svg" viewBox="0 0 24 24">
-                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-            </svg>
-            <span id="cart-count-badge" class="cart-count-badge">0</span>
-        </a>
-    </div>
-</nav>
+            <div class="cart-container-item">
+                <a href="cart.html" class="cart-anchor-wrapper">
+                    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span id="cart-count-badge" class="cart-count-badge">0</span>
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <!-- UPDATED: Swapped hero-small for hero-wrapper medium-hero -->
     <section class="hero-wrapper medium-hero" id="shop-hero-banner">
-        <!-- Keep your background image and overlay elements right here -->
         <img src="images/productshero.jpg" alt="Our Sticker Store Collection" class="hero-bg-img">
         <div class="hero-overlay"></div>
         
-        <!-- Wrap your text in a structural class to keep it centered over the image -->
         <div class="hero-content">
             <h1 class="stagger-title">
-    <span>A</span><span>l</span><span>l</span>
-    &nbsp;
-    <span>S</span><span>t</span><span>i</span><span>c</span><span>k</span><span>e</span><span>r</span><span>s</span>
-</h1>
+                <span>A</span><span>l</span><span>l</span>
+                &nbsp;
+                <span>S</span><span>t</span><span>i</span><span>c</span><span>k</span><span>e</span><span>r</span><span>s</span>
+            </h1>
             <p class="hero-subtitle">Explore our full collection of premium waterproof and scratch resistant stickers.</p>
         </div>
     </section>
 
-    <!-- Added specific spacing wrapper container layer -->
     <div class="interior-content-space">
         <!-- Master Catalog Presentation Layer -->
         <main class="container" id="catalog-view">
+            <!-- Filter Control & Active Badges Bar -->
             <div class="filter-toggle-container">
                 <button class="btn-cute btn-secondary" onclick="toggleFilterPanel(true)">Filter</button>
+                <div id="active-filter-badges" class="active-filter-badges"></div>
             </div>
             <div class="grid-gallery" id="products-grid"></div>
         </main>
@@ -73,7 +71,8 @@
             <div class="product-detail-container" id="dynamic-product-content"></div>
         </main>
     </div>
-
+<!-- Backdrop Blur Layer -->
+<div class="filter-backdrop" id="filter-backdrop" onclick="toggleFilterPanel(false)"></div>
     <!-- Side Popup Filter Panel Drawer Modal -->
     <div class="side-panel" id="filter-panel">
         <div class="side-panel-header">
@@ -82,21 +81,20 @@
         </div>
         <div class="filter-group">
             <h4>Genre Collection</h4>
-            <label><input type="radio" name="category" value="all" checked> All Designs</label>
-            <label><input type="radio" name="category" value="religious"> Religious</label>
-            <label><input type="radio" name="category" value="bible"> Bible</label>
-            <label><input type="radio" name="category" value="temple"> Temple</label>
-            <label><input type="radio" name="category" value="states"> 50 States</label>
-            <label><input type="radio" name="category" value="other"> Other</label>
+            <label><input type="radio" name="category" value="all" checked onchange="applyFilters()"> All Designs</label>
+            <label><input type="radio" name="category" value="religious" onchange="applyFilters()"> Religious</label>
+            <label><input type="radio" name="category" value="bible" onchange="applyFilters()"> Bible</label>
+            <label><input type="radio" name="category" value="temple" onchange="applyFilters()"> Temple</label>
+            <label><input type="radio" name="category" value="states" onchange="applyFilters()"> 50 States</label>
+            <label><input type="radio" name="category" value="other" onchange="applyFilters()"> Other</label>
         </div>
         <div class="filter-group">
             <h4>Filter By Tint</h4>
-            <label><input type="radio" name="color-filter" value="all" checked> All Colors</label>
-            <label><input type="radio" name="color-filter" value="lavender"> Classic Lavender</label>
-            <label><input type="radio" name="color-filter" value="pastel"> Soft Pastels</label>
-            <label><input type="radio" name="color-filter" value="dark"> Deep Navy Accents</label>
+            <label><input type="radio" name="color-filter" value="all" checked onchange="applyFilters()"> All Colors</label>
+            <label><input type="radio" name="color-filter" value="lavender" onchange="applyFilters()"> Classic Lavender</label>
+            <label><input type="radio" name="color-filter" value="pastel" onchange="applyFilters()"> Soft Pastels</label>
+            <label><input type="radio" name="color-filter" value="dark" onchange="applyFilters()"> Deep Navy Accents</label>
         </div>
-        <button class="btn-cute" style="width:100%; margin-top: 10px;" onclick="applyFilters()">Apply Filters</button>
     </div>
 
     <footer>

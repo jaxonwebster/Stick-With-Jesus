@@ -515,79 +515,152 @@ header {
 }
 
 /* --- Filter Side Panel --- */
+/* --- Filter Section Container & Badges --- */
 .filter-toggle-container {
     display: flex;
-    justify-content: flex-start;
-    margin-bottom: 35px;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
 }
 
-.side-panel {
+.active-filter-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #f1f5f9;
+    color: #2d3748;
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.filter-badge button {
+    background: none;
+    border: none;
+    color: #64748b;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.filter-badge button:hover {
+    color: #e11d48;
+}
+
+/* --- Compact Side Filter Panel (Mobile & Laptop) --- */
+/* --- Slight Backdrop Blur Overlay --- */
+.filter-backdrop {
     position: fixed;
     top: 0;
-    right: -380px;
-    width: 380px;
-    height: 100%;
-    background-color: var(--white);
-    z-index: 200;
-    box-shadow: -8px 0 35px rgba(18, 24, 58, 0.15);
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.15); /* Soft transparent dim */
+    backdrop-filter: blur(4px);            /* Slight background blur */
+    -webkit-backdrop-filter: blur(4px);    /* Safari support */
+    z-index: 1004;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.filter-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Compact & Fits-Content Side Filter Panel --- */
+.side-panel {
+    position: fixed;
+    top: 20px;                     /* Float slightly below top edge */
+    right: -280px;                 /* Hidden off-screen */
+    width: 240px;                  /* Slightly narrower width */
+    max-width: 55vw;               /* Compact on mobile */
+    height: auto;                  /* Shrinks to length of content */
+    max-height: calc(100vh - 40px);/* Prevents clipping on small screens */
+    
+    background-color: #ffffff;
+    z-index: 1005;
+    border-radius: 12px;           /* Clean rounded card corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
     transition: right 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-    padding: 45px 35px;
+    padding: 24px 18px;
     overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .side-panel.open {
-    right: 0;
+    right: 20px;                   /* Padding from right edge when open */
 }
 
 .side-panel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 35px;
-    border-bottom: 2px solid var(--bg-light-grey);
-    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
 }
 
 .side-panel-header h3 {
     font-family: var(--font-heading);
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 0.95rem;
+    margin: 0;
 }
 
 .close-panel {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    color: var(--brand-purple);
+    color: var(--brand-purple, #6b46c1);
+    line-height: 1;
 }
 
 .filter-group {
-    margin-bottom: 25px;
+    margin-bottom: 18px;
+}
+
+.filter-group:last-child {
+    margin-bottom: 0;
 }
 
 .filter-group h4 {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     color: #6a708c;
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-subtle, #e2e8f0);
+    padding-bottom: 4px;
 }
 
 .filter-group label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 8px;
+    margin-bottom: 8px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 500;
 }
 
 .filter-group input[type="radio"] {
-    accent-color: var(--brand-purple);
-    width: 16px;
-    height: 16px;
+    accent-color: var(--brand-purple, #6b46c1);
+    width: 14px;
+    height: 14px;
 }
 
 /* --- Multi-Photo Detail Layout --- */
