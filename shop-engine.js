@@ -523,7 +523,7 @@ function renderCart() {
     let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
 
     if (cart.length === 0) {
-        cartHook.innerHTML = `<p style="text-align:center; padding: 40px 0; font-weight: 500;">Your selection basket is empty.</p>`;
+        cartHook.innerHTML = `<p style="text-align:center; padding: 40px 0; font-weight: 500;">Your cart is currently empty.</p>`;
         if (totalHook) totalHook.innerText = "$0.00";
         return;
     }
