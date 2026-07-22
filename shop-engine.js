@@ -127,11 +127,11 @@ const STICKER_PRODUCTS = [
         id: 11, 
         stripePriceId: "price_1Tw1QYRo3U7iX6n7cgnhNhYL", 
         name: "I Can Do Hard Things", 
-        price: 4.95, 
+        price: 3.99, 
         isCustomizable: false, 
         category: "minimal", 
         color: "dark", 
-        photos: ["images/icandohardthings.jpg"], 
+        photos: ["images/hardthings1.jpg"], 
         desc: "Bold ocean wave graphic displaying empowering verse definitions.", 
         reviews: ["Powerful reminder for daily workspace views. - Eric W."] 
     },
@@ -151,11 +151,11 @@ const STICKER_PRODUCTS = [
         id: 13, 
         stripePriceId: "price_1Tw1PqRo3U7iX6n7aMy4MZNW", 
         name: "NYC Rat Sticker", 
-        price: 4.50, 
+        price: 3.99, 
         isCustomizable: false, 
         category: "minimal", 
         color: "dark", 
-        photos: ["images/nycrat.jpg"], 
+        photos: ["images/rat1.jpg", "images/rat2.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
     }
