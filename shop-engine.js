@@ -9,7 +9,7 @@ const STICKER_PRODUCTS = [
         name: "Customizable Missionary Name Tag Sticker", 
         price: 4.99, 
         isCustomizable: true,
-        category: "minimal", 
+        category: "religious", 
         color: "dark", 
         photos: ["images/nametag1.jpg", "images/nametag2.jpg", "images/nametag3.jpg", "images/nametag4.jpg", "images/namtag5.jpg"], 
         desc: "Our best-selling classic elder/sister replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to basket.", 
@@ -537,15 +537,30 @@ function renderCart() {
         
         let customLabel = item.customText ? `<p style="font-size:0.85rem; color:var(--brand-purple); margin:4px 0 0 0;">Customization: <strong>${item.customText}</strong></p>` : '';
         
+        // Build quantity selector options 1 through 20
+        let qtyOptions = '';
+        for (let qty = 1; qty <= 20; qty++) {
+            const isSelected = (parseInt(item.chosenQty) === qty) ? 'selected' : '';
+            qtyOptions += `<option value="${qty}" ${isSelected}>${qty}</option>`;
+        }
+
         const itemHtml = `
             <div class="cart-item">
                 <div style="display:flex; align-items:center; gap: 20px;">
                     <img src="${item.photo}" style="width:65px; height:65px; object-fit:cover; border-radius:6px; border: 1px solid var(--border-subtle);">
                     <div>
                         <h4 style="margin:0; font-family:var(--font-heading); text-transform:uppercase; font-size:0.95rem;">${item.name}</h4>
-                        <span style="font-size:0.85rem; color:#666;">Quantity Package Size: ${item.chosenQty}</span>
+                        
+                        <!-- Dynamic Quantity Dropdown -->
+                        <div style="margin-top: 6px; display: flex; align-items: center; gap: 8px;">
+                            <label for="qty-select-${index}" style="font-size:0.85rem; color:#666;">Qty:</label>
+                            <select id="qty-select-${index}" onchange="updateCartItemQuantity(${index}, this.value)" style="padding: 4px 8px; border: 1px solid var(--border-subtle); border-radius: 4px; font-weight: 600; cursor: pointer;">
+                                ${qtyOptions}
+                            </select>
+                        </div>
+
                         ${customLabel}
-                        <div style="color:var(--brand-purple); font-weight:700; margin-top:2px;">$${currentLineCost.toFixed(2)}</div>
+                        <div style="color:var(--brand-purple); font-weight:700; margin-top:4px;">$${currentLineCost.toFixed(2)}</div>
                     </div>
                 </div>
                 <button onclick="removeFromCart(${index})" style="background:none; border:none; color:#c46262; cursor:pointer; font-weight:700; font-size:0.85rem; text-transform:uppercase;">Remove</button>
@@ -555,6 +570,27 @@ function renderCart() {
     });
 
     if (totalHook) totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
+}
+function updateCartItemQuantity(index, newQty) {
+    let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
+    if (!cart[index]) return;
+
+    const qty = parseInt(newQty) || 1;
+    
+    // Look up base product price to recalculate tier discounts accurately
+    const product = STICKER_PRODUCTS.find(p => p.id === cart[index].id);
+    const basePrice = product ? product.price : (cart[index].totalLineCost / (cart[index].chosenQty || 1));
+
+    // Recalculate tiered unit price & updated line total
+    const unitCost = getTieredPricePerUnit(basePrice, qty);
+    
+    cart[index].chosenQty = qty;
+    cart[index].totalLineCost = unitCost * qty;
+
+    // Save back to LocalStorage and update UI
+    localStorage.setItem('sticker_cart', JSON.stringify(cart));
+    renderCart();
+    updateCartBadge();
 }
 
 function removeFromCart(index) {
