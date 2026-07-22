@@ -7,11 +7,11 @@ const STICKER_PRODUCTS = [
         id: 1, 
         stripePriceId: "price_1TvPApRo3U7iX6n7a2b0j8j3", 
         name: "Customizable Missionary Name Tag Sticker", 
-        price: 5.00, 
+        price: 4.99, 
         isCustomizable: true,
         category: "minimal", 
         color: "dark", 
-        photos: ["images/nametag.jpg"], 
+        photos: ["images/nametag1.jpg", "images/nametag2.jpg", "images/nametag3.jpg", "images/nametag4.jpg", "images/namtag5.jpg"], 
         desc: "Our best-selling classic elder/sister replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to basket.", 
         reviews: ["Looks exactly like the real thing! Perfect for my mission journal. - Sister Adams."] 
     },
@@ -223,18 +223,11 @@ function initScrollAnimations() {
     targets.forEach(sec => revealObserver.observe(sec));
 }
 
+// --- Cart Badge Management (Badge Removed) ---
 function updateCartBadge() {
     const badge = document.getElementById('cart-count-badge');
-    if (!badge) return;
-    
-    let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
-    let totalItems = cart.reduce((sum, item) => sum + (parseInt(item.chosenQty) || 1), 0);
-    
-    if (totalItems > 0) {
-        badge.innerText = totalItems;
-        badge.style.display = 'flex';
-    } else {
-        badge.style.display = 'none';
+    if (badge) {
+        badge.style.display = 'none'; // Badge hidden completely
     }
 }
 
@@ -278,7 +271,7 @@ function renderCatalog(productsList) {
                 <div class="product-info">
                     <h3 class="product-title" style="margin:0;">${product.name}</h3>
                     <p class="product-price" style="margin:0; font-weight:700;">$${product.price.toFixed(2)}</p>
-                    <button class="quick-add-btn" onclick="event.stopPropagation(); quickAddCatalogItem(${product.id});" aria-label="Quick Add to Cart">+ Add to Cart</button>
+                    <button class="quick-add-btn" onclick="event.stopPropagation(); quickAddCatalogItem(${product.id}, this);" aria-label="Quick Add to Cart">+ Add to Cart</button>
                 </div>
             </div>
         `;
@@ -286,12 +279,28 @@ function renderCatalog(productsList) {
     });
 }
 
-function quickAddCatalogItem(productId) {
+// Helper to animate button checkmark state
+function triggerButtonCheckmark(btnElement, originalText) {
+    if (!btnElement) return;
+    const oldBg = btnElement.style.backgroundColor;
+    const oldColor = btnElement.style.color;
+
+    btnElement.innerText = "✓ Added!";
+    btnElement.style.backgroundColor = "#2e7d32"; // Green success state
+    btnElement.style.color = "#ffffff";
+
+    setTimeout(() => {
+        btnElement.innerText = originalText;
+        btnElement.style.backgroundColor = oldBg;
+        btnElement.style.color = oldColor;
+    }, 1500);
+}
+
+function quickAddCatalogItem(productId, btnElement) {
     const product = STICKER_PRODUCTS.find(p => p.id === productId);
     if (!product) return;
 
     if (product.isCustomizable) {
-        alert("This design requires customization data! Click the product card to configure your name tag details.");
         window.location.href = `products.html?id=${product.id}`;
         return;
     }
@@ -317,7 +326,7 @@ function quickAddCatalogItem(productId) {
 
     localStorage.setItem('sticker_cart', JSON.stringify(cart));
     updateCartBadge();
-    alert(`Added "${product.name}" to your basket successfully!`);
+    triggerButtonCheckmark(btnElement, "+ Add to Cart");
 }
 
 function renderProductDetails(id) {
@@ -387,7 +396,7 @@ function renderProductDetails(id) {
                 </select>
             </div>
 
-            <button class="btn-cute" onclick="processAddToBag(${product.id})" style="width:100%;">Add To Cart Bag</button>
+            <button class="btn-cute" onclick="processAddToBag(${product.id}, this)" style="width:100%;">Add To Cart</button>
 
             <div class="reviews-section">
                 <h3>Verified Product Feedback</h3>
@@ -410,7 +419,7 @@ function updateLiveDetailsPrice(basePrice) {
     document.getElementById('live-price-target').innerText = `$${totalCost.toFixed(2)} (Subtotal)`;
 }
 
-function processAddToBag(id) {
+function processAddToBag(id, btnElement) {
     const product = STICKER_PRODUCTS.find(p => p.id === id);
     if (!product) return;
 
@@ -439,8 +448,8 @@ function processAddToBag(id) {
 
     localStorage.setItem('sticker_cart', JSON.stringify(cart));
     updateCartBadge();
-    alert(`Added ${chosenQty}x to your basket successfully!`);
-    
+    triggerButtonCheckmark(btnElement, "Add To Cart");
+
     if (document.getElementById('cart-items-hook')) {
         renderCart();
     }
@@ -519,7 +528,6 @@ async function handleCheckout(event) {
     const clientEmail = document.getElementById('cust-email')?.value || '';
 
     try {
-        // Send cart to serverless endpoint
         const response = await fetch('/api/checkout', {
             method: 'POST',
             headers: {
@@ -534,7 +542,6 @@ async function handleCheckout(event) {
         const data = await response.json();
 
         if (response.ok && data.url) {
-            // Redirect customer directly to Stripe Checkout URL
             window.location.href = data.url;
         } else {
             alert("Error creating checkout session: " + (data.error || "Unknown error"));
