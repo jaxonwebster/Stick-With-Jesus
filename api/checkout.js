@@ -1,7 +1,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 module.exports = async (req, res) => {
-  // Enable CORS headers so your frontend can talk to this API
+  // Enable CORS headers
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -26,8 +26,31 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: 'Cart is empty' });
     }
 
-    // Format items for Stripe Checkout
+    // Collect all custom text notes into metadata for easy order printing
+    const customNotes = cart
+      .filter((item) => item.customText && item.customText.trim() !== '')
+      .map((item) => `${item.name}: "${item.customText}"`)
+      .join(' | ');
+
+    // Format line items for Stripe
     const lineItems = cart.map((item) => {
+      // If the item has custom text, create price_data so Stripe displays the customized name line
+      if (item.customText && item.customText.trim() !== '') {
+        return {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: `${item.name}`,
+              description: `Custom Name Tag Wording: "${item.customText}"`,
+              images: item.photo ? [item.photo] : [],
+            },
+            unit_amount: Math.round((item.totalLineCost / item.chosenQty) * 100),
+          },
+          quantity: item.chosenQty || 1,
+        };
+      }
+
+      // Standard non-custom items use direct price IDs
       if (item.stripePriceId && item.stripePriceId.startsWith('price_') && !item.stripePriceId.includes('REPLACE')) {
         return {
           price: item.stripePriceId,
@@ -35,11 +58,12 @@ module.exports = async (req, res) => {
         };
       }
 
+      // Fallback
       return {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: item.name + (item.customText ? ` (${item.customText})` : ''),
+            name: item.name,
             images: item.photo ? [item.photo] : [],
           },
           unit_amount: Math.round((item.totalLineCost / item.chosenQty) * 100),
@@ -53,7 +77,7 @@ module.exports = async (req, res) => {
     if (!origin.endsWith('/')) {
       origin += '/';
     }
-    
+
     // Create the session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -61,7 +85,11 @@ module.exports = async (req, res) => {
       mode: 'payment',
       customer_email: customerEmail || undefined,
       shipping_address_collection: {
-        allowed_countries: ['US', 'CA'], 
+        allowed_countries: ['US', 'CA'],
+      },
+      // Save custom text attached to the entire order
+      metadata: {
+        custom_tag_details: customNotes || 'None',
       },
       success_url: `${origin}cart.html?success=true`,
       cancel_url: `${origin}cart.html?canceled=true`,
