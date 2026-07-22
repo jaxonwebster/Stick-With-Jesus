@@ -5,38 +5,160 @@ const stripe = typeof Stripe !== 'undefined' ? Stripe('pk_live_51TvOw0Ro3U7iX6n7
 const STICKER_PRODUCTS = [
     { 
         id: 1, 
-        stripePriceId: "price_1TvPApRo3U7iX6n7a2b0j8j3", // Assigned Customizable Tag Price ID
+        stripePriceId: "price_1TvPApRo3U7iX6n7a2b0j8j3", 
         name: "Customizable Missionary Name Tag Sticker", 
         price: 5.00, 
         isCustomizable: true,
         category: "minimal", 
         color: "dark", 
-        photos: ["https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=600"], 
+        photos: ["images/nametag.jpg"], 
         desc: "Our best-selling classic elder/sister replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to basket.", 
         reviews: ["Looks exactly like the real thing! Perfect for my mission journal. - Sister Adams."] 
     },
     { 
         id: 2, 
-        stripePriceId: "price_1TvPq4Ro3U7iX6n75Rj4QeFU", // Assigned Lost Sheep Price ID
+        stripePriceId: "price_1TvPq4Ro3U7iX6n75Rj4QeFU", 
         name: "Lost Sheep Sticker", 
-        price: 4.50, 
+        price: 3.99, 
         isCustomizable: false, 
         category: "nature", 
         color: "pastel", 
-        photos: ["https://images.unsplash.com/photo-1572375995301-4516aa31b249?q=80&w=600", "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600"], 
+        photos: ["images/lostsheep1.jpg", "images/lostsheep2.jpg", "images/lostsheep3.jpg", "images/lostsheep4.jpg"], 
         desc: "Premium thick die-cut outdoor weather-proof vinyl statement piece.", 
         reviews: ["Stunning colors. Looks fantastic on water bottles. - Sarah M."] 
     },
-    { id: 3, stripePriceId: "price_REPLACE_3", name: "Be Still & Know", price: 4.50, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=600"], desc: "Clean typography sticker designed to remind you of His constant protective cover.", reviews: ["Beautiful text clarity. - Grace L."] },
-    { id: 4, stripePriceId: "price_REPLACE_4", name: "Grace Upon Grace", price: 4.50, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=600"], desc: "Delicate lavender-toned script wrapped with pristine wildflower outlines.", reviews: ["Perfect addition to my scripture journal. - Hannah P."] },
-    { id: 5, stripePriceId: "price_REPLACE_5", name: "Walk By Faith", price: 3.95, isCustomizable: false, category: "minimal", color: "pastel", photos: ["https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600"], desc: "Understated minimalist styling detailing 2 Corinthians 5:7.", reviews: ["Subtle, clean, elegant layout. - Mark T."] },
-    { id: 6, stripePriceId: "price_REPLACE_6", name: "Light of the World", price: 4.95, isCustomizable: false, category: "nature", color: "dark", photos: ["https://images.unsplash.com/photo-1509803874385-db7c23652552?q=80&w=600"], desc: "Bold astronomical sunrise landscape highlighting shared global purpose.", reviews: ["Striking background art depth. - Anna V."] },
-    { id: 7, stripePriceId: "price_REPLACE_7", name: "Rooted in Love", price: 4.25, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=600"], desc: "Organic, earthy floral layout defining Ephesians structural context.", reviews: ["High-grade adhesion, colors don't sun-fade. - Lucas R."] },
-    { id: 8, stripePriceId: "price_REPLACE_8", name: "Fearfully Made", price: 4.50, isCustomizable: false, category: "floral", color: "pastel", photos: ["https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=600"], desc: "Delicate composition summarizing beautiful structural design statements.", reviews: ["Sweet gift layout for daughters! - Kelly O."] },
-    { id: 9, stripePriceId: "price_REPLACE_9", name: "It Is Well", price: 3.75, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=600"], desc: "Classic traditional foundational hymn quote formatted cleanly.", reviews: ["Calming and elegant text layout. - James P."] },
-    { id: 10, stripePriceId: "price_REPLACE_10", name: "Abide In Me", price: 4.50, isCustomizable: false, category: "nature", color: "lavender", photos: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600"], desc: "Forest woodland layout profile mirroring peaceful vine branches.", reviews: ["Deep artistic detailing. - Chloe B."] },
-    { id: 11, stripePriceId: "price_REPLACE_11", name: "Strong & Courageous", price: 4.95, isCustomizable: false, category: "minimal", color: "dark", photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600"], desc: "Bold ocean wave graphic displaying Joshua text definitions.", reviews: ["Powerful reminder for daily workspace views. - Eric W."] },
-    { id: 12, stripePriceId: "price_REPLACE_12", name: "Blessed Assurance", price: 4.50, isCustomizable: false, category: "floral", color: "lavender", photos: ["https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=600"], desc: "Elegant floral garland framing historic trust statements perfectly.", reviews: ["The matte texture feels premium. - Megan H."] }
+    { 
+        id: 3, 
+        stripePriceId: "price_REPLACE_3", 
+        name: "Be Still & Know", 
+        price: 4.50, 
+        isCustomizable: false, 
+        category: "minimal", 
+        color: "dark", 
+        photos: ["images/bestill.jpg"], 
+        desc: "Clean typography sticker designed to remind you of His constant protective cover.", 
+        reviews: ["Beautiful text clarity. - Grace L."] 
+    },
+    { 
+        id: 4, 
+        stripePriceId: "price_REPLACE_4", 
+        name: "Grace Upon Grace", 
+        price: 4.50, 
+        isCustomizable: false, 
+        category: "floral", 
+        color: "lavender", 
+        photos: ["images/graceupon grace.jpg"], 
+        desc: "Delicate lavender-toned script wrapped with pristine wildflower outlines.", 
+        reviews: ["Perfect addition to my scripture journal. - Hannah P."] 
+    },
+    { 
+        id: 5, 
+        stripePriceId: "price_REPLACE_5", 
+        name: "Walk By Faith", 
+        price: 3.95, 
+        isCustomizable: false, 
+        category: "minimal", 
+        color: "pastel", 
+        photos: ["images/walkbyfaith.jpg"], 
+        desc: "Understated minimalist styling detailing 2 Corinthians 5:7.", 
+        reviews: ["Subtle, clean, elegant layout. - Mark T."] 
+    },
+    { 
+        id: 6, 
+        stripePriceId: "price_REPLACE_6", 
+        name: "Light of the World", 
+        price: 4.95, 
+        isCustomizable: false, 
+        category: "nature", 
+        color: "dark", 
+        photos: ["images/lightoftheworld.jpg"], 
+        desc: "Bold astronomical sunrise landscape highlighting shared global purpose.", 
+        reviews: ["Striking background art depth. - Anna V."] 
+    },
+    { 
+        id: 7, 
+        stripePriceId: "price_REPLACE_7", 
+        name: "Rooted in Love", 
+        price: 4.25, 
+        isCustomizable: false, 
+        category: "floral", 
+        color: "lavender", 
+        photos: ["images/rootedinlove.jpg"], 
+        desc: "Organic, earthy floral layout defining Ephesians structural context.", 
+        reviews: ["High-grade adhesion, colors don't sun-fade. - Lucas R."] 
+    },
+    { 
+        id: 8, 
+        stripePriceId: "price_1Tw1OzRo3U7iX6n7u9JMMeyO", 
+        name: "Jesus Loves Me", 
+        price: 4.50, 
+        isCustomizable: false, 
+        category: "floral", 
+        color: "pastel", 
+        photos: ["images/jesuslovesme.jpg"], 
+        desc: "Delicate composition summarizing beautiful structural design statements.", 
+        reviews: ["Sweet gift layout for daughters! - Kelly O."] 
+    },
+    { 
+        id: 9, 
+        stripePriceId: "price_REPLACE_9", 
+        name: "It Is Well", 
+        price: 3.75, 
+        isCustomizable: false, 
+        category: "minimal", 
+        color: "dark", 
+        photos: ["images/itiswell.jpg"], 
+        desc: "Classic traditional foundational hymn quote formatted cleanly.", 
+        reviews: ["Calming and elegant text layout. - James P."] 
+    },
+    { 
+        id: 10, 
+        stripePriceId: "price_REPLACE_10", 
+        name: "Abide In Me", 
+        price: 4.50, 
+        isCustomizable: false, 
+        category: "nature", 
+        color: "lavender", 
+        photos: ["images/abideinme.jpg"], 
+        desc: "Forest woodland layout profile mirroring peaceful vine branches.", 
+        reviews: ["Deep artistic detailing. - Chloe B."] 
+    },
+    { 
+        id: 11, 
+        stripePriceId: "price_1Tw1QYRo3U7iX6n7cgnhNhYL", 
+        name: "I Can Do Hard Things", 
+        price: 4.95, 
+        isCustomizable: false, 
+        category: "minimal", 
+        color: "dark", 
+        photos: ["images/icandohardthings.jpg"], 
+        desc: "Bold ocean wave graphic displaying empowering verse definitions.", 
+        reviews: ["Powerful reminder for daily workspace views. - Eric W."] 
+    },
+    { 
+        id: 12, 
+        stripePriceId: "price_REPLACE_12", 
+        name: "Blessed Assurance", 
+        price: 4.50, 
+        isCustomizable: false, 
+        category: "floral", 
+        color: "lavender", 
+        photos: ["images/blessedassurance.jpg"], 
+        desc: "Elegant floral garland framing historic trust statements perfectly.", 
+        reviews: ["The matte texture feels premium. - Megan H."] 
+    },
+    { 
+        id: 13, 
+        stripePriceId: "price_1Tw1PqRo3U7iX6n7aMy4MZNW", 
+        name: "NYC Rat Sticker", 
+        price: 4.50, 
+        isCustomizable: false, 
+        category: "minimal", 
+        color: "dark", 
+        photos: ["images/nycrat.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    }
 ];
 
 // --- Mobile Navigation Bar Drawer Open Toggler ---

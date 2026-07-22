@@ -52,7 +52,7 @@
                 &nbsp;
                 <span>C</span><span>a</span><span>r</span><span>t</span>
             </h1>
-            <p class="hero-subtitle">Review current selections and submit delivery details below.</p>
+            <p class="hero-subtitle">Review current selections and proceed to secure checkout below.</p>
         </div>
     </section>
 
@@ -65,52 +65,21 @@
                     <div class="cart-items-list" id="cart-items-hook"></div>
                 </div>
                 
-                <!-- Right Column: Checkout Info & Form Structure -->
+                <!-- Right Column: Checkout Info & Direct Stripe Trigger -->
                 <div class="checkout-box">
-                    <h3>Checkout Details</h3>
+                    <h3>Order Summary</h3>
                     <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-subtle);">
                     
                     <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 25px;">
-                        <span>Calculated Due:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
+                        <span>Subtotal Due:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
                     </p>
                     
-                    <!-- Form directly feeds handleCheckout() to open modern secure billing -->
                     <form id="order-form" onsubmit="handleCheckout(event)">
-                        <p style="font-size: 0.85rem; color: #515779; margin-bottom: 15px; line-height: 1.4;">Provide fulfillment destination details to proceed to secure checkout:</p>
-                        
-                        <div class="form-group">
-                            <label for="cust-first-name">First Name</label>
-                            <input type="text" id="cust-first-name" required placeholder="Jane">
-                        </div>
+                        <p style="font-size: 0.85rem; color: #515779; margin-bottom: 20px; line-height: 1.4;">
+                            Shipping and payment details will be entered securely on the Stripe payment page.
+                        </p>
 
-                        <div class="form-group">
-                            <label for="cust-last-name">Last Name</label>
-                            <input type="text" id="cust-last-name" required placeholder="Doe">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cust-email">Email Address</label>
-                            <input type="email" id="cust-email" required placeholder="jane.doe@example.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cust-address">Street Address</label>
-                            <input type="text" id="cust-address" required placeholder="123 Blessing Lane, Apt 4B">
-                        </div>
-
-                        <!-- Fixed grid alignment template definition typo -->
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                            <div class="form-group">
-                                <label for="cust-state">State</label>
-                                <input type="text" id="cust-state" required placeholder="UT">
-                            </div>
-                            <div class="form-group">
-                                <label for="cust-zip">Zip Code</label>
-                                <input type="text" id="cust-zip" required placeholder="84001">
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-cute" style="width: 100%; margin-top: 20px;">Proceed to Secure Payment</button>
+                        <button type="submit" class="btn-cute" style="width: 100%;">Proceed to Secure Payment</button>
                     </form>
                 </div>
             </div>
@@ -139,7 +108,6 @@
             <div class="footer-col">
                 <h3>Secure Payments</h3>
                 <ul>
-                    <!-- Updated footer text references to state card security processing profiles -->
                     <li><a href="https://stripe.com" target="_blank" rel="noopener">Powered by Stripe</a></li>
                 </ul>
             </div>
