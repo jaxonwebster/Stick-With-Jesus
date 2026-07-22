@@ -1184,3 +1184,31 @@ main,
 .etsy-seller-badge {
     margin-top: 40px;           /* Keeps top seller badge from colliding with the hero image overlay */
 }
+/* Taped-On Badge Accent for Product Cards */
+.product-card.has-tape-badge {
+    position: relative;
+    overflow: visible; /* Allows tape badge to extend slightly beyond card boundary */
+}
+
+.card-tape-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    
+    /* Brighter background with slight transparency for the tape effect */
+    background: rgba(235, 225, 238, 0.92); 
+    color: #2b1f3d; /* Dark purple/navy text for maximum legibility */
+    
+    padding: 4px 18px;
+    font-size: 0.75rem;
+    font-weight: 800; /* Extra bold text */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-radius: 2px;
+    z-index: 10;
+    pointer-events: none;
+    
+    /* Soft shadow to lift it off dark photos */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+}

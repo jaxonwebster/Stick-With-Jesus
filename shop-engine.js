@@ -9,6 +9,7 @@ const STICKER_PRODUCTS = [
         name: "Customizable Missionary Name Tag Sticker", 
         price: 4.99, 
         isCustomizable: true,
+        isBestseller: true,
         category: "religious", 
         color: "black", 
         photos: ["images/nametag1.jpg", "images/nametag2.jpg", "images/nametag3.jpg", "images/nametag4.jpg", "images/namtag5.jpg"], 
@@ -21,6 +22,7 @@ const STICKER_PRODUCTS = [
         name: "Lost Sheep Sticker", 
         price: 3.99, 
         isCustomizable: false, 
+        isBestseller: true,
         category: "bible", 
         color: "black", 
         photos: ["images/lostsheep1.jpg", "images/lostsheep2.jpg", "images/lostsheep3.jpg", "images/lostsheep4.jpg"], 
@@ -33,6 +35,7 @@ const STICKER_PRODUCTS = [
         name: "But If Not", 
         price: 3.99, 
         isCustomizable: false, 
+        isBestseller: true,
         category: "bible", 
         color: "blue", 
         photos: ["images/butifnot1.jpg", "images/butifnot2.jpg"], 
@@ -153,6 +156,7 @@ const STICKER_PRODUCTS = [
         name: "NYC Rat Sticker", 
         price: 3.99, 
         isCustomizable: false, 
+        isBestseller: true,
         category: "other", 
         color: "other", 
         photos: ["images/rat1.jpg", "images/rat2.jpg"], 
@@ -171,14 +175,26 @@ const STICKER_PRODUCTS = [
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
+    { 
+        id: 15, 
+        stripePriceId: "price_1Tw83DRo3U7iX6n7xbhGoCDh", 
+        name: "If the Stars Were Made to Worship, So Will I", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "blue", 
+        photos: ["images/stars1.jpg", "images/stars2.jpg", "images/stars3.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    },
     // --- EXCLUSIVE CART-ONLY MYSTERY STICKER ---
     {
         id: 999,
-        stripePriceId: "price_1Tw7lTRo3U7iX6n7SJbdu1wp", // Replace with your actual Stripe Price ID
+        stripePriceId: "price_1Tw7lTRo3U7iX6n7SJbdu1wp", 
         name: "Mystery Sticker",
         price: 1.99,
         isCustomizable: false,
-        isExclusive: true, // Prevents sticker from rendering in the main shop catalog!
+        isExclusive: true, 
         category: "other",
         color: "other",
         photos: ["images/carthero.JPG"], 
@@ -280,55 +296,59 @@ function toggleFilterPanel(open) {
 }
 
 function applyFilters() {
-    const categoryRadio = document.querySelector('input[name="category"]:checked');
-    const colorRadio = document.querySelector('input[name="color-filter"]:checked');
+    // Collect all checked values into arrays
+    const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
+    const selectedColors = Array.from(document.querySelectorAll('input[name="color-filter"]:checked')).map(cb => cb.value);
 
-    const categoryValue = categoryRadio ? categoryRadio.value : 'all';
-    const colorValue = colorRadio ? colorRadio.value : 'all';
+    // Filter out cart-exclusive products (like the Mystery Sticker) first
+    let filtered = STICKER_PRODUCTS.filter(p => !p.isExclusive);
 
-    let filtered = STICKER_PRODUCTS;
-
-    if (categoryValue !== 'all') {
-        filtered = filtered.filter(p => p.category === categoryValue);
+    // Filter by categories if any are checked
+    if (selectedCategories.length > 0) {
+        filtered = filtered.filter(p => selectedCategories.includes(p.category));
     }
-    if (colorValue !== 'all') {
-        filtered = filtered.filter(p => p.color === colorValue);
+
+    // Filter by colors if any are checked
+    if (selectedColors.length > 0) {
+        filtered = filtered.filter(p => selectedColors.includes(p.color));
     }
 
     renderCatalog(filtered);
-    renderActiveFilterBadges(categoryRadio, colorRadio);
+    renderActiveFilterBadges();
 }
 
-function renderActiveFilterBadges(categoryRadio, colorRadio) {
+function renderActiveFilterBadges() {
     const badgesContainer = document.getElementById('active-filter-badges');
     if (!badgesContainer) return;
 
     badgesContainer.innerHTML = '';
 
-    const categoryValue = categoryRadio ? categoryRadio.value : 'all';
-    const colorValue = colorRadio ? colorRadio.value : 'all';
+    const selectedCategoryBoxes = document.querySelectorAll('input[name="category"]:checked');
+    const selectedColorBoxes = document.querySelectorAll('input[name="color-filter"]:checked');
 
-    if (categoryValue !== 'all') {
-        const catLabel = categoryRadio.parentElement.textContent.trim();
+    // Create an individual removable badge for every checked category
+    selectedCategoryBoxes.forEach(cb => {
+        const labelText = cb.parentElement.textContent.trim();
         const badge = document.createElement('span');
         badge.className = 'filter-badge';
-        badge.innerHTML = `${catLabel} <button onclick="resetFilterGroup('category')">&times;</button>`;
+        badge.innerHTML = `${labelText} <button onclick="removeIndividualFilter('category', '${cb.value}')">&times;</button>`;
         badgesContainer.appendChild(badge);
-    }
+    });
 
-    if (colorValue !== 'all') {
-        const colorLabel = colorRadio.parentElement.textContent.trim();
+    // Create an individual removable badge for every checked color
+    selectedColorBoxes.forEach(cb => {
+        const labelText = cb.parentElement.textContent.trim();
         const badge = document.createElement('span');
         badge.className = 'filter-badge';
-        badge.innerHTML = `${colorLabel} <button onclick="resetFilterGroup('color-filter')">&times;</button>`;
+        badge.innerHTML = `${labelText} <button onclick="removeIndividualFilter('color-filter', '${cb.value}')">&times;</button>`;
         badgesContainer.appendChild(badge);
-    }
+    });
 }
 
-function resetFilterGroup(groupName) {
-    const defaultRadio = document.querySelector(`input[name="${groupName}"][value="all"]`);
-    if (defaultRadio) {
-        defaultRadio.checked = true;
+function removeIndividualFilter(groupName, value) {
+    const targetCheckbox = document.querySelector(`input[name="${groupName}"][value="${value}"]`);
+    if (targetCheckbox) {
+        targetCheckbox.checked = false;
         applyFilters();
     }
 }
@@ -350,8 +370,14 @@ function renderCatalog(productsList) {
     }
 
     publicProducts.forEach(product => {
+        // Taped-On Bestseller Badge HTML
+        const bestsellerBadge = product.isBestseller 
+            ? `<div class="card-tape-badge">Bestseller</div>` 
+            : '';
+
         const cardHtml = `
-            <div class="product-card" onclick="location.href='products.html?id=${product.id}'">
+            <div class="product-card ${product.isBestseller ? 'has-tape-badge' : ''}" onclick="location.href='products.html?id=${product.id}'">
+                ${bestsellerBadge}
                 <div class="product-img-wrapper">
                     <img src="${product.photos[0]}" alt="${product.name}" class="product-img">
                 </div>
@@ -596,13 +622,12 @@ function renderCart() {
         cartHook.insertAdjacentHTML('beforeend', itemHtml);
     });
 
-    // --- Mystery Sticker Add-on Upsell Card at Bottom of Cart ---
     // --- Balanced & Clean Mystery Sticker Upsell ---
     const mysteryHtml = `
         <div style="margin-top: 24px; padding: 14px 18px; border: 1px solid var(--border-subtle); border-radius: 8px; background-color: var(--bg-soft, #fcfcfc); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
             <div>
                 <h4 style="margin: 0; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--brand-navy);">Add a Mystery Sticker</h4>
-                <p style="margin: 2px 0 0 0; font-size: 0.82rem; color: #64748b;">A surprise vinyl sticker added to your pack for <strong style="color: var(--brand-purple);">$1.99</strong></p>
+                <p style="margin: 2px 0 0 0; font-size: 0.82rem; color: #64748b;">A surprise sticker from our shop added to your cart for <strong style="color: var(--brand-purple);">$1.99</strong></p>
             </div>
             <button onclick="addMysteryStickerToCart(this)" class="btn-cute" style="font-size: 0.8rem; padding: 8px 14px; width: auto; margin: 0;">
                 + Add to Order

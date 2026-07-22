@@ -78,28 +78,27 @@
     <div class="filter-backdrop" id="filter-backdrop" onclick="toggleFilterPanel(false)"></div>
 
     <!-- Side Popup Filter Panel Drawer Modal -->
+    <!-- Side Popup Filter Panel Drawer Modal -->
     <div class="side-panel" id="filter-panel">
         <div class="side-panel-header">
             <h3>Filter Stickers</h3>
             <span class="close-panel" onclick="toggleFilterPanel(false)">&times;</span>
         </div>
         <div class="filter-group">
-            <h4>Genre Collection</h4>
-            <label><input type="radio" name="category" value="all" checked onchange="applyFilters()"> All Designs</label>
-            <label><input type="radio" name="category" value="religious" onchange="applyFilters()"> Religious</label>
-            <label><input type="radio" name="category" value="bible" onchange="applyFilters()"> Bible</label>
-            <label><input type="radio" name="category" value="temple" onchange="applyFilters()"> Temple</label>
-            <label><input type="radio" name="category" value="states" onchange="applyFilters()"> 50 States</label>
-            <label><input type="radio" name="category" value="other" onchange="applyFilters()"> Other</label>
+            <h4>Filter by Genre</h4>
+            <label><input type="checkbox" name="category" value="religious" onchange="applyFilters()"> Religious</label>
+            <label><input type="checkbox" name="category" value="bible" onchange="applyFilters()"> Bible</label>
+            <label><input type="checkbox" name="category" value="temple" onchange="applyFilters()"> Temple</label>
+            <label><input type="checkbox" name="category" value="states" onchange="applyFilters()"> 50 States</label>
+            <label><input type="checkbox" name="category" value="other" onchange="applyFilters()"> Other</label>
         </div>
         <div class="filter-group">
-            <h4>Filter By Tint</h4>
-            <label><input type="radio" name="color-filter" value="all" checked onchange="applyFilters()"> All Colors</label>
-            <label><input type="radio" name="color-filter" value="pink" onchange="applyFilters()"> Pink</label>
-            <label><input type="radio" name="color-filter" value="blue" onchange="applyFilters()"> Blue</label>
-            <label><input type="radio" name="color-filter" value="black" onchange="applyFilters()"> Black/White</label>
-            <label><input type="radio" name="color-filter" value="pastelle" onchange="applyFilters()"> Pastelle</label>
-            <label><input type="radio" name="color-filter" value="other" onchange="applyFilters()"> Other</label>
+            <h4>Filter By Color</h4>
+            <label><input type="checkbox" name="color-filter" value="pink" onchange="applyFilters()"> Pink</label>
+            <label><input type="checkbox" name="color-filter" value="blue" onchange="applyFilters()"> Blue</label>
+            <label><input type="checkbox" name="color-filter" value="black" onchange="applyFilters()"> Black/White</label>
+            <label><input type="checkbox" name="color-filter" value="pastelle" onchange="applyFilters()"> Pastelle</label>
+            <label><input type="checkbox" name="color-filter" value="other" onchange="applyFilters()"> Other</label>
         </div>
     </div>
 
