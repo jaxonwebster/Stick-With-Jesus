@@ -100,7 +100,7 @@
             <div class="grid-gallery">
                 <div class="product-card" onclick="location.href='products.html?id=1'">
                     <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1589987607627-616cac5c2c5a?q=80&w=600" alt="Missionary Tag" class="product-img">
+                        <img src="images/nametag1.jpg alt="Missionary Tag" class="product-img">
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Customizable Missionary Nametag Sticker</h3>
@@ -109,7 +109,7 @@
                 </div>
                 <div class="product-card" onclick="location.href='products.html?id=2'">
                     <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1572375995301-4516aa31b249?q=80&w=600" alt="Faith Move Mountains" class="product-img">
+                        <img src="images/lostsheep1.jpg" alt="Lost Sheep Sticker" class="product-img">
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Lost Sheep Sticker</h3>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="product-card" onclick="location.href='products.html?id=3'">
                     <div class="product-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=600" alt="Grace Upon Grace" class="product-img">
+                        <img src="images/jesuslovesme1" alt="Grace Upon Grace" class="product-img">
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">Jesus Loves Me Sticker</h3>
@@ -192,5 +192,43 @@
     </footer>
 
     <script src="shop-engine.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = document.querySelectorAll('.stat-counter');
+  const speed = 200; // Lower number = faster animation
+
+  const startCounting = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText.replace(/,/g, ''); // Handles any pre-formatted numbers
+    const increment = target / speed;
+
+    if (count < target) {
+      // Calculate current value and update HTML with formatted comma separators
+      const nextCount = Math.ceil(count + increment);
+      counter.innerText = nextCount.toLocaleString();
+      setTimeout(() => startCounting(counter), 15);
+    } else {
+      counter.innerText = target.toLocaleString() + '+'; // Adds a nice "+" at the end
+    }
+  };
+
+  // Use IntersectionObserver to trigger the counter when scrolled into view
+  const observerOptions = {
+    threshold: 0.5 // Triggers when 50% of the section is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        startCounting(counter);
+        observerInstance.unobserve(counter); // Only run the animation once
+      }
+    });
+  }, observerOptions);
+
+  counters.forEach(counter => observer.observe(counter));
+});
+</script>
 </body>
 </html>

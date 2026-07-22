@@ -1078,3 +1078,9 @@ footer {
 .hero-wrapper.medium-hero .hero-content .hero-subtitle {
     color: rgba(255, 255, 255, 0.9);
 }
+/* Styling when the button is in the success state */
+.add-to-cart-btn.added {
+  color: #2e7d32 !important; /* Changes the text to green */
+  border-color: #2e7d32 !important; /* Optional: also colors the border green if it has one */
+  background-color: transparent !important; /* Keeps background transparent or original */
+}

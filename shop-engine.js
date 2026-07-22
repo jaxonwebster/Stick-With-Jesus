@@ -95,7 +95,7 @@ const STICKER_PRODUCTS = [
         isCustomizable: false, 
         category: "floral", 
         color: "pastel", 
-        photos: ["images/jesuslovesme.jpg"], 
+        photos: ["images/jesuslovesme1.jpg", "images/jesuslovesme2.jpg", "images/jesuslovesme3.jpg"], 
         desc: "Delicate composition summarizing beautiful structural design statements.", 
         reviews: ["Sweet gift layout for daughters! - Kelly O."] 
     },
@@ -225,10 +225,20 @@ function initScrollAnimations() {
 
 // --- Cart Badge Management (Badge Removed) ---
 function updateCartBadge() {
-    const badge = document.getElementById('cart-count-badge');
-    if (badge) {
-        badge.style.display = 'none'; // Badge hidden completely
-    }
+  const badge = document.querySelector('.cart-badge'); // Update selector if your badge uses a different class
+  if (!badge) return;
+
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Calculate total quantity of items in the cart
+  const totalCount = cart.reduce((sum, item) => sum + (parseInt(item.chosenQty) || 1), 0);
+
+  if (totalCount > 0) {
+    badge.textContent = totalCount;
+    badge.style.display = 'inline-block'; // Or 'flex' / 'block' depending on your CSS styling
+  } else {
+    badge.style.display = 'none'; // Keeps it hidden when cart is empty (0)
+  }
 }
 
 function toggleFilterPanel(open) {

@@ -84,10 +84,20 @@ module.exports = async (req, res) => {
       line_items: lineItems,
       mode: 'payment',
       customer_email: customerEmail || undefined,
+      
+      // Collect recipient shipping address
       shipping_address_collection: {
         allowed_countries: ['US', 'CA'],
       },
-      // Save custom text attached to the entire order
+
+      // Attached Shipping Rate ID
+      shipping_options: [
+        {
+          shipping_rate: 'shr_1TvPr7Ro3U7iX6n7N0s8uIrP',
+        },
+      ],
+
+      // Save custom text attached to the order
       metadata: {
         custom_tag_details: customNotes || 'None',
       },
