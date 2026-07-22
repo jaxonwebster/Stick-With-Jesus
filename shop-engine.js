@@ -158,6 +158,18 @@ const STICKER_PRODUCTS = [
         photos: ["images/rat1.jpg", "images/rat2.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
+    },
+    { 
+        id: 14, 
+        stripePriceId: "price_1Tw6kmRo3U7iX6n7uP7wwJAE", 
+        name: "Be Still & Know", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "bible", 
+        color: "dark", 
+        photos: ["images/bestill1.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
     }
 ];
 
