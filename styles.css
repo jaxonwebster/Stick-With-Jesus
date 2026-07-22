@@ -1083,3 +1083,18 @@ footer {
 .quick-add-btn:focus {
     background-color: transparent !important; /* or keep your normal button background color */
 }
+/* Mobile-only: Force staggered hero title onto a single line */
+@media (max-width: 600px) {
+  .hero-content .stagger-title {
+    display: flex !important;
+    flex-wrap: nowrap !important; /* Prevents flex children (letters) from wrapping */
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-content .stagger-title span {
+    letter-spacing: 0 !important;
+  }
+}
