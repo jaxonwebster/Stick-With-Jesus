@@ -309,6 +309,9 @@ function resetFilterGroup(groupName) {
 
 function renderCatalog(productsList) {
     const catalogGrid = document.getElementById('products-grid');
+    const heroElement = document.getElementById('shop-hero-banner');
+    
+    if (heroElement) heroElement.style.display = 'block'; // Ensures hero shows when browsing catalog
     if (!catalogGrid) return;
     catalogGrid.innerHTML = '';
 
@@ -389,10 +392,12 @@ function renderProductDetails(id) {
 
     const catalogElement = document.getElementById('catalog-view');
     const detailElement = document.getElementById('detail-view');
+    const heroElement = document.getElementById('shop-hero-banner'); // 1. Grab hero banner
     const mainTitleElement = document.getElementById('page-main-title');
 
     if (catalogElement) catalogElement.style.display = 'none';
     if (detailElement) detailElement.style.display = 'block';
+    if (heroElement) heroElement.style.display = 'none'; // 2. Hide hero banner on detail view
     if (mainTitleElement) mainTitleElement.innerText = product.name;
 
     const detailHook = document.getElementById('dynamic-product-content');
@@ -420,13 +425,14 @@ function renderProductDetails(id) {
     }
 
     detailHook.innerHTML = `
-        <div class="gallery-showcase">
+        <div class="product-media-column">
             <div class="main-display-frame">
                 <img id="main-gallery-target" src="${product.photos[0]}" alt="${product.name}">
             </div>
             <div class="thumbnail-carousel-strip">${thumbsHtml}</div>
         </div>
-        <div class="detail-meta">
+        
+        <div class="product-info-column">
             <h2>${product.name}</h2>
             <div class="detail-price" id="live-price-target">$${product.price.toFixed(2)}</div>
             <p class="detail-desc">${product.desc}</p>

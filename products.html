@@ -59,7 +59,7 @@
         <main class="container" id="catalog-view">
             <!-- Filter Control & Active Badges Bar -->
             <div class="filter-toggle-container">
-                <button class="btn-cute btn-secondary" onclick="toggleFilterPanel(true)">Filter</button>
+                <button class="btn-secondary" onclick="toggleFilterPanel(true)">Filter</button>
                 <div id="active-filter-badges" class="active-filter-badges"></div>
             </div>
             <div class="grid-gallery" id="products-grid"></div>
@@ -67,12 +67,16 @@
 
         <!-- Dynamic Item Details Layer -->
         <main class="container" id="detail-view" style="display: none;">
-            <button class="btn-cute btn-secondary" style="margin-bottom:40px;" onclick="window.location.href='products.html'">← Back to stickers</button>
+            <button class="btn-text-action back-btn" onclick="window.location.href='products.html'">
+                <span class="arrow">&larr;</span> Back to stickers
+            </button>
             <div class="product-detail-container" id="dynamic-product-content"></div>
         </main>
     </div>
-<!-- Backdrop Blur Layer -->
-<div class="filter-backdrop" id="filter-backdrop" onclick="toggleFilterPanel(false)"></div>
+
+    <!-- Backdrop Blur Layer -->
+    <div class="filter-backdrop" id="filter-backdrop" onclick="toggleFilterPanel(false)"></div>
+
     <!-- Side Popup Filter Panel Drawer Modal -->
     <div class="side-panel" id="filter-panel">
         <div class="side-panel-header">
