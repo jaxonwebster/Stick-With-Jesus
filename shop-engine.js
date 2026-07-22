@@ -35,7 +35,7 @@ const STICKER_PRODUCTS = [
         isCustomizable: false, 
         category: "minimal", 
         color: "dark", 
-        photos: ["images/butifnot1", "images/butifnot2"], 
+        photos: ["images/butifnot1.jpg", "images/butifnot2.jpg"], 
         desc: "Clean typography sticker designed to remind you of His constant protective cover.", 
         reviews: ["Beautiful text clarity. - Grace L."] 
     },
