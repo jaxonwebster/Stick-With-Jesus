@@ -852,51 +852,111 @@ footer {
     opacity: 0.6;
 }
 
-/* --- Comprehensive Mobile Optimization & Hamburgers Overhaul --- */
+/* --- Sleek, Full-Width White Mobile Menu --- */
 @media (max-width: 768px) {
     .logo {
         display: none !important;
     }
     
+    /* Ensure toggle button sits ABOVE the menu drawer and is visible */
     .menu-toggle-btn {
-        display: block;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
         order: 1;
+        position: relative;
+        z-index: 1002; /* Keeps icon above the menu layer at all times */
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
     }
 
-    /* Upgraded, highly creative slide-down menu card design for mobile */
+    .hamburger-box {
+        width: 24px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    /* Standard Hamburger Bars - WHITE when menu is closed */
+    .hamburger-inner {
+        width: 24px;
+        height: 3px;
+        background-color: #ffffff !important; /* White icon */
+        border-radius: 2px;
+        transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* --- "X" ICON ANIMATION WHEN ACTIVE (Turns dark so it shows on white background) --- */
+    .menu-toggle-btn.is-active .hamburger-inner:nth-child(1) {
+        transform: translateY(8.5px) rotate(45deg);
+        background-color: #2d3748 !important; /* Dark color for the "X" */
+    }
+
+    .menu-toggle-btn.is-active .hamburger-inner:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle-btn.is-active .hamburger-inner:nth-child(3) {
+        transform: translateY(-8.5px) rotate(-45deg);
+        background-color: #2d3748 !important; /* Dark color for the "X" */
+    }
+
+    /* --- SHRINKWRAPPED NAV DROPDOWN --- */
     .nav-links {
         display: none; 
         flex-direction: column;
-        width: calc(100% - 30px);
-        background-color: var(--brand-navy);
-        border: 2px solid var(--brand-purple);
-        border-radius: 12px;
-        position: absolute;
-        top: calc(100% - 10px);
-        left: 15px;
-        padding: 30px 20px;
-        gap: 25px;
-        box-shadow: 0 12px 30px rgba(18, 24, 58, 0.25);
-        margin-left: 0; 
-        margin-right: 0;
-        text-align: center;
-        background: linear-gradient(145deg, #161c42, var(--brand-navy));
+        
+        width: 75vw;             /* Takes up 75% of screen width */
+        max-width: 300px;        /* Cap width on tablets */
+        height: auto;            /* Automatic height: cuts off immediately after last link */
+        
+        position: absolute;      /* Positions relative to the parent header */
+        top: 0;          
+        left: 0;
+        z-index: 1000;
+        
+        background: #ffffff;
+        border-right: 1px solid #e2e8f0;            
+        border-bottom: 1px solid #e2e8f0;           /* Soft border along bottom cutoff edge */
+        border-bottom-right-radius: 8px;            /* Optional: rounded corner at the bottom right */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Shadow beneath and to the right */
+        
+        /* Reduced top padding so content wraps tightly below header */
+        padding: 60px 24px 16px 24px;
+        gap: 0;
+        margin: 0;
+        list-style: none;
+        box-sizing: border-box;
     }
     
     .nav-links.mobile-open {
         display: flex;
-        animation: menuPopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        animation: menuSlideInLeft 0.25s ease-out forwards;
+    }
+
+    .nav-links li {
+        width: 100%;
     }
 
     .nav-links a {
         font-family: var(--font-heading);
-        font-size: 1.1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2d3748;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        justify-content: center;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(170, 130, 173, 0.15);
-        width: 100%;
+        letter-spacing: 0.8px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        
+        padding: 14px 0;
+        border-bottom: 1px solid #f1f5f9;
+        text-decoration: none;
     }
 
     .nav-links li:last-child a {
@@ -905,8 +965,57 @@ footer {
     
     .cart-container-item {
         order: 3;
-        margin-left: auto; 
+        margin-left: auto;
+        position: relative;
+        z-index: 1002; 
     }
+}
+
+@keyframes menuSlideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Updated entrance animation to slide in from the left */
+@keyframes menuSlideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes menuSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes menuSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
     .hero-large { height: 65vh; }
     .hero-small { height: 35vh; }
@@ -938,7 +1047,7 @@ footer {
     
     .footer-top { grid-template-columns: 1fr; gap: 30px; }
     .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-}
+
 
 @keyframes menuPopIn {
     0% { opacity: 0; transform: translateY(-10px) scale(0.95); }

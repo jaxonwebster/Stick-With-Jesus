@@ -161,12 +161,10 @@ const STICKER_PRODUCTS = [
     }
 ];
 
-// --- Mobile Navigation Bar Drawer Open Toggler ---
-function toggleMobileNavMenu() {
-    const linksDrawer = document.getElementById('navbar-links-drawer');
-    if (linksDrawer) {
-        linksDrawer.classList.toggle('mobile-open');
-    }
+function toggleMobileNavMenu(btn) {
+  const drawer = document.getElementById('navbar-links-drawer');
+  drawer.classList.toggle('mobile-open');
+  btn.classList.toggle('is-active'); // Adds 'is-active' class to switch hamburger to X
 }
 
 // --- Tiered Pricing Matrix Calculator ---
