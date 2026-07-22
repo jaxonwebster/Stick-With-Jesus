@@ -10,9 +10,9 @@ const STICKER_PRODUCTS = [
         price: 4.99, 
         isCustomizable: true,
         category: "religious", 
-        color: "dark", 
+        color: "black", 
         photos: ["images/nametag1.jpg", "images/nametag2.jpg", "images/nametag3.jpg", "images/nametag4.jpg", "images/namtag5.jpg"], 
-        desc: "Our best-selling classic elder/sister replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to basket.", 
+        desc: "Our best-selling classic missionary replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to your cart.", 
         reviews: ["Looks exactly like the real thing! Perfect for my mission journal. - Sister Adams."] 
     },
     { 
@@ -22,7 +22,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "bible", 
-        color: "pastel", 
+        color: "black", 
         photos: ["images/lostsheep1.jpg", "images/lostsheep2.jpg", "images/lostsheep3.jpg", "images/lostsheep4.jpg"], 
         desc: "Premium thick die-cut outdoor weather-proof vinyl statement piece.", 
         reviews: ["Stunning colors. Looks fantastic on water bottles. - Sarah M."] 
@@ -34,7 +34,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "bible", 
-        color: "dark", 
+        color: "blue", 
         photos: ["images/butifnot1.jpg", "images/butifnot2.jpg"], 
         desc: "Clean typography sticker designed to remind you of His constant protective cover.", 
         reviews: ["Beautiful text clarity. - Grace L."] 
@@ -46,7 +46,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "lavender", 
+        color: "pink", 
         photos: ["images/love1.jpg", "images/love2.jpg"], 
         desc: "Delicate lavender-toned script wrapped with pristine wildflower outlines.", 
         reviews: ["Perfect addition to my scripture journal. - Hannah P."] 
@@ -58,7 +58,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "pastel", 
+        color: "black", 
         photos: ["images/godisgreat1.jpg", "images/godisgreat2.jpg", "images/godisgreat3.jpg"], 
         desc: "Understated minimalist styling detailing 2 Corinthians 5:7.", 
         reviews: ["Subtle, clean, elegant layout. - Mark T."] 
@@ -70,7 +70,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "bible", 
-        color: "dark", 
+        color: "blue",
         photos: ["images/fisherofmen.jpg"], 
         desc: "Bold astronomical sunrise landscape highlighting shared global purpose.", 
         reviews: ["Striking background art depth. - Anna V."] 
@@ -82,7 +82,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "lavender", 
+        color: "pastelle", 
         photos: ["images/hearhim.jpg"], 
         desc: "Organic, earthy floral layout defining Ephesians structural context.", 
         reviews: ["High-grade adhesion, colors don't sun-fade. - Lucas R."] 
@@ -94,7 +94,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "pastel", 
+        color: "pink", 
         photos: ["images/jesuslovesme1.jpg", "images/jesuslovesme2.jpg", "images/jesuslovesme3.jpg"], 
         desc: "Delicate composition summarizing beautiful structural design statements.", 
         reviews: ["Sweet gift layout for daughters! - Kelly O."] 
@@ -106,7 +106,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "dark", 
+        color: "pastelle", 
         photos: ["images/prevail1.jpg", "images/prevail2.jpg"], 
         desc: "Classic traditional foundational hymn quote formatted cleanly.", 
         reviews: ["Calming and elegant text layout. - James P."] 
@@ -118,7 +118,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "lavender", 
+        color: "pastelle", 
         photos: ["images/cog1.jpg", "images/cog2.jpg"], 
         desc: "Forest woodland layout profile mirroring peaceful vine branches.", 
         reviews: ["Deep artistic detailing. - Chloe B."] 
@@ -130,7 +130,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "dark", 
+        color: "pastelle", 
         photos: ["images/hardthings1.jpg"], 
         desc: "Bold ocean wave graphic displaying empowering verse definitions.", 
         reviews: ["Powerful reminder for daily workspace views. - Eric W."] 
@@ -142,7 +142,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "lavender", 
+        color: "pink", 
         photos: ["images/fruit1.jpg", "images/fruit2.jpg", "images/fruit3.jpg"], 
         desc: "Elegant floral garland framing historic trust statements perfectly.", 
         reviews: ["The matte texture feels premium. - Megan H."] 
@@ -154,7 +154,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "other", 
-        color: "dark", 
+        color: "other", 
         photos: ["images/rat1.jpg", "images/rat2.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
@@ -166,10 +166,24 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "bible", 
-        color: "dark", 
+        color: "blue", 
         photos: ["images/bestill1.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
+    },
+    // --- EXCLUSIVE CART-ONLY MYSTERY STICKER ---
+    {
+        id: 999,
+        stripePriceId: "price_1Tw7lTRo3U7iX6n7SJbdu1wp", // Replace with your actual Stripe Price ID
+        name: "Mystery Sticker",
+        price: 1.99,
+        isCustomizable: false,
+        isExclusive: true, // Prevents sticker from rendering in the main shop catalog!
+        category: "other",
+        color: "other",
+        photos: ["images/carthero.JPG"], 
+        desc: "A surprise high-quality sticker selected randomly from our shop!",
+        reviews: []
     }
 ];
 
@@ -323,16 +337,19 @@ function renderCatalog(productsList) {
     const catalogGrid = document.getElementById('products-grid');
     const heroElement = document.getElementById('shop-hero-banner');
     
-    if (heroElement) heroElement.style.display = 'block'; // Ensures hero shows when browsing catalog
+    if (heroElement) heroElement.style.display = 'block';
     if (!catalogGrid) return;
     catalogGrid.innerHTML = '';
 
-    if (productsList.length === 0) {
+    // Filter out exclusive/cart-only items so they never show in shop catalog
+    const publicProducts = productsList.filter(p => !p.isExclusive);
+
+    if (publicProducts.length === 0) {
         catalogGrid.innerHTML = `<p style="grid-column: 1/-1; text-align:center; padding: 40px 0; font-weight: 600; color: #64748b;">No stickers match your active filters.</p>`;
         return;
     }
 
-    productsList.forEach(product => {
+    publicProducts.forEach(product => {
         const cardHtml = `
             <div class="product-card" onclick="location.href='products.html?id=${product.id}'">
                 <div class="product-img-wrapper">
@@ -400,16 +417,16 @@ function quickAddCatalogItem(productId, btnElement) {
 
 function renderProductDetails(id) {
     const product = STICKER_PRODUCTS.find(p => p.id === id);
-    if (!product) return;
+    if (!product || product.isExclusive) return; // Block details rendering for cart-only exclusives
 
     const catalogElement = document.getElementById('catalog-view');
     const detailElement = document.getElementById('detail-view');
-    const heroElement = document.getElementById('shop-hero-banner'); // 1. Grab hero banner
+    const heroElement = document.getElementById('shop-hero-banner');
     const mainTitleElement = document.getElementById('page-main-title');
 
     if (catalogElement) catalogElement.style.display = 'none';
     if (detailElement) detailElement.style.display = 'block';
-    if (heroElement) heroElement.style.display = 'none'; // 2. Hide hero banner on detail view
+    if (heroElement) heroElement.style.display = 'none';
     if (mainTitleElement) mainTitleElement.innerText = product.name;
 
     const detailHook = document.getElementById('dynamic-product-content');
@@ -549,7 +566,6 @@ function renderCart() {
         
         let customLabel = item.customText ? `<p style="font-size:0.85rem; color:var(--brand-purple); margin:4px 0 0 0;">Customization: <strong>${item.customText}</strong></p>` : '';
         
-        // Build quantity selector options 1 through 20
         let qtyOptions = '';
         for (let qty = 1; qty <= 20; qty++) {
             const isSelected = (parseInt(item.chosenQty) === qty) ? 'selected' : '';
@@ -563,7 +579,6 @@ function renderCart() {
                     <div>
                         <h4 style="margin:0; font-family:var(--font-heading); text-transform:uppercase; font-size:0.95rem;">${item.name}</h4>
                         
-                        <!-- Dynamic Quantity Dropdown -->
                         <div style="margin-top: 6px; display: flex; align-items: center; gap: 8px;">
                             <label for="qty-select-${index}" style="font-size:0.85rem; color:#666;">Qty:</label>
                             <select id="qty-select-${index}" onchange="updateCartItemQuantity(${index}, this.value)" style="padding: 4px 8px; border: 1px solid var(--border-subtle); border-radius: 4px; font-weight: 600; cursor: pointer;">
@@ -581,25 +596,65 @@ function renderCart() {
         cartHook.insertAdjacentHTML('beforeend', itemHtml);
     });
 
+    // --- Mystery Sticker Add-on Upsell Card at Bottom of Cart ---
+    // --- Balanced & Clean Mystery Sticker Upsell ---
+    const mysteryHtml = `
+        <div style="margin-top: 24px; padding: 14px 18px; border: 1px solid var(--border-subtle); border-radius: 8px; background-color: var(--bg-soft, #fcfcfc); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+            <div>
+                <h4 style="margin: 0; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; color: var(--brand-navy);">Add a Mystery Sticker</h4>
+                <p style="margin: 2px 0 0 0; font-size: 0.82rem; color: #64748b;">A surprise vinyl sticker added to your pack for <strong style="color: var(--brand-purple);">$1.99</strong></p>
+            </div>
+            <button onclick="addMysteryStickerToCart(this)" class="btn-cute" style="font-size: 0.8rem; padding: 8px 14px; width: auto; margin: 0;">
+                + Add to Order
+            </button>
+        </div>
+    `;
+    cartHook.insertAdjacentHTML('beforeend', mysteryHtml);
+
     if (totalHook) totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
 }
+
+function addMysteryStickerToCart(btnElement) {
+    const mysteryProduct = STICKER_PRODUCTS.find(p => p.id === 999);
+    if (!mysteryProduct) return;
+
+    let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
+    let existingIndex = cart.findIndex(item => item.id === 999);
+
+    if (existingIndex > -1) {
+        cart[existingIndex].chosenQty += 1;
+        cart[existingIndex].totalLineCost = mysteryProduct.price * cart[existingIndex].chosenQty;
+    } else {
+        cart.push({
+            id: mysteryProduct.id,
+            stripePriceId: mysteryProduct.stripePriceId,
+            name: mysteryProduct.name,
+            photo: mysteryProduct.photos[0],
+            chosenQty: 1,
+            customText: "",
+            totalLineCost: mysteryProduct.price
+        });
+    }
+
+    localStorage.setItem('sticker_cart', JSON.stringify(cart));
+    updateCartBadge();
+    triggerButtonCheckmark(btnElement, "+ Add to Order");
+    renderCart();
+}
+
 function updateCartItemQuantity(index, newQty) {
     let cart = JSON.parse(localStorage.getItem('sticker_cart')) || [];
     if (!cart[index]) return;
 
     const qty = parseInt(newQty) || 1;
-    
-    // Look up base product price to recalculate tier discounts accurately
     const product = STICKER_PRODUCTS.find(p => p.id === cart[index].id);
     const basePrice = product ? product.price : (cart[index].totalLineCost / (cart[index].chosenQty || 1));
 
-    // Recalculate tiered unit price & updated line total
-    const unitCost = getTieredPricePerUnit(basePrice, qty);
+    const unitCost = cart[index].id === 999 ? basePrice : getTieredPricePerUnit(basePrice, qty);
     
     cart[index].chosenQty = qty;
     cart[index].totalLineCost = unitCost * qty;
 
-    // Save back to LocalStorage and update UI
     localStorage.setItem('sticker_cart', JSON.stringify(cart));
     renderCart();
     updateCartBadge();
