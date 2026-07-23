@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart | Stick With Jesus</title>
+    <title>About Us | Stick With Jesus</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Stripe JavaScript SDK Integration -->
-    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <!-- True CSS Animation Hamburger Menu Trigger Button -->
             <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
                 <div class="hamburger-box">
                     <div class="hamburger-inner"></div>
@@ -42,51 +39,42 @@
         </nav>
     </header>
 
-    <!-- Medium Page Hero Section -->
+    <!-- Hero Section -->
     <section class="hero-wrapper medium-hero">
-        <img src="images/carthero.JPG" alt="Your Cart Banner" class="hero-bg-img">
+        <img src="images/blog-banner-bg.jpg" alt="Our Story Workspace" class="hero-bg-img">
         <div class="hero-overlay"></div>
-        
         <div class="hero-content">
             <h1 class="stagger-title">
-                <span>Y</span><span>o</span><span>u</span><span>r</span>
+                <span>M</span><span>e</span><span>e</span><span>t</span>
                 &nbsp;
-                <span>C</span><span>a</span><span>r</span><span>t</span>
+                <span>T</span><span>h</span><span>e</span>
+                &nbsp;
+                <span>M</span><span>a</span><span>k</span><span>e</span><span>r</span><span>s</span>
             </h1>
-            <p class="hero-subtitle">Review current selections and proceed to secure checkout below.</p>
         </div>
     </section>
 
+    <!-- About Page Main Content -->
     <div class="interior-content-space">
-        <main class="container">
-            <div class="cart-layout">
-                <!-- Left Column: Basket Items -->
-                <div>
-                    <h3 style="font-family: var(--font-heading); text-transform: uppercase; margin-bottom: 25px;">Current Order Selection</h3>
-                    <div class="cart-items-list" id="cart-items-hook"></div>
-                </div>
-                
-                <!-- Right Column: Checkout Info & Direct Stripe Trigger -->
-                <div class="checkout-box">
-                    <h3>Order Summary</h3>
-                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-subtle);">
-                    
-                    <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 25px;">
-                        <span>Subtotal Due:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
-                    </p>
-                    
-                    <form id="order-form" onsubmit="handleCheckout(event)">
-                        <p style="font-size: 0.85rem; color: #515779; margin-bottom: 20px; line-height: 1.4;">
-                            Shipping and payment details will be entered securely on the Stripe payment page.
-                        </p>
+        <main class="container about-container">
 
-                        <button type="submit" class="btn-cute" style="width: 100%;">Proceed to Secure Payment</button>
-                    </form>
+            <!-- Mission Story Split Row -->
+            <section class="about-grid-row">
+                <div class="about-image-card">
+                    <img src="images/IMG_1642 (1).jpg" alt="Designing stickers and Bible journaling" class="about-featured-img">
                 </div>
-            </div>
+                <div class="about-text-content">
+                    <span class="sub-heading-accent">Who We Are</span>
+                    <h2>Spreading Light in Simple Spaces</h2>
+                    <p>Stick With Jesus was born out of a desire to surround ourselves with simple, daily encouragements. In the hustle and noise of everyday life, having a small reminder of God’s promise on your water bottle, laptop, or mirror can turn a fleeting moment into a prayerful pause.</p>
+                    <p>Every sticker we create starts as a prayer and a hand-drawn sketch—crafted carefully to inspire hope, start sweet conversations, and shine His light wherever you go.</p>
+                </div>
+            </section>
+
         </main>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -97,7 +85,9 @@
                 <h3>Explore</h3>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Sticker Shop</a></li>
+                    <li><a href="products.html">Shop Stickers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -107,9 +97,9 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Secure Payments</h3>
+                <h3>Payments</h3>
                 <ul>
-                    <li><a href="https://stripe.com" target="_blank" rel="noopener">Powered by Stripe</a></li>
+                    <li><a href="https://venmo.com" target="_blank">Venmo</a></li>
                 </ul>
             </div>
         </div>
