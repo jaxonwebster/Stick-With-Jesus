@@ -10,7 +10,7 @@ const STICKER_PRODUCTS = [
         price: 4.99, 
         isCustomizable: true,
         isBestseller: true,
-        category: "youth", 
+        category: ["youth", "primary"], 
         color: "black", 
         photos: ["images/nametag1.jpg", "images/nametag2.jpg", "images/nametag3.jpg", "images/nametag4.jpg", "images/namtag5.jpg"], 
         desc: "Our best-selling classic missionary replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to your cart.", 
@@ -23,7 +23,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         isBestseller: true,
-        category: "bible", 
+        category: ["bible", "religious"], 
         color: "black", 
         photos: ["images/lostsheep1.jpg", "images/lostsheep2.jpg", "images/lostsheep3.jpg", "images/lostsheep4.jpg"], 
         desc: "Premium thick die-cut outdoor weather-proof vinyl statement piece.", 
@@ -109,7 +109,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "pastelle", 
+        color: "colorful", 
         photos: ["images/prevail1.jpg", "images/prevail2.jpg"], 
         desc: "Classic traditional foundational hymn quote formatted cleanly.", 
         reviews: ["Calming and elegant text layout. - James P."] 
@@ -121,7 +121,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "primary", 
-        color: "pastelle", 
+        color: "colorful", 
         photos: ["images/cog1.jpg", "images/cog2.jpg"], 
         desc: "Forest woodland layout profile mirroring peaceful vine branches.", 
         reviews: ["Deep artistic detailing. - Chloe B."] 
@@ -133,7 +133,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "religious", 
-        color: "pastelle", 
+        color: "colorful", 
         photos: ["images/hardthings1.jpg"], 
         desc: "Bold ocean wave graphic displaying empowering verse definitions.", 
         reviews: ["Powerful reminder for daily workspace views. - Eric W."] 
@@ -158,7 +158,7 @@ const STICKER_PRODUCTS = [
         isCustomizable: false, 
         isBestseller: true,
         category: "other", 
-        color: "other", 
+        color: "yellow", 
         photos: ["images/rat1.jpg", "images/rat2.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
@@ -194,7 +194,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "youth", 
-        color: "pastelle", 
+        color: "colorful", 
         photos: ["images/builders1.jpg", "images/builders2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
@@ -206,7 +206,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "youth", 
-        color: "pastelle", 
+        color: "colorful", 
         photos: ["images/messengers1.jpg", "images/messengers2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
@@ -218,8 +218,80 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "youth", 
-        color: "pastelle", 
+        color: "colorful", 
         photos: ["images/gather1.jpg", "images/gather2.jpg", "images/gather3.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    },
+    { 
+        id: 19, 
+        stripePriceId: "price_1TwQkXRo3U7iX6n7lA5sUmXX", 
+        name: "Future Missionary", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: ["youth", "primary"],
+        color: "black", 
+        photos: ["images/futuremissionary1.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    },
+    { 
+        id: 20, 
+        stripePriceId: "price_1TwQm8Ro3U7iX6n7eT5whY7M", 
+        name: "Choose The Right", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "primary", 
+        color: "green", 
+        photos: ["images/ctr1.jpg", "images/ctr2.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    },
+     { 
+        id: 21, 
+        stripePriceId: "price_1TwQxsRo3U7iX6n7p9hYd73F", 
+        name: "NYC Subway Map", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "other", 
+        color: "yellow", 
+        photos: ["images/nycmap1.jpg", "images/nycmap2.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    },
+    { 
+        id: 22, 
+        stripePriceId: "price_1TwR02Ro3U7iX6n78e9g7DSc", 
+        name: "Not Forgotten, Found", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "blue", 
+        photos: ["images/notforgotten1.jpg", "images/notforgotten2.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    },
+    { 
+        id: 23, 
+        stripePriceId: "price_1TwR5iRo3U7iX6n7GBpupsF7", 
+        name: "Glory to God", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "yellow", 
+        photos: ["images/glory1.jpg"], 
+        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        reviews: ["Super fun sticker design! - Alex P."] 
+    },
+    { 
+        id: 24, 
+        stripePriceId: "price_1TwR4PRo3U7iX6n7H7kwsOrb", 
+        name: "Faith Is Like A Seed", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "green", 
+        photos: ["images/seed1.jpg"], 
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
@@ -342,9 +414,14 @@ function applyFilters() {
     // Filter out cart-exclusive products (like the Mystery Sticker) first
     let filtered = STICKER_PRODUCTS.filter(p => !p.isExclusive);
 
-    // Filter by categories if any are checked
+    // Filter by categories if any are checked (handles string or array category formats)
     if (selectedCategories.length > 0) {
-        filtered = filtered.filter(p => selectedCategories.includes(p.category));
+        filtered = filtered.filter(p => {
+            if (Array.isArray(p.category)) {
+                return p.category.some(cat => selectedCategories.includes(cat));
+            }
+            return selectedCategories.includes(p.category);
+        });
     }
 
     // Filter by colors if any are checked
@@ -793,6 +870,7 @@ async function handleCheckout(event) {
         }
     }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('reviews-strip-track');
     const btnLeft = document.getElementById('reviews-scroll-left');
@@ -844,44 +922,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-center on window resize to preserve the exact center peek ratio
     window.addEventListener('resize', centerInitialCard);
 
-   // Helper function to animate scroll with custom speed/duration
-function slowScrollTrack(container, distance, duration) {
-    const startPos = container.scrollLeft;
-    const startTime = performance.now();
+    // Helper function to animate scroll with custom speed/duration
+    function slowScrollTrack(container, distance, duration) {
+        const startPos = container.scrollLeft;
+        const startTime = performance.now();
 
-    // Ease-in-out quadratic curve for a natural, buttery-smooth feel
-    function easeInOutQuad(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-    }
-
-    function animateScroll(currentTime) {
-        const elapsedTime = currentTime - startTime;
-        const progress = Math.min(elapsedTime / duration, 1);
-        const ease = easeInOutQuad(progress);
-
-        container.scrollLeft = startPos + distance * ease;
-
-        if (progress < 1) {
-            requestAnimationFrame(animateScroll);
+        // Ease-in-out quadratic curve for a natural, buttery-smooth feel
+        function easeInOutQuad(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         }
+
+        function animateScroll(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const ease = easeInOutQuad(progress);
+
+            container.scrollLeft = startPos + distance * ease;
+
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            }
+        }
+
+        requestAnimationFrame(animateScroll);
     }
 
-    requestAnimationFrame(animateScroll);
-}
+    // 2. Arrow Controls with Custom Speed
+    if (btnLeft && btnRight) {
+        // Change this value to adjust speed (e.g., 800ms = 0.8s, 1200ms = 1.2s)
+        const SCROLL_DURATION = 500; // Slower, elegant scroll duration
 
-// 2. Arrow Controls with Custom Speed
-if (btnLeft && btnRight) {
-    // Change this value to adjust speed (e.g., 800ms = 0.8s, 1200ms = 1.2s)
-    const SCROLL_DURATION = 500; // Slower, elegant scroll duration
+        btnLeft.addEventListener('click', () => {
+            slowScrollTrack(track, -getCardOffset(), SCROLL_DURATION);
+        });
 
-    btnLeft.addEventListener('click', () => {
-        slowScrollTrack(track, -getCardOffset(), SCROLL_DURATION);
-    });
-
-    btnRight.addEventListener('click', () => {
-        slowScrollTrack(track, getCardOffset(), SCROLL_DURATION);
-    });
-}
+        btnRight.addEventListener('click', () => {
+            slowScrollTrack(track, getCardOffset(), SCROLL_DURATION);
+        });
+    }
 
     // 3. Infinite Seamless Reset Loop
     let isResetting = false;
