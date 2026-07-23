@@ -36,20 +36,17 @@
         </nav>
     </header>
 
-    <!-- Small Page Hero Section with HTML Background Image -->
-    <!-- UPDATED: Swapped hero-small for hero-wrapper medium-hero -->
+    <!-- Hero Section -->
     <section class="hero-wrapper medium-hero">
         <img src="images/reviews-hero-bg.jpg" alt="Customer Praise and Reviews Banner" class="hero-bg-img">
         <div class="hero-overlay"></div>
         
         <div class="hero-content">
-            <!-- Kept your beautiful pop-art staggered letter animations intact -->
             <h1 class="stagger-title">
                 <span>K</span><span>i</span><span>n</span><span>d</span>
                 &nbsp;
                 <span>W</span><span>o</span><span>r</span><span>d</span><span>s</span>
             </h1>
-            <!-- Added the hero-subtitle class to match our global style rules -->
             <p class="hero-subtitle">Read inspiring stories from our community about how these pieces share light daily.</p>
         </div>
     </section>
@@ -58,9 +55,8 @@
     <div class="interior-content-space">
         
         <!-- Interactive Praise Callout Block -->
-        <section class="container scroll-reveal" style="text-align: center; margin-bottom: 70px;">
+        <section class="container scroll-reveal" style="text-align: center; margin-bottom: 50px;">
             <div style="background: var(--white); padding: 40px; border-radius: 12px; border: 1px solid var(--border-subtle); max-width: 700px; margin: 0 auto; position: relative;">
-                <!-- "Taped-On" Sticker Accent Effect -->
                 <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-1deg); background: rgba(170, 130, 173, 0.25); color: var(--brand-navy); padding: 4px 20px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; border-radius: 2px;">
                     Etsy Star Seller
                 </div>
@@ -70,54 +66,77 @@
             </div>
         </section>
 
-        <!-- Staggered/Playful Reviews Layout Grid -->
-        <main class="container">
-            <div class="reviews-grid">
-                
-                <!-- Review Card 1 (Tilted Left) -->
-                <div class="review-card scroll-reveal">
-                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p>"The missionary name tag stickers are absolute perfection! I ordered a pack of 12 for my son serving in Brazil. The vinyl is incredibly thick, completely waterproof, and his companions keep asking where he got them!"</p>
-                    <div class="review-author">— Sarah M., Utah</div>
-                </div>
+        <!-- 3-CARD SCROLLING REVIEWS STRIP CONTAINER -->
+      <main class="container scroll-reveal">
+    <div class="reviews-strip-wrapper">
+        
+        <!-- Left Navigation Arrow -->
+        <button class="strip-nav-btn prev-btn" id="reviews-scroll-left" aria-label="Previous Review">&#10094;</button>
 
-                <!-- Review Card 2 (Tilted Right) -->
-                <div class="review-card scroll-reveal">
-                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p>"I put the floral scripture scripts directly onto my Hydro Flask water bottle. It has been through the dishwasher dozens of times now and the colors are still as vibrant and crisp as day one. Zero peeling!"</p>
-                    <div class="review-author">— Sister Elena G.</div>
+        <!-- Scrollable Infinite Track -->
+        <div class="reviews-strip-track" id="reviews-strip-track">
+            
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The aesthetic quality of these stickers is top notch. The lavender text looks absolutely beautiful on my commuter bottle, and it has gone through the dishwasher multiple times without peeling."</p>
+                <div class="review-author">
+                    <span class="author-name">Sarah M.</span>
+                    <span class="verified-badge">✓ Verified Buyer</span>
                 </div>
-
-                <!-- Review Card 3 (Tilted Left) -->
-                <div class="review-card scroll-reveal">
-                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p>"Stunning customer service and beautiful packaging! The typography layouts feel modern, artistic, and deeply meaningful. These make the perfect small gifts for youth groups and ministering friends."</p>
-                    <div class="review-author">— David L., Idaho</div>
-                </div>
-
-                <!-- Review Card 4 (Tilted Right) -->
-                <div class="review-card scroll-reveal">
-                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p>"I am completely obsessed with the wholesale pack options. It was so affordable to grab 30 stickers to pass out to our class. The matte sticker texture is ultra-premium and luxurious to the touch."</p>
-                    <div class="review-author">— Amanda R.</div>
-                </div>
-
-                <!-- Review Card 5 (Tilted Left) -->
-                <div class="review-card scroll-reveal">
-                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p>"Every time I open my laptop in class, someone asks about my 'Stick With Jesus' decal. It's a quiet, artistic way to represent my faith and start conversations without saying a word."</p>
-                    <div class="review-author">— Elder Thomas</div>
-                </div>
-
-                <!-- Review Card 6 (Tilted Right) -->
-                <div class="review-card scroll-reveal">
-                    <div style="color: var(--brand-terracotta); font-size: 1.2rem; margin-bottom: 15px;">★★★★★</div>
-                    <p>"Fast shipping, lovely custom personalizations, and excellent prices. The bulk wholesale pricing calculation made planning gifts for our church girls group completely stress-free!"</p>
-                    <div class="review-author">— Michelle K., Arizona</div>
-                </div>
-
             </div>
-        </main>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"I put the floral scripture scripts directly onto my Hydro Flask water bottle. It has been through the dishwasher dozens of times now and the colors are still as vibrant as day one."</p>
+                <div class="review-author">
+                    <span class="author-name">Elena G.</span>
+                    <span class="verified-badge">✓ Verified Buyer</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Stunning customer service and beautiful packaging! The typography layouts feel modern, artistic, and deeply meaningful."</p>
+                <div class="review-author">
+                    <span class="author-name">David L.</span>
+                    <span class="verified-badge">✓ Verified Buyer</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"I am completely obsessed with the wholesale pack options. It was so affordable to grab 30 stickers to pass out to our class. The matte sticker texture is ultra-premium!"</p>
+                <div class="review-author">
+                    <span class="author-name">Amanda R.</span>
+                    <span class="verified-badge">✓ Verified Buyer</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Every time I open my laptop in class, someone asks about my 'Stick With Jesus' decal. It's a quiet, artistic way to represent my faith and start conversations."</p>
+                <div class="review-author">
+                    <span class="author-name">Thomas E.</span>
+                    <span class="verified-badge">✓ Verified Buyer</span>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Fast shipping, lovely custom personalizations, and excellent prices. The bulk wholesale pricing calculation made planning gifts stress-free!"</p>
+                <div class="review-author">
+                    <span class="author-name">Michelle K.</span>
+                    <span class="verified-badge">✓ Verified Buyer</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Navigation Arrow -->
+        <button class="strip-nav-btn next-btn" id="reviews-scroll-right" aria-label="Next Review">&#10095;</button>
+
+    </div>
+</main>
     </div>
 
     <!-- Corporate Footer -->
@@ -156,11 +175,11 @@
         </div>
     </footer>
 
-    <!-- Script triggers for animations and cart logic -->
+    <!-- Script triggers for animations, cart logic, and carousel controller -->
     <script src="shop-engine.js"></script>
     <script>
-        // Trigger scroll reveals safely specifically for this page if standalone
         document.addEventListener('DOMContentLoaded', () => {
+            // Scroll reveal animation handler
             const reveals = document.querySelectorAll('.scroll-reveal');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -170,6 +189,20 @@
                 });
             }, { threshold: 0.1 });
             reveals.forEach(r => observer.observe(r));
+
+            // Reviews Carousel Scroll Control
+            const track = document.getElementById('reviews-strip-track');
+            const btnLeft = document.getElementById('reviews-scroll-left');
+            const btnRight = document.getElementById('reviews-scroll-right');
+
+            if (track && btnLeft && btnRight) {
+                btnLeft.addEventListener('click', () => {
+                    track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+                });
+                btnRight.addEventListener('click', () => {
+                    track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+                });
+            }
         });
     </script>
 </body>

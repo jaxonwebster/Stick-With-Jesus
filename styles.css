@@ -1613,3 +1613,227 @@ footer {
         font-size: 0.8rem;
     }
 }
+
+/* ==========================================================================
+   HORIZONTAL REVIEWS STRIP (3 CARDS PER VIEW)
+   ========================================================================== */
+
+/* ==========================================================================
+   HORIZONTAL REVIEWS STRIP (4 CARDS PER VIEW)
+   ========================================================================== */
+
+.reviews-strip-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.reviews-strip-track {
+    display: flex;
+    gap: 16px; /* Slightly tighter gap so 4 cards fit comfortably */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 15px 5px;
+    width: 100%;
+    
+    /* Hide scrollbars for clean UI while keeping scroll functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.reviews-strip-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Force exactly 4 cards to fit on desktop screens */
+.reviews-strip-track .review-card {
+    /* (100% - 3 gaps of 16px) divided by 4 cards */
+    flex: 0 0 calc((100% - 48px) / 4); 
+    min-width: 0;
+    scroll-snap-align: start;
+    box-sizing: border-box;
+}
+
+/* Strip Controls Arrows */
+.strip-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--white);
+    color: var(--brand-navy);
+    border: 1px solid var(--border-subtle);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.strip-nav-btn:hover {
+    background-color: var(--brand-purple);
+    color: var(--white);
+    border-color: var(--brand-purple);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.strip-nav-btn.prev-btn { left: -22px; }
+.strip-nav-btn.next-btn { right: -22px; }
+
+/* Responsive adjustments for Laptops / Tablets / Mobile */
+@media (max-width: 1100px) {
+    /* Show 3 cards at a time on smaller laptops */
+    .reviews-strip-track .review-card {
+        flex: 0 0 calc((100% - 32px) / 3);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Show 2 cards at a time on tablets */
+    .reviews-strip-track .review-card {
+        flex: 0 0 calc((100% - 16px) / 2);
+    }
+}
+
+@media (max-width: 500px) {
+    /* Show 1 card at a time on mobile phones */
+    .reviews-strip-track .review-card {
+        flex: 0 0 100%;
+    }
+    
+    .strip-nav-btn.prev-btn { left: 4px; }
+    .strip-nav-btn.next-btn { right: 4px; }
+}
+@media (max-width: 600px) {
+    /* 1. Hide navigation arrows on mobile */
+    .strip-nav-btn {
+        display: none !important;
+    }
+
+    /* 2. Allow overflow bleeding across screen edges */
+    .reviews-strip-wrapper {
+        overflow: visible;
+        margin: 0 -20px; /* Pulls container out to screen edge (matches standard .container padding) */
+    }
+
+    /* 3. Adjust track padding for peek effect & center-snapping */
+    .reviews-strip-track {
+        padding: 15px 24px; /* Left/Right padding creates the outer edge gap */
+        gap: 12px;           /* Tight gap between cards */
+        scroll-snap-type: x mandatory;
+    }
+
+    /* 4. Shrink card width to ~82% so the next/prev cards bleed into view */
+    .reviews-strip-track .review-card {
+        flex: 0 0 82%;      /* Takes up 82% of viewport width, leaving ~18% for side preview */
+        scroll-snap-align: center; /* Snaps active card directly to the center */
+        box-sizing: border-box;
+    }
+}
+/* ==========================================================================
+   INFINITE REVIEWS STRIP WITH PEEK EFFECT & ARROWS
+   ========================================================================== */
+
+.reviews-strip-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.reviews-strip-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0;
+    width: 100%;
+    
+    /* Hide scrollbars */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.reviews-strip-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* DESKTOP VIEW (4 Visible Cards with Peek) */
+.reviews-strip-track .review-card {
+    flex: 0 0 calc((100% - 48px) / 4);
+    min-width: 0;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+}
+
+/* Arrow Navigation Buttons */
+.strip-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--white, #ffffff);
+    color: var(--brand-navy, #1e2538);
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+}
+
+.strip-nav-btn:hover {
+    background-color: var(--brand-purple, #aa82ad);
+    color: #ffffff;
+    border-color: var(--brand-purple, #aa82ad);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.strip-nav-btn.prev-btn { left: -20px; }
+.strip-nav-btn.next-btn { right: -20px; }
+
+/* RESPONSIVE & MOBILE PEEK SETTINGS */
+@media (max-width: 900px) {
+    .reviews-strip-track .review-card {
+        flex: 0 0 calc((100% - 32px) / 2.5); /* Shows ~2.5 cards */
+    }
+}
+
+@media (max-width: 600px) {
+    /* Break container edges out on mobile so side cards bleed offscreen */
+    .reviews-strip-wrapper {
+        margin: 0 -15px;
+        width: calc(100% + 30px);
+    }
+
+    /* Mobile Peek: 78% width centers active card & leaves 11% visible on left & right */
+    .reviews-strip-track .review-card {
+        flex: 0 0 78%;
+        scroll-snap-align: center;
+    }
+
+    /* Subtle semi-transparent floating arrows placed over screen edge on mobile */
+    .strip-nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(4px);
+    }
+
+    .strip-nav-btn.prev-btn { left: 8px; }
+    .strip-nav-btn.next-btn { right: 8px; }
+}

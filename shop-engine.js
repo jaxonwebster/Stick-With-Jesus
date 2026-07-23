@@ -793,3 +793,94 @@ async function handleCheckout(event) {
         }
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('reviews-strip-track');
+    const btnLeft = document.getElementById('reviews-scroll-left');
+    const btnRight = document.getElementById('reviews-scroll-right');
+
+    if (!track) return;
+
+    // 1. Clone cards for infinite seamless scrolling
+    const originalCards = Array.from(track.children);
+    
+    // Append clones to the end
+    originalCards.forEach(card => {
+        const cloneAfter = card.cloneNode(true);
+        track.appendChild(cloneAfter);
+    });
+
+    // Prepend clones to the beginning
+    originalCards.slice().reverse().forEach(card => {
+        const cloneBefore = card.cloneNode(true);
+        track.insertBefore(cloneBefore, track.firstChild);
+    });
+
+    // Calculate card offset + gap
+    const getCardOffset = () => {
+        const firstCard = track.querySelector('.review-card');
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.gap) || 16;
+        return firstCard.offsetWidth + gap;
+    };
+
+    // Center the active card in view on load so BOTH sides bleed in immediately
+    const centerInitialCard = () => {
+        const cardWidth = getCardOffset();
+        const setWidth = originalCards.length * cardWidth;
+        
+        // Calculate offset to place the card exactly in the center of the viewport
+        const trackWidth = track.clientWidth;
+        const singleCardWidth = track.querySelector('.review-card').offsetWidth;
+        const centerPadding = (trackWidth - singleCardWidth) / 2;
+
+        track.style.scrollBehavior = 'auto'; // Disable smooth scroll for instant placement
+        track.scrollLeft = setWidth - centerPadding;
+        track.style.scrollBehavior = 'smooth';
+    };
+
+    // Run centering immediately
+    centerInitialCard();
+
+    // Re-center on window resize to preserve the exact center peek ratio
+    window.addEventListener('resize', centerInitialCard);
+
+    // 2. Arrow Controls
+    if (btnLeft && btnRight) {
+        btnLeft.addEventListener('click', () => {
+            track.scrollBy({ left: -getCardOffset(), behavior: 'smooth' });
+        });
+
+        btnRight.addEventListener('click', () => {
+            track.scrollBy({ left: getCardOffset(), behavior: 'smooth' });
+        });
+    }
+
+    // 3. Infinite Seamless Reset Loop
+    let isResetting = false;
+
+    track.addEventListener('scroll', () => {
+        if (isResetting) return;
+
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        const currentScroll = track.scrollLeft;
+        const setWidth = originalCards.length * getCardOffset();
+
+        // Far right reset
+        if (currentScroll >= maxScroll - 50) {
+            isResetting = true;
+            track.style.scrollBehavior = 'auto';
+            track.scrollLeft = currentScroll - setWidth;
+            track.style.scrollBehavior = 'smooth';
+            isResetting = false;
+        }
+
+        // Far left reset
+        if (currentScroll <= 50) {
+            isResetting = true;
+            track.style.scrollBehavior = 'auto';
+            track.scrollLeft = currentScroll + setWidth;
+            track.style.scrollBehavior = 'smooth';
+            isResetting = false;
+        }
+    });
+});
