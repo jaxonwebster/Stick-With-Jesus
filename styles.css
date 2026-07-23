@@ -1742,3 +1742,203 @@ footer {
     .strip-nav-btn.prev-btn, .reviews-arrow.prev { left: 6px; }
     .strip-nav-btn.next-btn, .reviews-arrow.next { right: 6px; }
 }
+
+
+/* ==========================================================================
+   BLOG PAGE LAYOUT & CARDS
+   ========================================================================== */
+
+.blog-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+/* Individual Card Styling */
+.blog-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Card Image & Badges */
+.blog-card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.blog-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-card-img {
+    transform: scale(1.04);
+}
+
+.blog-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.tag-devotional { background-color: var(--brand-terracotta, #C85A28); }
+.tag-behind-the-scenes { background-color: var(--brand-sage, #5C8A75); }
+.tag-community { background-color: var(--brand-lavender, #BD8CBF); }
+
+/* Card Content Typography */
+.blog-card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-meta {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 10px;
+}
+
+.blog-title {
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.blog-title a {
+    color: var(--brand-navy, #1A1C3B);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.blog-title a:hover {
+    color: var(--brand-terracotta, #C85A28);
+}
+
+.blog-excerpt {
+    font-size: 0.95rem;
+    color: #4A5568;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.blog-read-more {
+    font-weight: 700;
+    color: var(--brand-terracotta, #C85A28);
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.blog-read-more:hover {
+    transform: translateX(4px);
+}
+
+/* --- FEATURED POST (Spans full grid width) --- */
+.blog-card.featured-post {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.blog-card.featured-post .blog-card-img-wrapper {
+    height: 100%;
+    min-height: 320px;
+}
+
+.blog-card.featured-post .blog-card-content {
+    padding: 36px;
+    justify-content: center;
+}
+
+.blog-card.featured-post .blog-title {
+    font-size: 1.75rem;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 850px) {
+    .blog-layout {
+        grid-template-columns: 1fr; /* Stack into 1 column on smaller screens */
+        gap: 24px;
+    }
+
+    .blog-card.featured-post {
+        grid-template-columns: 1fr; /* Stack featured post image over text */
+    }
+
+    .blog-card.featured-post .blog-card-img-wrapper {
+        height: 240px;
+        min-height: auto;
+    }
+
+    .blog-card.featured-post .blog-card-content {
+        padding: 24px;
+    }
+}
+/* Clean Blog Card Buttons */
+.blog-card .btn-cute {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Keep button width fitting the text nicely */
+    width: fit-content; 
+    align-self: flex-start; /* Aligns to left on grid cards */
+    
+    padding: 10px 22px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+    border-radius: 25px; /* Smooth pill shape */
+    background-color: var(--brand-terracotta, #C85A28);
+    color: #ffffff;
+    border: none;
+    
+    box-shadow: 0 3px 10px rgba(200, 90, 40, 0.25);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    
+    /* Spacing away from card bottom & excerpt text */
+    margin-top: auto; 
+    margin-bottom: 8px;
+}
+
+/* Hover Effect */
+.blog-card .btn-cute:hover {
+    background-color: #B24E21; /* Slightly darker terracotta */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(200, 90, 40, 0.35);
+}
+
+/* Featured Post Adjustment (Right-align or center cleanly) */
+.blog-card.featured-post .btn-cute {
+    margin-top: 12px;
+}

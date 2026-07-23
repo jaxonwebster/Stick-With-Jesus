@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Stick With Jesus</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .single-post-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+        .post-header-img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 24px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .post-article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+        .post-article-body p {
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--brand-terracotta, #C85A28);
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                </div>
+            </button>
+            <div class="logo">Stick With <span>Jesus</span></div>
+            <ul class="nav-links" id="navbar-links-drawer">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop Stickers</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
+            <div class="cart-container-item">
+                <a href="cart.html" class="cart-anchor-wrapper">
+                    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span id="cart-count-badge" class="cart-count-badge">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="interior-content-space">
+        <main class="single-post-container" id="post-target">
+            <!-- Article content will dynamically populate here via JavaScript below -->
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h2>Stick With Jesus</h2>
+                <p>Premium faith-filled stickers crafted to share light, beauty, and truth daily.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stick With Jesus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="shop-engine.js"></script>
+    <script>
+        // Article Database Dictionary
+        const BLOG_POSTS_DATA = {
+            "finding-peace": {
+                title: "Finding Peace in Everyday Sticking Points",
+                date: "July 18, 2026",
+                readTime: "4 min read",
+                image: "images/IMG_1642 (1).jpg",
+                content: `
+                    <p>Life comes at us fast, but anchoring our hearts on simple daily reminders can re-center our trust in Him. When our schedules become overwhelming, we often lose sight of small moments where grace meets us.</p>
+                    <p>Keeping God's Word in plain view on your phone, water bottle, or journal serves as a gentle prompt to stop, breathe, and pray throughout your day.</p>
+                    <p>Remember: peace is not the absence of busyness, but the presence of Christ in the middle of it.</p>
+                `
+            },
+            "behind-the-palette": {
+                title: "Behind the Palette: Designing Floral Scriptures",
+                date: "July 02, 2026",
+                readTime: "3 min read",
+                image: "images/image_248dd8.png",
+                content: `
+                    <p>Every floral detail and custom lettering piece begins with a quiet moment in prayer and a sketch pad.</p>
+                    <p>We blend hand-drawn botanical illustrations with high-grade vinyl printing so that each piece is not only inspiring, but durable enough to withstand daily life on water bottles, cars, and notebooks.</p>
+                `
+            },
+            "faith-on-the-go": {
+                title: "Faith on the Go: Conversations Started by Water Bottle Art",
+                date: "June 21, 2026",
+                readTime: "5 min read",
+                image: "images/aboutus.JPG",
+                content: `
+                    <p>You never know who might be encouraged by a verse on your water bottle or laptop! A simple sticker often serves as a warm, open door to share faith and offer encouragement.</p>
+                    <p>Our community members frequently tell us how co-workers, classmates, or fellow commuters noticed a sticker and started a meaningful conversation about faith.</p>
+                `
+            }
+        };
+
+        // Render dynamic post content on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const postId = params.get('id');
+            const target = document.getElementById('post-target');
+            const post = BLOG_POSTS_DATA[postId];
+
+            if (post) {
+                document.title = `${post.title} | Stick With Jesus`;
+                target.innerHTML = `
+                    <a href="blog.html" class="back-link">&larr; Back to all posts</a>
+                    <div class="blog-meta">
+                        <span class="blog-date">${post.date}</span>
+                        <span class="blog-read-time">• ${post.readTime}</span>
+                    </div>
+                    <h1 style="font-size: 2.2rem; color: var(--brand-navy, #1A1C3B); margin-top: 8px;">${post.title}</h1>
+                    <img src="${post.image}" alt="${post.title}" class="post-header-img">
+                    <div class="post-article-body">
+                        ${post.content}
+                    </div>
+                `;
+            } else {
+                target.innerHTML = `
+                    <a href="blog.html" class="back-link">&larr; Back to blog</a>
+                    <h2>Post Not Found</h2>
+                    <p>Sorry, the article you are looking for could not be found.</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

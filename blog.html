@@ -10,55 +10,102 @@
 
     <header>
         <nav class="navbar">
-    <!-- True CSS Animation Hamburger Menu Trigger Button -->
-    <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
-        <div class="hamburger-box">
-            <div class="hamburger-inner"></div>
-            <div class="hamburger-inner"></div>
-            <div class="hamburger-inner"></div>
-        </div>
-    </button>
+            <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                </div>
+            </button>
 
-    <div class="logo">Stick With <span>Jesus</span></div>
-    
-    <ul class="nav-links" id="navbar-links-drawer">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Shop Stickers</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
+            <div class="logo">Stick With <span>Jesus</span></div>
+            
+            <ul class="nav-links" id="navbar-links-drawer">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop Stickers</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
 
-    <div class="cart-container-item">
-        <a href="cart.html" class="cart-anchor-wrapper">
-            <svg class="cart-icon-svg" viewBox="0 0 24 24">
-                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
-            </svg>
-            <span id="cart-count-badge" class="cart-count-badge">0</span>
-        </a>
-    </div>
-</nav>
+            <div class="cart-container-item">
+                <a href="cart.html" class="cart-anchor-wrapper">
+                    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span id="cart-count-badge" class="cart-count-badge">0</span>
+                </a>
+            </div>
+        </nav>
     </header>
 
-<!-- UPDATED: Swapped hero-small for hero-wrapper medium-hero -->
+    <!-- Hero Section -->
     <section class="hero-wrapper medium-hero">
-        <!-- A unique open Bible or journaling image for your writing space -->
         <img src="images/blog-banner-bg.jpg" alt="Faith Blog Musings" class="hero-bg-img">
-        
         <div class="hero-overlay"></div>
-        
         <div class="hero-content">
             <h1 class="stagger-title">
-    <span>B</span><span>l</span><span>o</span><span>g</span>
-</h1>
-            <!-- Added hero-subtitle class for consistent text styling -->
+                <span>B</span><span>l</span><span>o</span><span>g</span>
+            </h1>
             <p class="hero-subtitle">Devotionals, updates, and scriptural inspiration behind the art.</p>
         </div>
     </section>
 
+    <!-- Main Content Area -->
     <div class="interior-content-space">
-        <main class="container blog-layout" id="blog-posts-container"></main>
+        <main class="container blog-layout" id="blog-posts-container">
+
+            <!-- FEATURED POST -->
+            <article class="blog-card featured-post">
+                <div class="blog-card-img-wrapper">
+                    <img src="images/IMG_1642 (1).jpg" alt="Devotional Bible Journaling" class="blog-card-img">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">July 18, 2026</span>
+                        <span class="blog-read-time">• 4 min read</span>
+                    </div>
+                    <h2 class="blog-title"><a href="post.html?id=finding-peace">Finding Peace in Everyday Sticking Points</a></h2>
+                    <p class="blog-excerpt">Life comes at us fast, but anchoring our hearts on simple daily reminders can re-center our trust in Him. Here is how keeping God's Word in plain view helps guard our heart through busy seasons.</p>
+                    <a href="post.html?id=finding-peace" class="btn-cute btn-orange">Read Full Story</a>
+                </div>
+            </article>
+
+            <!-- POST 2 -->
+            <article class="blog-card">
+                <div class="blog-card-img-wrapper">
+                    <img src="images/image_248dd8.png" alt="Behind the Design Process" class="blog-card-img">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">July 02, 2026</span>
+                        <span class="blog-read-time">• 3 min read</span>
+                    </div>
+                    <h2 class="blog-title"><a href="post.html?id=behind-the-palette">Behind the Palette: Designing Floral Scriptures</a></h2>
+                    <p class="blog-excerpt">Take a peek behind the curtain! We explore how hand-illustrated botanical elements are paired with timeless scripture to create durable, beautiful reminders.</p>
+                    <a href="post.html?id=behind-the-palette" class="btn-cute btn-orange">Read Full Story</a>
+                </div>
+            </article>
+
+            <!-- POST 3 -->
+            <article class="blog-card">
+                <div class="blog-card-img-wrapper">
+                    <img src="images/aboutus.JPG" alt="Hydro Flask Stickers in Action" class="blog-card-img">
+                </div>
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">June 21, 2026</span>
+                        <span class="blog-read-time">• 5 min read</span>
+                    </div>
+                    <h2 class="blog-title"><a href="post.html?id=faith-on-the-go">Faith on the Go: Conversations Started by Water Bottle Art</a></h2>
+                    <p class="blog-excerpt">You never know who might be encouraged by a verse on your water bottle or laptop. Read real stories from our community on how simple stickers sparked sweet conversations.</p>
+                    <a href="post.html?id=faith-on-the-go" class="btn-cute btn-orange">Read Full Story</a>
+                </div>
+            </article>
+
+        </main>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
@@ -70,6 +117,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Shop Stickers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-col">
