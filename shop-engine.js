@@ -146,7 +146,7 @@ const STICKER_PRODUCTS = [
         isCustomizable: false, 
         category: "religious", 
         color: "pink", 
-        photos: ["images/fruit1.jpg", "images/fruit2.jpg", "images/fruit3.jpg"], 
+        photos: ["images/fruit2.jpg", "images/fruit1.jpg", "images/fruit3.jpg"], 
         desc: "Elegant floral garland framing historic trust statements perfectly.", 
         reviews: ["The matte texture feels premium. - Megan H."] 
     },
@@ -284,19 +284,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initScrollAnimations() {
-    const targets = document.querySelectorAll('.home-section, .container, .blog-summary-card, .checkout-box, .product-card, .review-card, .about-text');
+    // Select static containers and review cards
+    const targets = document.querySelectorAll('.home-section, .container, .blog-summary-card, .checkout-box, .review-card, .about-text');
     targets.forEach(sec => sec.classList.add('scroll-reveal'));
 
-    const revealObserver = new IntersectionObserver((entries) => {
+    // Global observer function
+    window.globalScrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                revealObserver.unobserve(entry.target);
+                window.globalScrollObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.02, rootMargin: "0px 0px -40px 0px" });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
 
-    targets.forEach(sec => revealObserver.observe(sec));
+    // Observe static elements
+    targets.forEach(sec => window.globalScrollObserver.observe(sec));
 }
 
 // --- Cart Badge Management ---
@@ -411,8 +414,9 @@ function renderCatalog(productsList) {
             ? `<div class="card-tape-badge">Bestseller</div>` 
             : '';
 
+        // ADDED: scroll-reveal class added to card container
         const cardHtml = `
-            <div class="product-card ${product.isBestseller ? 'has-tape-badge' : ''}" onclick="location.href='products.html?id=${product.id}'">
+            <div class="product-card scroll-reveal ${product.isBestseller ? 'has-tape-badge' : ''}" onclick="location.href='products.html?id=${product.id}'">
                 ${bestsellerBadge}
                 <div class="product-img-wrapper">
                     <img src="${product.photos[0]}" alt="${product.name}" class="product-img">
@@ -426,6 +430,12 @@ function renderCatalog(productsList) {
         `;
         catalogGrid.insertAdjacentHTML('beforeend', cardHtml);
     });
+
+    // Observe newly rendered product cards for scroll-up effect
+    if (window.globalScrollObserver) {
+        const dynamicCards = catalogGrid.querySelectorAll('.product-card.scroll-reveal');
+        dynamicCards.forEach(card => window.globalScrollObserver.observe(card));
+    }
 }
 
 function triggerButtonCheckmark(btnElement, originalText) {

@@ -1125,10 +1125,16 @@ footer {
 
 /* Small Mobile Screens (Under 600px) */
 @media (max-width: 600px) {
-    .grid-gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        padding: 0 10px;
+    .grid-gallery, 
+    #products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 12px; /* Keep horizontal gap comfortable */
+        row-gap: 28px;    /* Adds extra vertical space between rows */
+    }
+    /* Prevents tape badges on top from overlapping the row above */
+    .product-card {
+        margin-top: 6px;
     }
 
     .product-title {
@@ -1165,6 +1171,25 @@ footer {
 .reviews-page-container {
     padding-top: 50px;          /* Gives clean breathing room under hero */
     padding-bottom: 80px;
+}
+/* Breathing room above the Product Detail Feedback block */
+.reviews-section {
+    margin-top: 45px !important; /* Pushes feedback down away from Add to Cart */
+    padding-top: 25px;
+    border-top: 1px solid var(--border-subtle, #f1f5f9); /* Optional subtle divider */
+}
+/* Initial hidden state (shifted down and transparent) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Active revealed state */
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Ensure container wrapper adds top breathing room on pages without dedicated section tags */
