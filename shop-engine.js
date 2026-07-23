@@ -368,12 +368,31 @@ function initScrollAnimations() {
                 window.globalScrollObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+    }, { threshold: 0.05, rootMargin: "0px 0px -10px 0px" }); // Slightly reduced threshold for quicker activation
 
     // Observe static elements
     targets.forEach(sec => window.globalScrollObserver.observe(sec));
+
+    // FIX: Reveal top-of-page items immediately if they are visible on load
+    setTimeout(checkAboveTheFoldVisibility, 50);
 }
 
+// Helper to reveal elements that are already visible in the viewport on initial load
+function checkAboveTheFoldVisibility() {
+    const reveals = document.querySelectorAll('.scroll-reveal:not(.active)');
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // If the top of the element is within or near the top viewport area on load, reveal it!
+        if (rect.top < windowHeight * 0.9) {
+            el.classList.add('active');
+            if (window.globalScrollObserver) {
+                window.globalScrollObserver.unobserve(el);
+            }
+        }
+    });
+}
 // --- Cart Badge Management ---
 function updateCartBadge() {
     const badge = document.getElementById('cart-count-badge') || document.querySelector('.cart-count-badge');
