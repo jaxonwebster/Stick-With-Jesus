@@ -844,16 +844,44 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-center on window resize to preserve the exact center peek ratio
     window.addEventListener('resize', centerInitialCard);
 
-    // 2. Arrow Controls
-    if (btnLeft && btnRight) {
-        btnLeft.addEventListener('click', () => {
-            track.scrollBy({ left: -getCardOffset(), behavior: 'smooth' });
-        });
+   // Helper function to animate scroll with custom speed/duration
+function slowScrollTrack(container, distance, duration) {
+    const startPos = container.scrollLeft;
+    const startTime = performance.now();
 
-        btnRight.addEventListener('click', () => {
-            track.scrollBy({ left: getCardOffset(), behavior: 'smooth' });
-        });
+    // Ease-in-out quadratic curve for a natural, buttery-smooth feel
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     }
+
+    function animateScroll(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        const ease = easeInOutQuad(progress);
+
+        container.scrollLeft = startPos + distance * ease;
+
+        if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+
+    requestAnimationFrame(animateScroll);
+}
+
+// 2. Arrow Controls with Custom Speed
+if (btnLeft && btnRight) {
+    // Change this value to adjust speed (e.g., 800ms = 0.8s, 1200ms = 1.2s)
+    const SCROLL_DURATION = 500; // Slower, elegant scroll duration
+
+    btnLeft.addEventListener('click', () => {
+        slowScrollTrack(track, -getCardOffset(), SCROLL_DURATION);
+    });
+
+    btnRight.addEventListener('click', () => {
+        slowScrollTrack(track, getCardOffset(), SCROLL_DURATION);
+    });
+}
 
     // 3. Infinite Seamless Reset Loop
     let isResetting = false;
