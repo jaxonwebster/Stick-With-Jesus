@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { cart, customerEmail, applyInstaDiscount } = req.body;
+    const { cart, customerEmail } = req.body;
 
     if (!cart || !Array.isArray(cart) || cart.length === 0) {
       return res.status(400).json({ error: 'Cart is empty' });
@@ -74,12 +74,13 @@ module.exports = async (req, res) => {
       origin += '/';
     }
 
-    // Build Checkout Session Payload
+    // Build Checkout Session Payload with manual promo codes enabled
     const sessionPayload = {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
       customer_email: customerEmail || undefined,
+      allow_promotion_codes: true, // Enables manual promo code input at checkout
       shipping_address_collection: {
         allowed_countries: ['US', 'CA'],
       },
@@ -94,17 +95,6 @@ module.exports = async (req, res) => {
       success_url: `${origin}cart.html?success=true`,
       cancel_url: `${origin}cart.html?canceled=true`,
     };
-
-    // Automatically attach promo code if user claimed the Instagram discount
-    if (applyInstaDiscount) {
-      sessionPayload.discounts = [
-        {
-          promotion_code: 'promo_1Twjc4Ro3U7iX6n74UOncDuM',
-        },
-      ];
-    } else {
-      sessionPayload.allow_promotion_codes = true;
-    }
 
     const session = await stripe.checkout.sessions.create(sessionPayload);
 

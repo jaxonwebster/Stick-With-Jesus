@@ -1155,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bannerText.innerHTML = `Use promo code <strong style="background: #fff; padding: 2px 8px; border-radius: 4px; color: var(--brand-purple);">INSTA10</strong> at checkout for 10% off!`;
       }
       
-      window.open('https://www.instagram.com/stickwithjesusco', '_blank');
+      window.open('https://www.instagram.com/stickwithjesusco?igsh=MXc4MDY1a29heGw3aw%3D%3D&utm_source=qr', '_blank');
     });
   }
 });
