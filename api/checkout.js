@@ -79,26 +79,16 @@ module.exports = async (req, res) => {
     }
 
     // Create the session
-   // 1. Attach your tax rate ID to each line item in the cart
-const lineItems = cart.map(item => ({
-  price: item.stripePriceId,
-  quantity: item.chosenQty,
-  tax_rates: ['txr_1Twjj8Ro3U7iX6n7EUAW7TiS'], // <-- Tax rate attached here
-}));
-
-// 2. Create the Checkout Session
-const session = await stripe.checkout.sessions.create({
-  payment_method_types: ['card'],
-  line_items: lineItems,
-  mode: 'payment',
-  customer_email: customerEmail || undefined,
-  allow_promotion_codes: true,
-  shipping_address_collection: {
-    allowed_countries: ['US', 'CA'],
-  },
-  success_url: `${req.headers.origin}/products.html?success=true`,
-  cancel_url: `${req.headers.origin}/cart.html?canceled=true`,
-});
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: lineItems,
+      mode: 'payment',
+      customer_email: customerEmail || undefined,
+      allow_promotion_codes: true,
+      // Collect recipient shipping address
+      shipping_address_collection: {
+        allowed_countries: ['US', 'CA'],
+      },
 
       // Attached Shipping Rate ID
       shipping_options: [
