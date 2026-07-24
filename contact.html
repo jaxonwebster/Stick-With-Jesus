@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Stick With Jesus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <button class="menu-toggle-btn" onclick="toggleMobileNavMenu(this)" aria-label="Toggle Menu">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                    <div class="hamburger-inner"></div>
+                </div>
+            </button>
+
+            <div class="logo">Stick With <span>Jesus</span></div>
+            
+            <ul class="nav-links" id="navbar-links-drawer">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop Stickers</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+
+            <div class="cart-container-item">
+                <a href="cart.html" class="cart-anchor-wrapper">
+                    <svg class="cart-icon-svg" viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span id="cart-count-badge" class="cart-count-badge">0</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="hero-wrapper medium-hero">
+        <img src="images/stickermaking.jpg" alt="Contact Us Banner" class="hero-bg-img">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1 class="stagger-title">
+                <span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span>
+                &nbsp;
+                <span>U</span><span>s</span>
+            </h1>
+            <p class="hero-subtitle">Have a question or custom design request? We'd love to hear from you!</p>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="interior-content-space">
+        <main class="container" style="max-width: 750px; margin: 0 auto;">
+            <div class="checkout-box" style="padding: 35px 30px;">
+                <h2 style="font-family: var(--font-heading); text-transform: uppercase; color: var(--brand-navy); margin-bottom: 8px;">Get In Touch</h2>
+                <p style="font-size: 0.95rem; color: #64748b; margin-bottom: 25px; line-height: 1.5;">Fill out the form below and our team will get back to you as soon as possible.</p>
+                
+                <hr style="margin: 0 0 25px 0; border: 0; border-top: 1px solid var(--border-subtle);">
+
+                <form action="https://formspree.io/f/xaqrpgbz" method="POST" id="contact-form">
+                    
+                    <!-- First & Last Name Row -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                        <div class="form-group">
+                            <label for="first-name" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">First Name *</label>
+                            <input type="text" id="first-name" name="First Name" required placeholder="Jane" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">Last Name *</label>
+                            <input type="text" id="last-name" name="Last Name" required placeholder="Doe" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px;">
+                        </div>
+                    </div>
+
+                    <!-- Email & Phone Row -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                        <div class="form-group">
+                            <label for="email" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">Email Address *</label>
+                            <input type="email" id="email" name="Email" required placeholder="jane@example.com" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">Phone Number</label>
+                            <input type="tel" id="phone" name="Phone" placeholder="(555) 000-0000" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px;">
+                        </div>
+                    </div>
+
+                    <!-- Options Row: Custom Design & Bulk Request -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 20px;">
+                        <div class="form-group">
+                            <label for="custom-design" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">Are you requesting a custom design?</label>
+                            <select id="custom-design" name="Custom Design Requested?" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px; font-weight: 600;">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bulk-order" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">Is this a bulk order inquiry?</label>
+                            <select id="bulk-order" name="Is Bulk Order?" onchange="toggleBulkQuantityField(this.value)" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px; font-weight: 600;">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Conditional Bulk Quantity Field (Hidden by Default) -->
+                    <div id="bulk-quantity-group" class="form-group" style="display: none; margin-bottom: 20px; background-color: #f3effa; padding: 16px; border-radius: 8px; border: 1px solid #dcd0f0;">
+                        <label for="bulk-quantity" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-purple);">Estimated Quantity of Stickers *</label>
+                        <input type="number" id="bulk-quantity" name="Bulk Quantity Requested" min="1" placeholder="e.g. 50, 100, 250" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px;">
+                    </div>
+
+                    <!-- General / Other Inquiry Topic -->
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="inquiry-topic" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">Are you contacting about something else?</label>
+                        <select id="inquiry-topic" name="Inquiry Topic" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px; font-weight: 600;">
+                            <option value="General Question">General Question</option>
+                            <option value="Shipping / Order Help">Shipping or Order Help</option>
+                            <option value="Wholesale / Church Group">Wholesale or Church Group Request</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Open Text Area for Messages -->
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label for="message" style="font-size: 0.85rem; font-weight: 700; color: var(--brand-navy);">Message / Details *</label>
+                        <textarea id="message" name="Message" rows="5" required placeholder="Tell us more about what you're looking for or how we can help!" style="width: 100%; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 6px; margin-top: 6px; font-family: inherit; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-cute" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-logo-circle">
+                    <img src="images/logo-circle.png" alt="Stick With Jesus Logo" class="footer-logo-img">
+                </div>
+                <h2>Stick With <span>Jesus</span></h2>
+                <p>Premium faith-filled stickers crafted to share light, beauty, and truth daily.</p>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/stickwithjesusco?igsh=MXc4MDY1a29heGw3aw%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+
+                    <a href="https://www.etsy.com/shop/your-shop" target="_blank" rel="noopener" aria-label="Etsy" class="social-icon-btn etsy-text-btn">
+                        <span>E</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">All Stickers</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="cart.html">View Cart</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stick With Jesus. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inline Script for Conditional Field Display -->
+    <script>
+        function toggleBulkQuantityField(val) {
+            const qtyGroup = document.getElementById('bulk-quantity-group');
+            const qtyInput = document.getElementById('bulk-quantity');
+            
+            if (val === 'Yes') {
+                qtyGroup.style.display = 'block';
+                qtyInput.setAttribute('required', 'required');
+            } else {
+                qtyGroup.style.display = 'none';
+                qtyInput.removeAttribute('required');
+                qtyInput.value = '';
+            }
+        }
+    </script>
+    <script src="shop-engine.js"></script>
+</body>
+</html>
