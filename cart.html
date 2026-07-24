@@ -67,25 +67,26 @@
                 </div>
                 
                 <!-- Right Column: Checkout Info & Direct Stripe Trigger -->
+<!-- Right Column: Checkout Info & Direct Stripe Trigger -->
 <div class="checkout-box">
     <h3>Order Summary</h3>
     <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-subtle);">
     
-    <!-- Active Discount Badge / Line Item -->
-    <div id="cart-discount-row" style="display: none; justify-content: space-between; align-items: center; margin-bottom: 12px; background-color: #f3effa; padding: 8px 12px; border-radius: 8px; border: 1px solid #dcd0f0;">
-        <span style="font-size: 0.85rem; color: #8a2be2; font-weight: 700; display: flex; align-items: center; gap: 4px;">
-            ✨ Instagram 10% Off
+    <!-- Promo Code Reminder Badge -->
+    <div id="cart-discount-row" style="display: none; align-items: center; justify-content: space-between; margin-bottom: 20px; background-color: #f3effa; padding: 10px 14px; border-radius: 8px; border: 1px solid #dcd0f0;">
+        <span style="font-size: 0.85rem; color: #A968AC; font-weight: 600;">
+            Promo Code Unlocked:
         </span>
-        <strong id="cart-discount-amount" style="color: #8a2be2; font-size: 0.95rem;">-$0.00</strong>
+        <strong style="color: #8a2be2; font-size: 0.95rem; background: #fff; padding: 2px 8px; border-radius: 4px; border: 1px dashed #8a2be2;">INSTA10</strong>
     </div>
 
     <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 25px;">
-        <span>Total Due:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
+        <span>Subtotal:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
     </p>
     
     <form id="order-form" onsubmit="handleCheckout(event)">
-        <p style="font-size: 0.85rem; color: #515779; margin-bottom: 20px; line-height: 1.4;">
-            Shipping and payment details will be entered securely on the Stripe payment page.
+        <p style="font-size: 0.85rem; color: #674160; margin-bottom: 20px; line-height: 1.4;">
+            Enter code <strong>INSTA10</strong> under "Add Promotion Code" on the payment page for 10% off.
         </p>
 
         <button type="submit" class="btn-cute" style="width: 100%;">Proceed to Secure Payment</button>

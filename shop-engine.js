@@ -766,18 +766,14 @@ function renderCart() {
     // --- Discount Check & Summary Calculation ---
     const hasDiscount = localStorage.getItem('swj_10off_claimed') === 'true';
     const discountRow = document.getElementById('cart-discount-row');
-    const discountAmountElem = document.getElementById('cart-discount-amount');
 
-    if (hasDiscount) {
-        const discountVal = totalCartDue * 0.10;
-        const finalTotal = totalCartDue - discountVal;
+    // Show the code box if they clicked the Instagram link, hide if they haven't
+    if (discountRow) {
+        discountRow.style.display = hasDiscount ? 'flex' : 'none';
+    }
 
-        if (discountRow) discountRow.style.display = 'flex';
-        if (discountAmountElem) discountAmountElem.innerText = `-$${discountVal.toFixed(2)}`;
-        if (totalHook) totalHook.innerText = `$${finalTotal.toFixed(2)}`;
-    } else {
-        if (discountRow) discountRow.style.display = 'none';
-        if (totalHook) totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
+    if (totalHook) {
+        totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
     }
 }
 
@@ -1149,9 +1145,17 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeBtn) closeBtn.addEventListener('click', closeBanner);
 
   if (instaBtn) {
-    instaBtn.addEventListener('click', () => {
+    instaBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      
       localStorage.setItem('swj_10off_claimed', 'true');
-      closeBanner();
+      
+      const bannerText = document.getElementById('promo-banner-text');
+      if (bannerText) {
+        bannerText.innerHTML = `Use promo code <strong style="background: #fff; padding: 2px 8px; border-radius: 4px; color: var(--brand-purple);">INSTA10</strong> at checkout for 10% off!`;
+      }
+      
+      window.open('https://www.instagram.com/stickwithjesusco', '_blank');
     });
   }
 });
