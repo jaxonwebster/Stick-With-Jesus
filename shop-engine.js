@@ -247,7 +247,7 @@ const STICKER_PRODUCTS = [
         desc: "Fun and durable high-grade outdoor vinyl sticker.", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
-     { 
+    { 
         id: 21, 
         stripePriceId: "price_1TwQxsRo3U7iX6n7p9hYd73F", 
         name: "NYC Subway Map", 
@@ -368,12 +368,12 @@ function initScrollAnimations() {
                 window.globalScrollObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.05, rootMargin: "0px 0px -10px 0px" }); // Slightly reduced threshold for quicker activation
+    }, { threshold: 0.05, rootMargin: "0px 0px -10px 0px" });
 
     // Observe static elements
     targets.forEach(sec => window.globalScrollObserver.observe(sec));
 
-    // FIX: Reveal top-of-page items immediately if they are visible on load
+    // Reveal top-of-page items immediately if they are visible on load
     setTimeout(checkAboveTheFoldVisibility, 50);
 }
 
@@ -384,7 +384,6 @@ function checkAboveTheFoldVisibility() {
 
     reveals.forEach(el => {
         const rect = el.getBoundingClientRect();
-        // If the top of the element is within or near the top viewport area on load, reveal it!
         if (rect.top < windowHeight * 0.9) {
             el.classList.add('active');
             if (window.globalScrollObserver) {
@@ -393,6 +392,7 @@ function checkAboveTheFoldVisibility() {
         }
     });
 }
+
 // --- Cart Badge Management ---
 function updateCartBadge() {
     const badge = document.getElementById('cart-count-badge') || document.querySelector('.cart-count-badge');
@@ -426,14 +426,11 @@ function toggleFilterPanel(open) {
 }
 
 function applyFilters() {
-    // Collect all checked values into arrays
     const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => cb.value);
     const selectedColors = Array.from(document.querySelectorAll('input[name="color-filter"]:checked')).map(cb => cb.value);
 
-    // Filter out cart-exclusive products (like the Mystery Sticker) first
     let filtered = STICKER_PRODUCTS.filter(p => !p.isExclusive);
 
-    // Filter by categories if any are checked (handles string or array category formats)
     if (selectedCategories.length > 0) {
         filtered = filtered.filter(p => {
             if (Array.isArray(p.category)) {
@@ -443,7 +440,6 @@ function applyFilters() {
         });
     }
 
-    // Filter by colors if any are checked
     if (selectedColors.length > 0) {
         filtered = filtered.filter(p => selectedColors.includes(p.color));
     }
@@ -461,7 +457,6 @@ function renderActiveFilterBadges() {
     const selectedCategoryBoxes = document.querySelectorAll('input[name="category"]:checked');
     const selectedColorBoxes = document.querySelectorAll('input[name="color-filter"]:checked');
 
-    // Create an individual removable badge for every checked category
     selectedCategoryBoxes.forEach(cb => {
         const labelText = cb.parentElement.textContent.trim();
         const badge = document.createElement('span');
@@ -470,7 +465,6 @@ function renderActiveFilterBadges() {
         badgesContainer.appendChild(badge);
     });
 
-    // Create an individual removable badge for every checked color
     selectedColorBoxes.forEach(cb => {
         const labelText = cb.parentElement.textContent.trim();
         const badge = document.createElement('span');
@@ -496,7 +490,6 @@ function renderCatalog(productsList) {
     if (!catalogGrid) return;
     catalogGrid.innerHTML = '';
 
-    // Filter out exclusive/cart-only items so they never show in shop catalog
     const publicProducts = productsList.filter(p => !p.isExclusive);
 
     if (publicProducts.length === 0) {
@@ -505,12 +498,10 @@ function renderCatalog(productsList) {
     }
 
     publicProducts.forEach(product => {
-        // Taped-On Bestseller Badge HTML
         const bestsellerBadge = product.isBestseller 
             ? `<div class="card-tape-badge">Bestseller</div>` 
             : '';
 
-        // ADDED: scroll-reveal class added to card container
         const cardHtml = `
             <div class="product-card scroll-reveal ${product.isBestseller ? 'has-tape-badge' : ''}" onclick="location.href='products.html?id=${product.id}'">
                 ${bestsellerBadge}
@@ -527,7 +518,6 @@ function renderCatalog(productsList) {
         catalogGrid.insertAdjacentHTML('beforeend', cardHtml);
     });
 
-    // Observe newly rendered product cards for scroll-up effect
     if (window.globalScrollObserver) {
         const dynamicCards = catalogGrid.querySelectorAll('.product-card.scroll-reveal');
         dynamicCards.forEach(card => window.globalScrollObserver.observe(card));
@@ -585,7 +575,7 @@ function quickAddCatalogItem(productId, btnElement) {
 
 function renderProductDetails(id) {
     const product = STICKER_PRODUCTS.find(p => p.id === id);
-    if (!product || product.isExclusive) return; // Block details rendering for cart-only exclusives
+    if (!product || product.isExclusive) return;
 
     const catalogElement = document.getElementById('catalog-view');
     const detailElement = document.getElementById('detail-view');
@@ -764,7 +754,6 @@ function renderCart() {
         cartHook.insertAdjacentHTML('beforeend', itemHtml);
     });
 
-    // --- Balanced & Clean Mystery Sticker Upsell ---
     const mysteryHtml = `
         <div style="margin-top: 24px; padding: 14px 18px; border: 1px solid var(--border-subtle); border-radius: 8px; background-color: var(--bg-soft, #fcfcfc); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
             <div>
@@ -890,6 +879,7 @@ async function handleCheckout(event) {
     }
 }
 
+// --- Reviews Infinite Carousel ---
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('reviews-strip-track');
     const btnLeft = document.getElementById('reviews-scroll-left');
@@ -897,22 +887,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!track) return;
 
-    // 1. Clone cards for infinite seamless scrolling
     const originalCards = Array.from(track.children);
     
-    // Append clones to the end
     originalCards.forEach(card => {
         const cloneAfter = card.cloneNode(true);
         track.appendChild(cloneAfter);
     });
 
-    // Prepend clones to the beginning
     originalCards.slice().reverse().forEach(card => {
         const cloneBefore = card.cloneNode(true);
         track.insertBefore(cloneBefore, track.firstChild);
     });
 
-    // Calculate card offset + gap
     const getCardOffset = () => {
         const firstCard = track.querySelector('.review-card');
         const style = window.getComputedStyle(track);
@@ -920,33 +906,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return firstCard.offsetWidth + gap;
     };
 
-    // Center the active card in view on load so BOTH sides bleed in immediately
     const centerInitialCard = () => {
         const cardWidth = getCardOffset();
         const setWidth = originalCards.length * cardWidth;
         
-        // Calculate offset to place the card exactly in the center of the viewport
         const trackWidth = track.clientWidth;
         const singleCardWidth = track.querySelector('.review-card').offsetWidth;
         const centerPadding = (trackWidth - singleCardWidth) / 2;
 
-        track.style.scrollBehavior = 'auto'; // Disable smooth scroll for instant placement
+        track.style.scrollBehavior = 'auto';
         track.scrollLeft = setWidth - centerPadding;
         track.style.scrollBehavior = 'smooth';
     };
 
-    // Run centering immediately
     centerInitialCard();
-
-    // Re-center on window resize to preserve the exact center peek ratio
     window.addEventListener('resize', centerInitialCard);
 
-    // Helper function to animate scroll with custom speed/duration
     function slowScrollTrack(container, distance, duration) {
         const startPos = container.scrollLeft;
         const startTime = performance.now();
 
-        // Ease-in-out quadratic curve for a natural, buttery-smooth feel
         function easeInOutQuad(t) {
             return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         }
@@ -966,10 +945,8 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animateScroll);
     }
 
-    // 2. Arrow Controls with Custom Speed
     if (btnLeft && btnRight) {
-        // Change this value to adjust speed (e.g., 800ms = 0.8s, 1200ms = 1.2s)
-        const SCROLL_DURATION = 500; // Slower, elegant scroll duration
+        const SCROLL_DURATION = 500;
 
         btnLeft.addEventListener('click', () => {
             slowScrollTrack(track, -getCardOffset(), SCROLL_DURATION);
@@ -980,7 +957,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Infinite Seamless Reset Loop
     let isResetting = false;
 
     track.addEventListener('scroll', () => {
@@ -990,7 +966,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentScroll = track.scrollLeft;
         const setWidth = originalCards.length * getCardOffset();
 
-        // Far right reset
         if (currentScroll >= maxScroll - 50) {
             isResetting = true;
             track.style.scrollBehavior = 'auto';
@@ -999,7 +974,6 @@ document.addEventListener('DOMContentLoaded', () => {
             isResetting = false;
         }
 
-        // Far left reset
         if (currentScroll <= 50) {
             isResetting = true;
             track.style.scrollBehavior = 'auto';
@@ -1008,4 +982,165 @@ document.addEventListener('DOMContentLoaded', () => {
             isResetting = false;
         }
     });
+});
+
+// --- FAQ Chatbot Handler ---
+document.addEventListener('DOMContentLoaded', () => {
+  const FAQ_DATA = [
+    {
+      id: 'shipping',
+      question: 'How long does shipping take?',
+      answer: 'Orders are processed in 1-2 weeks. Standard US shipping usually takes 3-5 business days!'
+    },
+    {
+      id: 'waterproof',
+      question: 'Are the stickers waterproof?',
+      answer: 'Yes! All of our stickers are 100% waterproof, and scratch resistant. We recommend washing your water bottle by hand, since the heat of a dishwasher could potentially cause peeling.'
+    },
+    {
+      id: 'discounts',
+      question: 'Do you offer bulk or discount codes?',
+      answer: 'Yes! You can enter coupon codes right at checkout. For bulk/church orders, send us a message via our Contact page.'
+    },
+    {
+      id: 'returns',
+      question: 'Can I track my order?',
+      answer: 'To keep our costs low, we do not offer tracking. We do, however, offer tracking on larger orders for a more expensive shipping fee. Submit bulk/custom orders on our Custom Orders page!'
+    },
+    {
+      id: 'coupon',
+      question: 'Do you have any sales going on right now?',
+      answer: 'Yes, we run promotions all the time! Check out our instagram (@stickwithjesusco) to see our latest news.'
+    }
+  ];
+
+  const toggleBtn = document.getElementById('chatbot-toggle-btn');
+  const closeBtn = document.getElementById('chatbot-close-btn');
+  const chatWindow = document.getElementById('chatbot-window');
+  const messagesContainer = document.getElementById('chatbot-messages');
+
+  let isOpen = false;
+
+  function toggleChat() {
+    isOpen = !isOpen;
+    chatWindow.classList.toggle('chatbot-hidden', !isOpen);
+    
+    if (isOpen && messagesContainer.children.length === 0) {
+      startChat();
+    }
+  }
+
+  if (toggleBtn) toggleBtn.addEventListener('click', toggleChat);
+  if (closeBtn) closeBtn.addEventListener('click', toggleChat);
+
+  function startChat() {
+    messagesContainer.innerHTML = '';
+    addBotBubble('Hi there! 👋 Welcome to Stick With Jesus. How can I help you today?');
+    showOptions();
+  }
+
+  function addBotBubble(text) {
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble bot';
+    bubble.textContent = text;
+    messagesContainer.appendChild(bubble);
+    scrollToBottom();
+  }
+
+  function addUserBubble(text) {
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble user';
+    bubble.textContent = text;
+    messagesContainer.appendChild(bubble);
+    scrollToBottom();
+  }
+
+  function showOptions() {
+    const optionsContainer = document.createElement('div');
+    optionsContainer.className = 'chat-options';
+
+    FAQ_DATA.forEach(faq => {
+      const btn = document.createElement('button');
+      btn.className = 'chat-option-btn';
+      btn.textContent = faq.question;
+      btn.onclick = () => handleQuestionClick(faq, optionsContainer);
+      optionsContainer.appendChild(btn);
+    });
+
+    messagesContainer.appendChild(optionsContainer);
+    scrollToBottom();
+  }
+
+  function handleQuestionClick(faq, optionsContainer) {
+    optionsContainer.remove();
+    addUserBubble(faq.question);
+
+    setTimeout(() => {
+      addBotBubble(faq.answer);
+      
+      setTimeout(() => {
+        const resetContainer = document.createElement('div');
+        resetContainer.className = 'chat-options';
+        
+        const resetBtn = document.createElement('button');
+        resetBtn.className = 'chat-option-btn';
+        resetBtn.style.textAlign = 'center';
+        resetBtn.textContent = 'Ask another question...';
+        resetBtn.onclick = () => {
+          resetContainer.remove();
+          showOptions();
+        };
+
+        resetContainer.appendChild(resetBtn);
+        messagesContainer.appendChild(resetContainer);
+        scrollToBottom();
+      }, 400);
+
+    }, 500);
+  }
+
+  function scrollToBottom() {
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+});
+
+// --- Promo Banner Handler ---
+document.addEventListener('DOMContentLoaded', () => {
+  const isProductsPage = window.location.pathname.includes('products.html') || window.location.pathname === '/products';
+  
+  if (isProductsPage) {
+    const hasSeenBanner = localStorage.getItem('swj_promo_seen');
+    const hasClaimedDiscount = localStorage.getItem('swj_10off_claimed');
+
+    // Slide up banner after 5 seconds if not previously seen or claimed
+    if (!hasSeenBanner && !hasClaimedDiscount) {
+      setTimeout(() => {
+        const banner = document.getElementById('promo-banner');
+        if (banner) {
+          banner.classList.remove('promo-banner-hidden');
+          localStorage.setItem('swj_promo_seen', 'true');
+        }
+      }, 5000);
+    }
+  }
+
+  const banner = document.getElementById('promo-banner');
+  const closeBtn = document.getElementById('promo-banner-close');
+  const instaBtn = document.getElementById('promo-insta-btn');
+
+  function closeBanner() {
+    if (banner) {
+      banner.classList.add('promo-banner-hidden');
+    }
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeBanner);
+
+  if (instaBtn) {
+    instaBtn.addEventListener('click', () => {
+      // Set discount flag so Stripe integration picks it up
+      localStorage.setItem('swj_10off_claimed', 'true');
+      closeBanner();
+    });
+  }
 });

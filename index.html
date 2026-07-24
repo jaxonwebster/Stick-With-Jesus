@@ -308,5 +308,36 @@
       counters.forEach(counter => observer.observe(counter));
     });
     </script>
+    <!-- FAQ Chatbot Widget -->
+<div id="faq-chatbot-container">
+  <!-- Floating Action Button -->
+  <button id="chatbot-toggle-btn" aria-label="Open FAQ Chatbot">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+  </button>
+
+  <!-- Chat Window Popup -->
+  <div id="chatbot-window" class="chatbot-hidden">
+    <div class="chatbot-header">
+      <div class="chatbot-brand">
+        <div class="chatbot-avatar">✨</div>
+        <div>
+          <h4>Stick With Jesus Helper</h4>
+          <span class="online-status">● Online</span>
+        </div>
+      </div>
+      <button id="chatbot-close-btn" aria-label="Close Chat">&times;</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <!-- Dynamic messages load here -->
+    </div>
+
+    <div class="chatbot-footer">
+      <p>Need extra help? <a href="contact.html">Contact Us</a></p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
