@@ -84,6 +84,7 @@ module.exports = async (req, res) => {
       line_items: lineItems,
       mode: 'payment',
       customer_email: customerEmail || undefined,
+      default_tax_rates: ['txr_1Twjj8Ro3U7iX6n7EUAW7TiS'],
       allow_promotion_codes: true,
       // Collect recipient shipping address
       shipping_address_collection: {
