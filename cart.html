@@ -67,22 +67,24 @@
                 </div>
                 
                 <!-- Right Column: Checkout Info & Direct Stripe Trigger -->
-                <div class="checkout-box">
-                    <h3>Order Summary</h3>
-                    <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-subtle);">
-                    
-                    <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 25px;">
-                        <span>Subtotal:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
-                    </p>
-                    
-                    <form id="order-form" onsubmit="handleCheckout(event)">
-                        <p style="font-size: 0.85rem; color: #674160; margin-bottom: 20px; line-height: 1.4;">
-                            Promo Code Unlocked: <strong>INSTA10</strong> (Enter code at checkout for 10% off!).
-                        </p>
+                <!-- Right Column: Checkout Info & Direct Stripe Trigger -->
+<div class="checkout-box">
+    <h3>Order Summary</h3>
+    <hr style="margin: 20px 0; border: 0; border-top: 1px solid var(--border-subtle);">
+    
+    <p style="font-size: 1.3rem; display: flex; justify-content: space-between; margin-bottom: 25px;">
+        <span>Subtotal:</span> <strong id="cart-total-price" style="color: var(--brand-purple);">$0.00</strong>
+    </p>
+    
+    <form id="order-form" onsubmit="handleCheckout(event)">
+        <!-- Hidden by default until verified in shop-engine.js -->
+        <p id="insta-promo-reminder" style="display: none; font-size: 0.85rem; color: #674160; margin-bottom: 20px; line-height: 1.4; background: #f8f4ff; padding: 10px 12px; border-radius: 8px; border: 1px dashed #dcd0f0;">
+            🎉 Promo Code Unlocked: <strong>INSTA10</strong> (Enter code at checkout for 10% off!).
+        </p>
 
-                        <button type="submit" class="btn-cute" style="width: 100%;">Checkout</button>
-                    </form>
-                </div>
+        <button type="submit" class="btn-cute" style="width: 100%;">Checkout</button>
+    </form>
+</div>
             </div> <!-- Closed cart-layout -->
         </main> <!-- Closed container -->
     </div> <!-- Closed interior-content-space -->

@@ -709,6 +709,24 @@ function renderCart() {
         if (totalHook) totalHook.innerText = "$0.00";
         return;
     }
+    // Check if user clicked the Instagram promo banner
+function checkInstaPromoVisibility() {
+  const instaClaimed = localStorage.getItem('swj_insta_claimed');
+  const reminderEl = document.getElementById('insta-promo-reminder');
+  
+  if (reminderEl) {
+    if (instaClaimed === 'true') {
+      reminderEl.style.display = 'block'; // Show if claimed
+    } else {
+      reminderEl.style.display = 'none';  // Keep hidden otherwise
+    }
+  }
+}
+
+// Call this when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  checkInstaPromoVisibility();
+});
 
     cartHook.innerHTML = '';
     let totalCartDue = 0;
