@@ -356,11 +356,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initScrollAnimations() {
-    // Select static containers and review cards
     const targets = document.querySelectorAll('.home-section, .container, .blog-summary-card, .checkout-box, .review-card, .about-text');
     targets.forEach(sec => sec.classList.add('scroll-reveal'));
 
-    // Global observer function
     window.globalScrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -370,14 +368,10 @@ function initScrollAnimations() {
         });
     }, { threshold: 0.05, rootMargin: "0px 0px -10px 0px" });
 
-    // Observe static elements
     targets.forEach(sec => window.globalScrollObserver.observe(sec));
-
-    // Reveal top-of-page items immediately if they are visible on load
     setTimeout(checkAboveTheFoldVisibility, 50);
 }
 
-// Helper to reveal elements that are already visible in the viewport on initial load
 function checkAboveTheFoldVisibility() {
     const reveals = document.querySelectorAll('.scroll-reveal:not(.active)');
     const windowHeight = window.innerHeight;
@@ -702,6 +696,7 @@ function processAddToBag(id, btnElement) {
     }
 }
 
+// --- Cart View Engine ---
 function renderCart() {
     const cartHook = document.getElementById('cart-items-hook');
     const totalHook = document.getElementById('cart-total-price');
@@ -754,6 +749,7 @@ function renderCart() {
         cartHook.insertAdjacentHTML('beforeend', itemHtml);
     });
 
+    // --- Mystery Sticker Upsell ---
     const mysteryHtml = `
         <div style="margin-top: 24px; padding: 14px 18px; border: 1px solid var(--border-subtle); border-radius: 8px; background-color: var(--bg-soft, #fcfcfc); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
             <div>
@@ -767,7 +763,22 @@ function renderCart() {
     `;
     cartHook.insertAdjacentHTML('beforeend', mysteryHtml);
 
-    if (totalHook) totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
+    // --- Discount Check & Summary Calculation ---
+    const hasDiscount = localStorage.getItem('swj_10off_claimed') === 'true';
+    const discountRow = document.getElementById('cart-discount-row');
+    const discountAmountElem = document.getElementById('cart-discount-amount');
+
+    if (hasDiscount) {
+        const discountVal = totalCartDue * 0.10;
+        const finalTotal = totalCartDue - discountVal;
+
+        if (discountRow) discountRow.style.display = 'flex';
+        if (discountAmountElem) discountAmountElem.innerText = `-$${discountVal.toFixed(2)}`;
+        if (totalHook) totalHook.innerText = `$${finalTotal.toFixed(2)}`;
+    } else {
+        if (discountRow) discountRow.style.display = 'none';
+        if (totalHook) totalHook.innerText = `$${totalCartDue.toFixed(2)}`;
+    }
 }
 
 function addMysteryStickerToCart(btnElement) {
@@ -845,6 +856,7 @@ async function handleCheckout(event) {
     }
 
     const clientEmail = document.getElementById('cust-email')?.value || '';
+    const hasDiscount = localStorage.getItem('swj_10off_claimed') === 'true';
 
     try {
         const response = await fetch('/api/checkout', {
@@ -855,6 +867,7 @@ async function handleCheckout(event) {
             body: JSON.stringify({
                 cart: cart,
                 customerEmail: clientEmail,
+                applyInstaDiscount: hasDiscount
             }),
         });
 
@@ -1112,7 +1125,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const hasSeenBanner = localStorage.getItem('swj_promo_seen');
     const hasClaimedDiscount = localStorage.getItem('swj_10off_claimed');
 
-    // Slide up banner after 5 seconds if not previously seen or claimed
     if (!hasSeenBanner && !hasClaimedDiscount) {
       setTimeout(() => {
         const banner = document.getElementById('promo-banner');
@@ -1138,7 +1150,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (instaBtn) {
     instaBtn.addEventListener('click', () => {
-      // Set discount flag so Stripe integration picks it up
       localStorage.setItem('swj_10off_claimed', 'true');
       closeBanner();
     });

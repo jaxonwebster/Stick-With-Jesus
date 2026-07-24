@@ -20,13 +20,13 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const { cart, customerEmail } = req.body;
+    const { cart, customerEmail, applyInstaDiscount } = req.body;
 
     if (!cart || !Array.isArray(cart) || cart.length === 0) {
       return res.status(400).json({ error: 'Cart is empty' });
     }
 
-    // Collect all custom text notes into metadata for easy order printing
+    // Collect all custom text notes into metadata
     const customNotes = cart
       .filter((item) => item.customText && item.customText.trim() !== '')
       .map((item) => `${item.name}: "${item.customText}"`)
@@ -34,7 +34,6 @@ module.exports = async (req, res) => {
 
     // Format line items for Stripe
     const lineItems = cart.map((item) => {
-      // If the item has custom text, create price_data so Stripe displays the customized name line
       if (item.customText && item.customText.trim() !== '') {
         return {
           price_data: {
@@ -50,7 +49,6 @@ module.exports = async (req, res) => {
         };
       }
 
-      // Standard non-custom items use direct price IDs
       if (item.stripePriceId && item.stripePriceId.startsWith('price_') && !item.stripePriceId.includes('REPLACE')) {
         return {
           price: item.stripePriceId,
@@ -58,7 +56,6 @@ module.exports = async (req, res) => {
         };
       }
 
-      // Fallback
       return {
         price_data: {
           currency: 'usd',
@@ -72,38 +69,44 @@ module.exports = async (req, res) => {
       };
     });
 
-    // Safely structure domain URL with trailing slash
     let origin = req.headers.origin || req.headers.referer || 'http://localhost';
     if (!origin.endsWith('/')) {
       origin += '/';
     }
 
-    // Create the session
-    const session = await stripe.checkout.sessions.create({
+    // Build Checkout Session Payload
+    const sessionPayload = {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
       customer_email: customerEmail || undefined,
-      allow_promotion_codes: true,
-      // Collect recipient shipping address
       shipping_address_collection: {
         allowed_countries: ['US', 'CA'],
       },
-
-      // Attached Shipping Rate ID
       shipping_options: [
         {
           shipping_rate: 'shr_1TvPr7Ro3U7iX6n7N0s8uIrP',
         },
       ],
-
-      // Save custom text attached to the order
       metadata: {
         custom_tag_details: customNotes || 'None',
       },
       success_url: `${origin}cart.html?success=true`,
       cancel_url: `${origin}cart.html?canceled=true`,
-    });
+    };
+
+    // Automatically attach promo code if user claimed the Instagram discount
+    if (applyInstaDiscount) {
+      sessionPayload.discounts = [
+        {
+          promotion_code: 'promo_1Twjc4Ro3U7iX6n74UOncDuM',
+        },
+      ];
+    } else {
+      sessionPayload.allow_promotion_codes = true;
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionPayload);
 
     return res.status(200).json({ url: session.url });
   } catch (err) {

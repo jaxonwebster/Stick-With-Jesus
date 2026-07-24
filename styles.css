@@ -2364,7 +2364,7 @@ footer {
 }
 
 .promo-badge {
-  background-color: #8a2be2; /* Deep Vibrant Lavender */
+  background-color: #A968AC; /* Deep Vibrant Lavender */
   color: #ffffff;
   font-size: 11px;
   font-weight: 700;
@@ -2391,7 +2391,7 @@ footer {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: #8a2be2;
+  background-color: #A968AC;
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 20px;
@@ -2403,7 +2403,7 @@ footer {
 }
 
 .promo-btn-lavender:hover {
-  background-color: #7322c2;
+  background-color: #A968AC;
   transform: translateY(-1px);
 }
 
