@@ -84,7 +84,7 @@ module.exports = async (req, res) => {
       line_items: lineItems,
       mode: 'payment',
       customer_email: customerEmail || undefined,
-      
+      allow_promotion_codes: true,
       // Collect recipient shipping address
       shipping_address_collection: {
         allowed_countries: ['US', 'CA'],
