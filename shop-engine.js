@@ -312,9 +312,24 @@ const STICKER_PRODUCTS = [
 ];
 
 function toggleMobileNavMenu(btn) {
-    const drawer = document.getElementById('navbar-links-drawer');
-    if (drawer) drawer.classList.toggle('mobile-open');
-    if (btn) btn.classList.toggle('is-active');
+  const drawer = document.getElementById('navbar-links-drawer');
+  if (!drawer) return;
+
+  const isOpen = drawer.classList.contains('mobile-open');
+
+  if (isOpen) {
+    drawer.classList.remove('mobile-open');
+    if (btn) {
+      btn.classList.remove('is-active');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  } else {
+    drawer.classList.add('mobile-open');
+    if (btn) {
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
 }
 
 // --- Check Instagram Promo Code Visibility ---
