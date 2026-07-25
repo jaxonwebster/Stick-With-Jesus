@@ -2580,7 +2580,7 @@ footer {
 
 @media (max-width: 768px) {
   .shop-cta-btn {
-    width: 100%; /* Full width on mobile for easy tapping */
+    width: 100%; /* Full width on mobile for easy tapping! */
     box-sizing: border-box;
   }
 }

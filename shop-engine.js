@@ -449,7 +449,7 @@ const STICKER_PRODUCTS = [
         category: "temple", 
         color: "colorful", 
         photos: ["images/provo1.jpg", "images/provo2.jpg"], 
-        desc: "Provo City Center Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.91 inches",
+        desc: "Provo City Center Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.92 inches",
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
