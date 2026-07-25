@@ -2549,3 +2549,38 @@ footer {
     margin-bottom: 0;
   }
 }
+/* ==========================================================================
+   About Page - Bottom CTA Button
+   ========================================================================== */
+
+.about-cta-container {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.shop-cta-btn {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #A968AC; /* Uses your primary brand purple */
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shop-cta-btn:hover {
+  background-color: #A968AC;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+}
+
+@media (max-width: 768px) {
+  .shop-cta-btn {
+    width: 100%; /* Full width on mobile for easy tapping */
+    box-sizing: border-box;
+  }
+}
