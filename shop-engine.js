@@ -13,7 +13,7 @@ const STICKER_PRODUCTS = [
         category: ["youth", "primary"], 
         color: "black", 
         photos: ["images/nametag1.jpg", "images/nametag2.jpg", "images/nametag3.jpg", "images/nametag4.jpg", "images/namtag5.jpg"], 
-        desc: "Our best-selling classic missionary replica tag. High-durability matte vinyl finish. Enter your custom name text line below before adding to your cart.", 
+        desc: "Our best-selling classic missionary replica tag. High-durability, waterproof and scratch resistant material. Enter your custom name text line below before adding to your cart. Size: 3 inches x 2 inches", 
         reviews: ["Looks exactly like the real thing! Perfect for my mission journal. - Sister Adams."] 
     },
     { 
@@ -26,7 +26,7 @@ const STICKER_PRODUCTS = [
         category: ["bible", "religious"], 
         color: "black", 
         photos: ["images/lostsheep1.jpg", "images/lostsheep2.jpg", "images/lostsheep3.jpg", "images/lostsheep4.jpg"], 
-        desc: "Premium thick die-cut outdoor weather-proof vinyl statement piece.", 
+        desc: "'Lost Sheep' Bible inspired sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.5 inches ", 
         reviews: ["Stunning colors. Looks fantastic on water bottles. - Sarah M."] 
     },
     { 
@@ -39,7 +39,7 @@ const STICKER_PRODUCTS = [
         category: "bible", 
         color: "blue", 
         photos: ["images/butifnot1.jpg", "images/butifnot2.jpg"], 
-        desc: "Clean typography sticker designed to remind you of His constant protective cover.", 
+        desc: "'But If Not' Bible (Daniel 3:8) inspired sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.35 inches x 2.61 inches", 
         reviews: ["Beautiful text clarity. - Grace L."] 
     },
     { 
@@ -51,7 +51,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "pink", 
         photos: ["images/love1.jpg", "images/love2.jpg"], 
-        desc: "Delicate lavender-toned script wrapped with pristine wildflower outlines.", 
+        desc: "'Love One Another' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.7 inches x 1.88 inches", 
         reviews: ["Perfect addition to my scripture journal. - Hannah P."] 
     },
     { 
@@ -63,7 +63,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "black", 
         photos: ["images/godisgreat1.jpg", "images/godisgreat2.jpg", "images/godisgreat3.jpg"], 
-        desc: "Understated minimalist styling detailing 2 Corinthians 5:7.", 
+        desc: "'God Is Greater Than the Highs and Lows' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 1.52 inches", 
         reviews: ["Subtle, clean, elegant layout. - Mark T."] 
     },
     { 
@@ -75,7 +75,7 @@ const STICKER_PRODUCTS = [
         category: "bible", 
         color: "blue",
         photos: ["images/fisherofmen.jpg"], 
-        desc: "Bold astronomical sunrise landscape highlighting shared global purpose.", 
+        desc: "'Fisher of Men' Matthew inspired sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.17 inches x 2.61 inches", 
         reviews: ["Striking background art depth. - Anna V."] 
     },
     { 
@@ -87,7 +87,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "pastelle", 
         photos: ["images/hearhim.jpg"], 
-        desc: "Organic, earthy floral layout defining Ephesians structural context.", 
+        desc: "'Hear Him' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.46 inches x 0.89 inches", 
         reviews: ["High-grade adhesion, colors don't sun-fade. - Lucas R."] 
     },
     { 
@@ -99,7 +99,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "pink", 
         photos: ["images/jesuslovesme1.jpg", "images/jesuslovesme2.jpg", "images/jesuslovesme3.jpg"], 
-        desc: "Delicate composition summarizing beautiful structural design statements.", 
+        desc: "'Jesus Loves Me' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.5 inches", 
         reviews: ["Sweet gift layout for daughters! - Kelly O."] 
     },
     { 
@@ -111,7 +111,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "colorful", 
         photos: ["images/prevail1.jpg", "images/prevail2.jpg"], 
-        desc: "Classic traditional foundational hymn quote formatted cleanly.", 
+        desc: "'Let God Prevail' sticker inspured by Russel M. Nelson's General Conference address given in 2020. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.85 inches x 1.84 inches", 
         reviews: ["Calming and elegant text layout. - James P."] 
     },
     { 
@@ -123,7 +123,7 @@ const STICKER_PRODUCTS = [
         category: "primary", 
         color: "colorful", 
         photos: ["images/cog1.jpg", "images/cog2.jpg"], 
-        desc: "Forest woodland layout profile mirroring peaceful vine branches.", 
+        desc: "Inspired by the primary song, 'I am a Child of God'. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.25 inches x 1.11 inches", 
         reviews: ["Deep artistic detailing. - Chloe B."] 
     },
     { 
@@ -135,7 +135,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "colorful", 
         photos: ["images/hardthings1.jpg"], 
-        desc: "Bold ocean wave graphic displaying empowering verse definitions.", 
+        desc: "Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.29 inches x 2.15 inches", 
         reviews: ["Powerful reminder for daily workspace views. - Eric W."] 
     },
     { 
@@ -147,7 +147,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "pink", 
         photos: ["images/fruit2.jpg", "images/fruit1.jpg", "images/fruit3.jpg"], 
-        desc: "Elegant floral garland framing historic trust statements perfectly.", 
+        desc: "'Fruits of the Spirit' sticker inspired by Galatians 5. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.85 inches x 3.05 inches", 
         reviews: ["The matte texture feels premium. - Megan H."] 
     },
     { 
@@ -160,7 +160,7 @@ const STICKER_PRODUCTS = [
         category: "other", 
         color: "yellow", 
         photos: ["images/rat1.jpg", "images/rat2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Having both served church missions in New York City, subways rats oddly feel very sacred to us! Including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.5 inches x 1.85 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -172,7 +172,7 @@ const STICKER_PRODUCTS = [
         category: "bible", 
         color: "blue", 
         photos: ["images/bestill1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Be Still & Know That I Am God' is a wonderful reminder from the Bible of how much power God has in our lives. Remembering this can help us feel peace in times of chaos. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.1 inches x 3.04 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -184,7 +184,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "blue", 
         photos: ["images/stars1.jpg", "images/stars2.jpg", "images/stars3.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Inspired by the song 'So Will I'. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2,45 inches x 2.76 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -196,7 +196,7 @@ const STICKER_PRODUCTS = [
         category: "youth", 
         color: "colorful", 
         photos: ["images/builders1.jpg", "images/builders2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Builders of Faith' young women class sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -208,7 +208,7 @@ const STICKER_PRODUCTS = [
         category: "youth", 
         color: "colorful", 
         photos: ["images/messengers1.jpg", "images/messengers2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Messengers of Hope' young women class sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.5 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -220,7 +220,7 @@ const STICKER_PRODUCTS = [
         category: "youth", 
         color: "colorful", 
         photos: ["images/gather1.jpg", "images/gather2.jpg", "images/gather3.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Gatherers of Light' young women clas sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.19 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 

@@ -2434,3 +2434,118 @@ footer {
     font-size: 13px;
   }
 }
+
+/* ==========================================================================
+   About Us - Wrap Layout Styling
+   ========================================================================== */
+
+.about-story-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #333333;
+}
+
+/* Sub-heading & Main Title Adjustments */
+.sub-heading-accent {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  color: #8b5cf6; /* Matches brand accent color */
+  margin-bottom: 0.25rem;
+}
+
+.about-heading {
+  font-size: 2.2rem;
+  margin-bottom: 1.25rem;
+  color: #1f2937;
+}
+
+/* Left Floating Image Card */
+.about-image-card.float-left {
+  float: left;
+  width: 340px; /* Adjust size as desired */
+  max-width: 100%;
+  margin-right: 2rem;
+  margin-bottom: 1.25rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.about-featured-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-image-card:hover .about-featured-img {
+  transform: scale(1.02);
+}
+
+/* Story Text Styling */
+.about-story-wrapper p {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+/* Clear floating elements */
+.clear-float {
+  clear: both;
+}
+
+/* Mobile Responsive Styling (Stack nicely on mobile devices) */
+@media (max-width: 768px) {
+  .about-image-card.float-left {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-heading {
+    font-size: 1.75rem;
+  }
+}
+/* ==========================================================================
+   About Us Page - Laptop/Desktop Hero Adjustments
+   ========================================================================== */
+
+@media (min-width: 769px) {
+  /* 1. Make the hero banner taller so the image doesn't crop in so tightly */
+  .about-hero {
+    height: 520px; /* Gives more vertical room to un-crop her face */
+  }
+
+  .about-hero .hero-bg-img {
+    /* 2. Position format: [Horizontal %] [Vertical %] */
+    /* 65% shifts the focal center toward the right (where both faces are), 
+       20% pulls the image down so heads stay well inside the top edge */
+    object-position: 65% 20%; 
+  }
+}
+/* ==========================================================================
+   About Us Page - Mobile Image Reordering
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Convert story container to flexbox column on mobile */
+  .about-story-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Force the floating image card to appear after all text content */
+  .about-image-card.float-left {
+    float: none;           /* Disable float on mobile */
+    order: 99;             /* Pushes image below all paragraphs */
+    width: 100%;
+    margin-right: 0;
+    margin-top: 1.5rem;    /* Adds space above image */
+    margin-bottom: 0;
+  }
+}
