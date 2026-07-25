@@ -232,7 +232,7 @@ const STICKER_PRODUCTS = [
         category: ["youth", "primary"],
         color: "black", 
         photos: ["images/futuremissionary1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Future Missionary' sticker for aspiring missionaries of any age! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 2 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -244,7 +244,7 @@ const STICKER_PRODUCTS = [
         category: "primary", 
         color: "green", 
         photos: ["images/ctr1.jpg", "images/ctr2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Choose The Right' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.25 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -256,7 +256,7 @@ const STICKER_PRODUCTS = [
         category: "other", 
         color: "beige", 
         photos: ["images/nycmap1.jpg", "images/nycmap2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Having both served church missions in New York City, including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 1.6 inches x 3.48 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -268,7 +268,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "blue", 
         photos: ["images/notforgotten1.jpg", "images/notforgotten2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Not Forgotten, Found' lost sheep bible inspired sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 1.54 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -280,7 +280,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "yellow", 
         photos: ["images/glory1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Glory to God' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.7 inches x 2.25 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -292,7 +292,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "green", 
         photos: ["images/seed1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "'Faith Is Like A Seed' sticker printed on waterproof and scratch resistant laminated sticker paper.", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -304,7 +304,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "beige", 
         photos: ["images/arizona1.jpg", "images/arizona2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Arizona sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.69 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -317,7 +317,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/utah1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Utah sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.9 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -329,7 +329,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/colorado1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Colorado sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.75 inches x 1.93 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -341,7 +341,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/texas1.jpg", "images/texas2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Texas sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.5 inches x 3.35 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -353,7 +353,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/florida1.jpg", "images/florida2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Florida sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.25 inches x 2.86 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -365,7 +365,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "blue", 
         photos: ["images/alaska1.jpg", "images/alaska2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Alaska sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.95 inches x 2.93 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -377,7 +377,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/utahname1.jpg", "images/utahname2.jpg", "images/utahname3.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Utah sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.31 inches x 1.2 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -389,7 +389,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/idaho1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Idaho sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 3.2 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -401,7 +401,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/nevada1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.", 
+        desc: "Nevada sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2 inches x 2.96 inches", 
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -413,7 +413,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/newmexico1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.",
+        desc: "New Mexico sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.24 inches x 2.43 inches",
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -425,7 +425,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "green", 
         photos: ["images/oregon1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.",
+        desc: "Oregon sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.95 inches x 2.17 inches",
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -437,7 +437,7 @@ const STICKER_PRODUCTS = [
         category: "states", 
         color: "colorful", 
         photos: ["images/wyoming1.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.",
+        desc: "Wyoming sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.75 inches x 2.11 inches",
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -449,7 +449,7 @@ const STICKER_PRODUCTS = [
         category: "temple", 
         color: "colorful", 
         photos: ["images/provo1.jpg", "images/provo2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.",
+        desc: "Provo City Center Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.91 inches",
         reviews: ["Super fun sticker design! - Alex P."] 
     },
     { 
@@ -461,7 +461,7 @@ const STICKER_PRODUCTS = [
         category: "temple", 
         color: "beige", 
         photos: ["images/payson1.jpg", "images/payson2.jpg"], 
-        desc: "Fun and durable high-grade outdoor vinyl sticker.",
+        desc: "Payson, Utah Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.35 inches x 3.07 inches",
         reviews: ["Super fun sticker design! - Alex P."] 
     },
 
@@ -476,7 +476,7 @@ const STICKER_PRODUCTS = [
         category: "other",
         color: "other",
         photos: ["images/carthero.JPG"], 
-        desc: "A surprise high-quality sticker selected randomly from our shop!",
+        desc: "A surprise sticker selected randomly from our shop!",
         reviews: []
     }
 ];
