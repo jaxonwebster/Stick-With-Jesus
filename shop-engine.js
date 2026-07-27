@@ -462,7 +462,7 @@ const STICKER_PRODUCTS = [
         color: "beige", 
         photos: ["images/payson1.jpg", "images/payson2.jpg"], 
         desc: "Payson, Utah Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.35 inches x 3.07 inches",
-        reviews: ["Great quality sticker! Fast shipment. - Tyler N.", "Amazing attention to detail and very high quality/durable - Gretta A."] 
+        reviews: ["Great quality sticker! Fast shipment. - Tyler N.", "Amazing attention to detail and very high quality/durable - Greta A."] 
     },
 
     // --- EXCLUSIVE CART-ONLY MYSTERY STICKER ---
