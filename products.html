@@ -58,11 +58,11 @@
     <div class="interior-content-space">
         <!-- Master Catalog Presentation Layer -->
         <main class="container" id="catalog-view">
-            <!-- Filter Control & Active Badges Bar -->
             <div class="filter-toggle-container">
-                <button class="btn-secondary" onclick="toggleFilterPanel(true)">Filter</button>
+                <button class="btn-secondary filter-btn" onclick="toggleFilterPanel(true)">Filter</button>
                 <div id="active-filter-badges" class="active-filter-badges"></div>
             </div>
+
             <div class="grid-gallery" id="products-grid"></div>
         </main>
 
@@ -78,7 +78,6 @@
     <!-- Backdrop Blur Layer -->
     <div class="filter-backdrop" id="filter-backdrop" onclick="toggleFilterPanel(false)"></div>
 
-    <!-- Side Popup Filter Panel Drawer Modal -->
     <!-- Side Popup Filter Panel Drawer Modal -->
     <div class="side-panel" id="filter-panel">
         <div class="side-panel-header">
