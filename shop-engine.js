@@ -111,7 +111,7 @@ const STICKER_PRODUCTS = [
         category: "religious", 
         color: "colorful", 
         photos: ["images/prevail1.jpg", "images/prevail2.jpg"], 
-        desc: "'Let God Prevail' sticker inspured by Russel M. Nelson's General Conference address given in 2020. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.85 inches x 1.84 inches", 
+        desc: "'Let God Prevail' sticker inspired by Russel M. Nelson's General Conference address given in 2020. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.85 inches x 1.84 inches", 
         reviews: ["Great sticker with amazing quality. Love it! - Christian L.", "I really love my stickers! No complaints! - Hailey M.", "Loved! Exactly what I was looking for and I bought enough to share with my friends and family. - Amber g."] 
     },
     { 
@@ -194,7 +194,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "youth", 
-        color: "colorful", 
+        color: "green", 
         photos: ["images/builders1.jpg", "images/builders2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "'Builders of Faith' young women class sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2 inches", 
         reviews: ["Great quality, shipped fast! - Victoria H.", "Great stickers. So cute. Perfect for my YW as a Christmas present. - Emma J."] 
@@ -206,7 +206,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "youth", 
-        color: "colorful", 
+        color: "yellow", 
         photos: ["images/messengers1.jpg", "images/messengers2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "'Messengers of Hope' young women class sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.5 inches", 
         reviews: ["Best shop ever! I loved my stickers! 100% recommend! - Grace A.", "Great stickers. So cute. Perfect for my YW as a Christmas present. - Emma J."] 
@@ -218,7 +218,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "youth", 
-        color: "colorful", 
+        color: "blue", 
         photos: ["images/gather1.jpg", "images/gather2.jpg", "images/gather3.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "'Gatherers of Light' young women clas sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.19 inches", 
         reviews: ["Great stickers. So cute. Perfect for my YW as a Christmas present. - Emma J."] 
