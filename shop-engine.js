@@ -76,7 +76,7 @@ const STICKER_PRODUCTS = [
         color: "blue",
         photos: ["images/fisherofmen.jpg"], 
         desc: "'Fisher of Men' Matthew inspired sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.17 inches x 2.61 inches", 
-        reviews: [] 
+        reviews: ["I loved this sticker! Great quality and seller was wonderful to do business with.", ""] 
     },
     { 
         id: 7, 
@@ -100,7 +100,7 @@ const STICKER_PRODUCTS = [
         color: "pink", 
         photos: ["images/jesuslovesme1.jpg", "images/jesuslovesme2.jpg", "images/jesuslovesme3.jpg"], 
         desc: "'Jesus Loves Me' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.5 inches", 
-        reviews: [""] 
+        reviews: ["Best shop ever! I loved my stickers! 100% recommend!"] 
     },
     { 
         id: 9, 
@@ -197,7 +197,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/builders1.jpg", "images/builders2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "'Builders of Faith' young women class sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2 inches", 
-        reviews: [] 
+        reviews: ["Great quality, shipped fast!", "Great stickers. So cute. Perfect for my YW as a Christmas present."] 
     },
     { 
         id: 17, 
@@ -209,7 +209,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/messengers1.jpg", "images/messengers2.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "'Messengers of Hope' young women class sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.5 inches", 
-        reviews: [] 
+        reviews: ["Best shop ever! I loved my stickers! 100% recommend!", "Great stickers. So cute. Perfect for my YW as a Christmas present."] 
     },
     { 
         id: 18, 
@@ -221,7 +221,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/gather1.jpg", "images/gather2.jpg", "images/gather3.jpg", "images/yw1.jpg", "images/yw2.jpg", "images/yw3.jpg"], 
         desc: "'Gatherers of Light' young women clas sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.5 inches x 2.19 inches", 
-        reviews: [] 
+        reviews: ["Great stickers. So cute. Perfect for my YW as a Christmas present."] 
     },
     { 
         id: 19, 
@@ -245,7 +245,7 @@ const STICKER_PRODUCTS = [
         color: "green", 
         photos: ["images/ctr1.jpg", "images/ctr2.jpg"], 
         desc: "'Choose The Right' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.25 inches", 
-        reviews: [] 
+        reviews: ["High quality sticker, exceeded my expectations!"] 
     },
     { 
         id: 21, 
@@ -269,7 +269,7 @@ const STICKER_PRODUCTS = [
         color: "blue", 
         photos: ["images/notforgotten1.jpg", "images/notforgotten2.jpg"], 
         desc: "'Not Forgotten, Found' lost sheep bible inspired sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 1.54 inches", 
-        reviews: [] 
+        reviews: ["Best shop ever! I loved my stickers! 100% recommend!"] 
     },
     { 
         id: 23, 
@@ -281,7 +281,7 @@ const STICKER_PRODUCTS = [
         color: "yellow", 
         photos: ["images/glory1.jpg"], 
         desc: "'Glory to God' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.7 inches x 2.25 inches", 
-        reviews: [] 
+        reviews: ["Exactly as described. Thank you!", "Excellent sticker, very durable and high quality."] 
     },
     { 
         id: 24, 
@@ -342,7 +342,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/texas1.jpg", "images/texas2.jpg"], 
         desc: "Texas sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.5 inches x 3.35 inches", 
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["This is the CUTEST Texas sticker. I spent days looking for one I loved and this was it! I have no regrets, and I get so many compliments! Owners were so sweet and made sure I got my stickers in a timely manner and safely. Definitely will order from this store again. You should too!", "I love this sticker! I recommend it to my Texas friends! It's such a unique design and the quality is AMAZING for the price."] 
     },
     { 
         id: 29, 
@@ -354,7 +354,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/florida1.jpg", "images/florida2.jpg"], 
         desc: "Florida sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.25 inches x 2.86 inches", 
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["My new favorite Etsy shop! These stickers are so cute and high quality!"] 
     },
     { 
         id: 30, 
@@ -366,7 +366,7 @@ const STICKER_PRODUCTS = [
         color: "blue", 
         photos: ["images/alaska1.jpg", "images/alaska2.jpg"], 
         desc: "Alaska sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.95 inches x 2.93 inches", 
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["This sticker is so pretty and I love it", "Beautiful, good quality sticker. As described and would purchase again", "Beautiful sticker and gret experience. Highly recommend!"] 
     },
     { 
         id: 31, 
@@ -378,7 +378,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/utahname1.jpg", "images/utahname2.jpg", "images/utahname3.jpg"], 
         desc: "Utah sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.31 inches x 1.2 inches", 
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["LOVED this design after my Utah trip and had to add it to my water bottle!"] 
     },
     { 
         id: 32, 
@@ -390,7 +390,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/idaho1.jpg"], 
         desc: "Idaho sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 3.2 inches", 
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["Great quality sticker! Fast shipment.", "I could not recommend this shop more! Amazing stickers"] 
     },
     { 
         id: 33, 
@@ -402,7 +402,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/nevada1.jpg"], 
         desc: "Nevada sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2 inches x 2.96 inches", 
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["Great quality sticker! Fast shipment."] 
     },
     { 
         id: 33, 
@@ -414,7 +414,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/newmexico1.jpg"], 
         desc: "New Mexico sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.24 inches x 2.43 inches",
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["Great quality sticker! Fast shipment."] 
     },
     { 
         id: 34, 
@@ -426,7 +426,7 @@ const STICKER_PRODUCTS = [
         color: "green", 
         photos: ["images/oregon1.jpg"], 
         desc: "Oregon sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.95 inches x 2.17 inches",
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["Great quality sticker! Fast shipment."] 
     },
     { 
         id: 35, 
@@ -438,7 +438,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/wyoming1.jpg"], 
         desc: "Wyoming sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.75 inches x 2.11 inches",
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["Beautifuk! Just as I had hoped!", "Perfect for my water bottle", "Super cute, just as expected", "Great product, fast shipping. Recommend."] 
     },
     { 
         id: 36, 
@@ -450,7 +450,7 @@ const STICKER_PRODUCTS = [
         color: "colorful", 
         photos: ["images/provo1.jpg", "images/provo2.jpg"], 
         desc: "Provo City Center Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.9 inches",
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["These cute stickers shipped so fast, and they are exactly what I imagined! Will defintiely be buying more stickers from here!"] 
     },
     { 
         id: 37, 
@@ -462,7 +462,7 @@ const STICKER_PRODUCTS = [
         color: "beige", 
         photos: ["images/payson1.jpg", "images/payson2.jpg"], 
         desc: "Payson, Utah Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.35 inches x 3.07 inches",
-        reviews: ["Super fun sticker design! - Alex P."] 
+        reviews: ["Great quality sticker! Fast shipment.", "Amazing attention to detail and very high quality/durable"] 
     },
 
     // --- EXCLUSIVE CART-ONLY MYSTERY STICKER ---
