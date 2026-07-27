@@ -81,9 +81,15 @@ module.exports = async (req, res) => {
       mode: 'payment',
       customer_email: customerEmail || undefined,
       allow_promotion_codes: true, // Enables manual promo code input at checkout
-      shipping_address_collection: {
-        allowed_countries: ['US', 'CA'],
-      },
+      // 1. Enable Automatic Tax Calculation
+  automatic_tax: {
+    enabled: true,
+  },
+
+  // 2. Require shipping address so Stripe knows if the buyer is in Utah
+  shipping_address_collection: {
+    allowed_countries: ['US'],
+  },
       shipping_options: [
         {
           shipping_rate: 'shr_1TvPr7Ro3U7iX6n7N0s8uIrP',
