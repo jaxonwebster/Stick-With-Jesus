@@ -422,7 +422,7 @@ const STICKER_PRODUCTS = [
         price: 3.99, 
         isCustomizable: false, 
         category: "youth", 
-        color: "black", 
+        color: "blue", 
         photos: ["images/youth20261.jpg", "images/youth20262.jpg"], 
         desc: "2026 LDS youth theme sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.4 inches x 2.58 inches",
         reviews: ["We bought this for our youth and they loved it! - Jessica R."] 
