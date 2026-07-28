@@ -403,9 +403,33 @@ const STICKER_PRODUCTS = [
         desc: "'Jesus wants me for a sunbeam' sticker inspired by the primary song. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.25 inches",
         reviews: ["Very cute, and looks great on my water bottle! I recommed this item and shop - Lacey P."] 
     },
-    /* --- STATE STICKERS --- */
     { 
         id: 34, 
+        stripePriceId: "price_1TyCsPRo3U7iX6n7sDVX8Oql", 
+        name: "Lord, I Believe", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "black", 
+        photos: ["images/ibelieve.jpg"], 
+        desc: "'Lord, I Believe' sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 2 inches",
+        reviews: ["Very cute, and looks great on my water bottle! I recommed this item and shop - Lacey P."] 
+    },
+    { 
+        id: 35, 
+        stripePriceId: "price_1TyCv7Ro3U7iX6n7pWOcZxsZ", 
+        name: "Youth Theme 2026 - Walk With Me", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "youth", 
+        color: "black", 
+        photos: ["images/youth20261.jpg", "images/youth20262.jpg"], 
+        desc: "2026 LDS youth theme sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.4 inches x 2.58 inches",
+        reviews: ["We bought this for our youth and they loved it! - Jessica R."] 
+    },
+    /* --- STATE STICKERS --- */
+    { 
+        id: 36, 
         stripePriceId: "price_1TwoFfRo3U7iX6n7FXoam0hz", 
         name: "Arizona", 
         price: 3.99, 
@@ -417,7 +441,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Super cute, great quality sitcker! Looking forward to ordering more in the future! - Alisa W.", "Good quality, looks just like the picture - Kevin R.", "Super cute and great quality! - Pamela H."] 
     },
     { 
-        id: 35, 
+        id: 37, 
         stripePriceId: "price_1TwoHkRo3U7iX6n7MYrrQNZy", 
         name: "Utah", 
         price: 3.99, 
@@ -430,7 +454,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Awesome sticker, great job! - Alexis P.", "Love it! It looks great on my laptop. - Lauren R."] 
     },
     { 
-        id: 36, 
+        id: 38, 
         stripePriceId: "price_1TwoIuRo3U7iX6n7QgpXfRNK", 
         name: "Colorado", 
         price: 3.99, 
@@ -442,7 +466,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Quality is excellent, thank you! - Lexi S."] 
     },
     { 
-        id: 37, 
+        id: 39, 
         stripePriceId: "price_1TwoKVRo3U7iX6n7BNipNKJY", 
         name: "Texas", 
         price: 3.99, 
@@ -454,7 +478,7 @@ const STICKER_PRODUCTS = [
         reviews: ["This is the CUTEST Texas sticker. I spent days looking for one I loved and this was it! I have no regrets, and I get so many compliments! Owners were so sweet and made sure I got my stickers in a timely manner and safely. Definitely will order from this store again. You should too! - Anne F.", "I love this sticker! I recommend it to my Texas friends! It's such a unique design and the quality is AMAZING for the price. - Taylor B."] 
     },
     { 
-        id: 38, 
+        id: 40, 
         stripePriceId: "price_1TwoLtRo3U7iX6n7QO1YCXhi", 
         name: "Florida", 
         price: 3.99, 
@@ -466,7 +490,7 @@ const STICKER_PRODUCTS = [
         reviews: ["My new favorite Etsy shop! These stickers are so cute and high quality! - Addison L."] 
     },
     { 
-        id: 39, 
+        id: 41, 
         stripePriceId: "price_1TwoNhRo3U7iX6n7nZJyy9Ux", 
         name: "Alaska", 
         price: 3.99, 
@@ -478,7 +502,7 @@ const STICKER_PRODUCTS = [
         reviews: ["This sticker is so pretty and I love it - Nancy S.", "Beautiful, good quality sticker. As described and would purchase again - Carly G.", "Beautiful sticker and gret experience. Highly recommend! - Brynn S."] 
     },
     { 
-        id: 40, 
+        id: 42, 
         stripePriceId: "price_1TwoPZRo3U7iX6n7DY7WfPZS", 
         name: "Utah Name", 
         price: 3.99, 
@@ -490,7 +514,7 @@ const STICKER_PRODUCTS = [
         reviews: ["LOVED this design after my Utah trip and had to add it to my water bottle! - Ryan H."] 
     },
     { 
-        id: 41, 
+        id: 43, 
         stripePriceId: "price_1TwoXdRo3U7iX6n7Xdj8jaC7", 
         name: "Idaho", 
         price: 3.99, 
@@ -502,7 +526,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Stevie L.", "I could not recommend this shop more! Amazing stickers - Brynley R."] 
     },
     { 
-        id: 42, 
+        id: 44, 
         stripePriceId: "price_1TwoY3Ro3U7iX6n73O5stLxb", 
         name: "Nevada", 
         price: 3.99, 
@@ -514,7 +538,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Faith B."] 
     },
     { 
-        id: 43, 
+        id: 45, 
         stripePriceId: "price_1TwoZ7Ro3U7iX6n7UGExaNH9", 
         name: "New Mexico", 
         price: 3.99, 
@@ -526,7 +550,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Faith B."] 
     },
     { 
-        id: 44, 
+        id: 46, 
         stripePriceId: "price_1TwobnRo3U7iX6n7xT55f94y", 
         name: "Oregon", 
         price: 3.99, 
@@ -538,7 +562,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Faith B."] 
     },
     { 
-        id: 45, 
+        id: 47, 
         stripePriceId: "price_1TwodIRo3U7iX6n7NiH5t811", 
         name: "Wyoming", 
         price: 3.99, 
@@ -550,7 +574,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Beautifuk! Just as I had hoped! - Noah D.", "Perfect for my water bottle - Lacey P.", "Super cute, just as expected - Sarah R.", "Great product, fast shipping. Recommend. - Ashley C."] 
     },
     { 
-        id: 46, 
+        id: 48, 
         stripePriceId: "price_1TyC7IRo3U7iX6n7AIUY6PAq", 
         name: "California", 
         price: 3.99, 
@@ -563,7 +587,7 @@ const STICKER_PRODUCTS = [
     },
     /* --- NEW YORK STICKERS --- */
     { 
-        id: 47, 
+        id: 49, 
         stripePriceId: "price_1Tw1PqRo3U7iX6n7aMy4MZNW", 
         name: "NYC Rat Sticker", 
         price: 3.99, 
@@ -576,7 +600,7 @@ const STICKER_PRODUCTS = [
         reviews: ["I love my rat sticker! Makes me think of NYC subways and how much I love the city. Veyr cute, durable, and I get so many compliments on it. - Anne R.", "Loved this adorable sticker! Better than all souvenirs I got from my actual trip to New York! - Derek K.", "Super cute, and looks perfect on my computer. - Shelby A.", "Very good product, thank you! - Alexis M."] 
     },
     { 
-        id: 48, 
+        id: 50, 
         stripePriceId: "price_1TwQxsRo3U7iX6n7p9hYd73F", 
         name: "NYC Subway Map", 
         price: 3.99, 
@@ -588,7 +612,7 @@ const STICKER_PRODUCTS = [
         reviews: ["It's adorable, thank you so much! - Faith W.", "Sticker is a perfect memento for riding the subways in NYC - Luke M.", "Great quality and fast shipping! - Jessica R.", "Arrived in safe packaging with no damage! Perfect sticker - Madison H."] 
     },
     { 
-        id: 49, 
+        id: 51, 
         stripePriceId: "price_1TyCAlRo3U7iX6n7PoE4mRpA", 
         name: "Bronx, NY", 
         price: 3.99, 
