@@ -152,19 +152,6 @@ const STICKER_PRODUCTS = [
     },
     { 
         id: 13, 
-        stripePriceId: "price_1Tw1PqRo3U7iX6n7aMy4MZNW", 
-        name: "NYC Rat Sticker", 
-        price: 3.99, 
-        isCustomizable: false, 
-        isBestseller: true,
-        category: "other", 
-        color: "yellow", 
-        photos: ["images/rat1.jpg", "images/rat2.jpg"], 
-        desc: "Having both served church missions in New York City, subways rats oddly feel very sacred to us! Including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.5 inches x 1.85 inches", 
-        reviews: ["I love my rat sticker! Makes me think of NYC subways and how much I love the city. Veyr cute, durable, and I get so many compliments on it. - Anne R.", "Loved this adorable sticker! Better than all souvenirs I got from my actual trip to New York! - Derek K.", "Super cute, and looks perfect on my computer. - Shelby A.", "Very good product, thank you! - Alexis M."] 
-    },
-    { 
-        id: 14, 
         stripePriceId: "price_1Tw6kmRo3U7iX6n7uP7wwJAE", 
         name: "Be Still & Know", 
         price: 3.99, 
@@ -176,7 +163,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Claire D.", "Great sticker, and surprisingly sturdy even though the letters are so intricate and pretty. Love it. - Courtney L.", "Very lovely peel and stick stickers. And quick turnaround. So glad I bought this! - Alyssa B.", "Amazing product. Amazing, quick shipping. Will buy from this shop again. - Taylor P."] 
     },
     { 
-        id: 15, 
+        id: 14, 
         stripePriceId: "price_1Tw83DRo3U7iX6n7xbhGoCDh", 
         name: "If the Stars Were Made to Worship, So Will I", 
         price: 3.99, 
@@ -188,7 +175,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Love this sticker! Even better than I thought it would be. Will definitely buy from this company again! - Katelyn B."] 
     },
     { 
-        id: 16, 
+        id: 15, 
         stripePriceId: "price_1TwCWjRo3U7iX6n7zZkP3pSF", 
         name: "Builders of Faith", 
         price: 3.99, 
@@ -200,7 +187,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality, shipped fast! - Victoria H.", "Great stickers. So cute. Perfect for my YW as a Christmas present. - Emma J."] 
     },
     { 
-        id: 17, 
+        id: 16, 
         stripePriceId: "price_1TwCVsRo3U7iX6n7KwRpqrqN", 
         name: "Messengers of Hope", 
         price: 3.99, 
@@ -212,7 +199,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Best shop ever! I loved my stickers! 100% recommend! - Grace A.", "Great stickers. So cute. Perfect for my YW as a Christmas present. - Emma J."] 
     },
     { 
-        id: 18, 
+        id: 17, 
         stripePriceId: "price_1TwCXORo3U7iX6n7GNHmV0a3", 
         name: "Gatherers of Light", 
         price: 3.99, 
@@ -224,7 +211,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great stickers. So cute. Perfect for my YW as a Christmas present. - Emma J."] 
     },
     { 
-        id: 19, 
+        id: 18, 
         stripePriceId: "price_1TwQkXRo3U7iX6n7lA5sUmXX", 
         name: "Future Missionary", 
         price: 3.99, 
@@ -236,7 +223,7 @@ const STICKER_PRODUCTS = [
         reviews: ["The seller was AMAZING and so accomodating! Thank you! - Jordan T.", "Stickers are great! I am very excited to pass them out this Sunday. - Kristy L.", "They were able to help me last minute and were so accomodating - Brandon H.", "Great quality! - Carrie R."] 
     },
     { 
-        id: 20, 
+        id: 19, 
         stripePriceId: "price_1TwQm8Ro3U7iX6n7eT5whY7M", 
         name: "Choose The Right", 
         price: 3.99, 
@@ -248,19 +235,7 @@ const STICKER_PRODUCTS = [
         reviews: ["High quality sticker, exceeded my expectations! - Marcus R."] 
     },
     { 
-        id: 21, 
-        stripePriceId: "price_1TwQxsRo3U7iX6n7p9hYd73F", 
-        name: "NYC Subway Map", 
-        price: 3.99, 
-        isCustomizable: false, 
-        category: "other", 
-        color: "beige", 
-        photos: ["images/nycmap1.jpg", "images/nycmap2.jpg"], 
-        desc: "Having both served church missions in New York City, including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 1.6 inches x 3.48 inches", 
-        reviews: ["It's adorable, thank you so much! - Faith W.", "Sticker is a perfect memento for riding the subways in NYC - Luke M.", "Great quality and fast shipping! - Jessica R.", "Arrived in safe packaging with no damage! Perfect sticker - Madison H."] 
-    },
-    { 
-        id: 22, 
+        id: 20, 
         stripePriceId: "price_1TwR02Ro3U7iX6n78e9g7DSc", 
         name: "Not Forgotten, Found", 
         price: 3.99, 
@@ -272,7 +247,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Best shop ever! I loved my stickers! 100% recommend! - Nicole T."] 
     },
     { 
-        id: 23, 
+        id: 21, 
         stripePriceId: "price_1TwR5iRo3U7iX6n7GBpupsF7", 
         name: "Glory to God", 
         price: 3.99, 
@@ -284,7 +259,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Exactly as described. Thank you! - Sariah D.", "Excellent sticker, very durable and high quality. - Selena T."] 
     },
     { 
-        id: 24, 
+        id: 22, 
         stripePriceId: "price_1TwR4PRo3U7iX6n7H7kwsOrb", 
         name: "Faith Is Like A Seed", 
         price: 3.99, 
@@ -296,7 +271,69 @@ const STICKER_PRODUCTS = [
         reviews: ["Exactly what I wanted. Thank you! - Abigail F.", "Excellent quality sticker and very durable. - Amber G."] 
     },
     { 
+        id: 23, 
+        stripePriceId: "price_1TwogmRo3U7iX6n7QgKfgFDW", 
+        name: "Provo City Center Temple", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "temple", 
+        color: "colorful", 
+        photos: ["images/provo1.jpg", "images/provo2.jpg"], 
+        desc: "Provo City Center Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.9 inches",
+        reviews: ["These cute stickers shipped so fast, and they are exactly what I imagined! Will defintiely be buying more stickers from here! - Mary K."] 
+    },
+    { 
+        id: 24, 
+        stripePriceId: "price_1TwogERo3U7iX6n7x4mPAPHk", 
+        name: "Payson, Utah Temple", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "temple", 
+        color: "beige", 
+        photos: ["images/payson1.jpg", "images/payson2.jpg"], 
+        desc: "Payson, Utah Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.35 inches x 3.07 inches",
+        reviews: ["Great quality sticker! Fast shipment. - Tyler N.", "Amazing attention to detail and very high quality/durable - Greta A."] 
+    },
+    { 
         id: 25, 
+        stripePriceId: "price_1TyBjvRo3U7iX6n7ld6KQ6ub", 
+        name: "Think Celestial", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "colorful", 
+        isBestseller: true,
+        photos: ["images/thinkcelestial1.jpg", "images/thinkcelestial2.jpg"], 
+        desc: "'Think Celestial' sticker inspired by Russel M. Nelson's general conference address. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 1.05 inches",
+        reviews: ["Very cute, and looks great on my water bottle! - Jeanette M.", "We really wanted something to help remind my YW to Think Celestial and these were perfect! Shipping was quick and quality was great! - Michelle D."] 
+    },
+    { 
+        id: 26, 
+        stripePriceId: "price_1TyBmORo3U7iX6n7APUmuLl4", 
+        name: "Spoiler Alert: He Lives", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "blue", 
+        photos: ["images/spoiler1.jpg"], 
+        desc: "Easter themed sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.09 inches x 0.98 inches",
+        reviews: ["Very cute, and looks great on my water bottle! - Jeanette M."] 
+    },
+    { 
+        id: 27, 
+        stripePriceId: "price_1TyC4rRo3U7iX6n7ZpM69E9D", 
+        name: "Jesus Wants Me For a Sunbeam", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "primary", 
+        color: "yellow", 
+        photos: ["images/sunbeam1.jpg", "images/sunbeam2.jpg"], 
+        desc: "'Jesus wants me for a sunbeam' sticker inspired by the primary song. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.25 inches",
+        reviews: ["Very cute, and looks great on my water bottle! I recommed this item and shop - Lacey P."] 
+    },
+    /* --- STATE STICKERS --- */
+    { 
+        id: 28, 
         stripePriceId: "price_1TwoFfRo3U7iX6n7FXoam0hz", 
         name: "Arizona", 
         price: 3.99, 
@@ -308,7 +345,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Super cute, great quality sitcker! Looking forward to ordering more in the future! - Alisa W.", "Good quality, looks just like the picture - Kevin R.", "Super cute and great quality! - Pamela H."] 
     },
     { 
-        id: 26, 
+        id: 29, 
         stripePriceId: "price_1TwoHkRo3U7iX6n7MYrrQNZy", 
         name: "Utah", 
         price: 3.99, 
@@ -321,7 +358,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Awesome sticker, great job! - Alexis P.", "Love it! It looks great on my laptop. - Lauren R."] 
     },
     { 
-        id: 27, 
+        id: 30, 
         stripePriceId: "price_1TwoIuRo3U7iX6n7QgpXfRNK", 
         name: "Colorado", 
         price: 3.99, 
@@ -333,7 +370,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Quality is excellent, thank you! - Lexi S."] 
     },
     { 
-        id: 28, 
+        id: 31, 
         stripePriceId: "price_1TwoKVRo3U7iX6n7BNipNKJY", 
         name: "Texas", 
         price: 3.99, 
@@ -345,7 +382,7 @@ const STICKER_PRODUCTS = [
         reviews: ["This is the CUTEST Texas sticker. I spent days looking for one I loved and this was it! I have no regrets, and I get so many compliments! Owners were so sweet and made sure I got my stickers in a timely manner and safely. Definitely will order from this store again. You should too! - Anne F.", "I love this sticker! I recommend it to my Texas friends! It's such a unique design and the quality is AMAZING for the price. - Taylor B."] 
     },
     { 
-        id: 29, 
+        id: 32, 
         stripePriceId: "price_1TwoLtRo3U7iX6n7QO1YCXhi", 
         name: "Florida", 
         price: 3.99, 
@@ -357,7 +394,7 @@ const STICKER_PRODUCTS = [
         reviews: ["My new favorite Etsy shop! These stickers are so cute and high quality! - Addison L."] 
     },
     { 
-        id: 30, 
+        id: 33, 
         stripePriceId: "price_1TwoNhRo3U7iX6n7nZJyy9Ux", 
         name: "Alaska", 
         price: 3.99, 
@@ -369,7 +406,7 @@ const STICKER_PRODUCTS = [
         reviews: ["This sticker is so pretty and I love it - Nancy S.", "Beautiful, good quality sticker. As described and would purchase again - Carly G.", "Beautiful sticker and gret experience. Highly recommend! - Brynn S."] 
     },
     { 
-        id: 31, 
+        id: 34, 
         stripePriceId: "price_1TwoPZRo3U7iX6n7DY7WfPZS", 
         name: "Utah Name", 
         price: 3.99, 
@@ -381,7 +418,7 @@ const STICKER_PRODUCTS = [
         reviews: ["LOVED this design after my Utah trip and had to add it to my water bottle! - Ryan H."] 
     },
     { 
-        id: 32, 
+        id: 35, 
         stripePriceId: "price_1TwoXdRo3U7iX6n7Xdj8jaC7", 
         name: "Idaho", 
         price: 3.99, 
@@ -393,7 +430,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Stevie L.", "I could not recommend this shop more! Amazing stickers - Brynley R."] 
     },
     { 
-        id: 33, 
+        id: 36, 
         stripePriceId: "price_1TwoY3Ro3U7iX6n73O5stLxb", 
         name: "Nevada", 
         price: 3.99, 
@@ -405,7 +442,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Faith B."] 
     },
     { 
-        id: 33, 
+        id: 37, 
         stripePriceId: "price_1TwoZ7Ro3U7iX6n7UGExaNH9", 
         name: "New Mexico", 
         price: 3.99, 
@@ -417,7 +454,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Faith B."] 
     },
     { 
-        id: 34, 
+        id: 38, 
         stripePriceId: "price_1TwobnRo3U7iX6n7xT55f94y", 
         name: "Oregon", 
         price: 3.99, 
@@ -429,7 +466,7 @@ const STICKER_PRODUCTS = [
         reviews: ["Great quality sticker! Fast shipment. - Faith B."] 
     },
     { 
-        id: 35, 
+        id: 39, 
         stripePriceId: "price_1TwodIRo3U7iX6n7NiH5t811", 
         name: "Wyoming", 
         price: 3.99, 
@@ -441,52 +478,54 @@ const STICKER_PRODUCTS = [
         reviews: ["Beautifuk! Just as I had hoped! - Noah D.", "Perfect for my water bottle - Lacey P.", "Super cute, just as expected - Sarah R.", "Great product, fast shipping. Recommend. - Ashley C."] 
     },
     { 
-        id: 36, 
-        stripePriceId: "price_1TwogmRo3U7iX6n7QgKfgFDW", 
-        name: "Provo City Center Temple", 
+        id: 40, 
+        stripePriceId: "price_1TyC7IRo3U7iX6n7AIUY6PAq", 
+        name: "California", 
         price: 3.99, 
         isCustomizable: false, 
-        category: "temple", 
+        category: "states", 
         color: "colorful", 
-        photos: ["images/provo1.jpg", "images/provo2.jpg"], 
-        desc: "Provo City Center Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.25 inches x 2.9 inches",
-        reviews: ["These cute stickers shipped so fast, and they are exactly what I imagined! Will defintiely be buying more stickers from here! - Mary K."] 
+        photos: ["images/california1.jpg"], 
+        desc: "California sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 3.45 inches",
+        reviews: ["Great quality sticker! Fast shipment. - Tyler N."] 
+    },
+    /* --- NEW YORK STICKERS --- */
+    { 
+        id: 41, 
+        stripePriceId: "price_1Tw1PqRo3U7iX6n7aMy4MZNW", 
+        name: "NYC Rat Sticker", 
+        price: 3.99, 
+        isCustomizable: false, 
+        isBestseller: true,
+        category: "other", 
+        color: "yellow", 
+        photos: ["images/rat1.jpg", "images/rat2.jpg"], 
+        desc: "Having both served church missions in New York City, subways rats oddly feel very sacred to us! Including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.5 inches x 1.85 inches", 
+        reviews: ["I love my rat sticker! Makes me think of NYC subways and how much I love the city. Veyr cute, durable, and I get so many compliments on it. - Anne R.", "Loved this adorable sticker! Better than all souvenirs I got from my actual trip to New York! - Derek K.", "Super cute, and looks perfect on my computer. - Shelby A.", "Very good product, thank you! - Alexis M."] 
     },
     { 
-        id: 37, 
-        stripePriceId: "price_1TwogERo3U7iX6n7x4mPAPHk", 
-        name: "Payson, Utah Temple", 
+        id: 42, 
+        stripePriceId: "price_1TwQxsRo3U7iX6n7p9hYd73F", 
+        name: "NYC Subway Map", 
         price: 3.99, 
         isCustomizable: false, 
-        category: "temple", 
+        category: "other", 
         color: "beige", 
-        photos: ["images/payson1.jpg", "images/payson2.jpg"], 
-        desc: "Payson, Utah Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.35 inches x 3.07 inches",
-        reviews: ["Great quality sticker! Fast shipment. - Tyler N.", "Amazing attention to detail and very high quality/durable - Greta A."] 
+        photos: ["images/nycmap1.jpg", "images/nycmap2.jpg"], 
+        desc: "Having both served church missions in New York City, including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 1.6 inches x 3.48 inches", 
+        reviews: ["It's adorable, thank you so much! - Faith W.", "Sticker is a perfect memento for riding the subways in NYC - Luke M.", "Great quality and fast shipping! - Jessica R.", "Arrived in safe packaging with no damage! Perfect sticker - Madison H."] 
     },
     { 
-        id: 38, 
-        stripePriceId: "price_1TyBjvRo3U7iX6n7ld6KQ6ub", 
-        name: "Think Celestial", 
+        id: 43, 
+        stripePriceId: "price_1TyCAlRo3U7iX6n7PoE4mRpA", 
+        name: "Bronx, NY", 
         price: 3.99, 
         isCustomizable: false, 
-        category: "religious", 
+        category: "other", 
         color: "colorful", 
-        photos: ["images/thinkcelestial1.jpg", "images/thinkcelestial2.jpg"], 
-        desc: "'Think Celestial' sticker inspired by Russel M. Nelson's general conference address. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 1.05 inches",
-        reviews: ["Very cute, and looks great on my water bottle! - Jeanette M.", "We really wanted something to help remind my YW to Think Celestial and these were perfect! Shipping was quick and quality was great! - Michelle D."] 
-    },
-    { 
-        id: 39, 
-        stripePriceId: "price_1TyBmORo3U7iX6n7APUmuLl4", 
-        name: "Spoiler Alert: He Lives", 
-        price: 3.99, 
-        isCustomizable: false, 
-        category: "religious", 
-        color: "blue", 
-        photos: ["images/spoiler1.jpg"], 
-        desc: "Easter themed sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.09 inches x 0.98 inches",
-        reviews: ["Very cute, and looks great on my water bottle! - Jeanette M."] 
+        photos: ["images/bronx.jpg"], 
+        desc: "Having both served church missions in New York City, including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.6 inches x 1.96 inches",
+        reviews: ["Loved this adorable sticker! Better than all souvenirs I got from my actual trip to New York! - Derek K.", "Super cute, and looks perfect on my computer. - Shelby A.", "Very good product, thank you! - Alexis M."] 
     },
 
     // --- EXCLUSIVE CART-ONLY MYSTERY STICKER ---
