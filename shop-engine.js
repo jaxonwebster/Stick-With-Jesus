@@ -464,6 +464,30 @@ const STICKER_PRODUCTS = [
         desc: "Payson, Utah Temple sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.35 inches x 3.07 inches",
         reviews: ["Great quality sticker! Fast shipment. - Tyler N.", "Amazing attention to detail and very high quality/durable - Greta A."] 
     },
+    { 
+        id: 38, 
+        stripePriceId: "price_1TyBjvRo3U7iX6n7ld6KQ6ub", 
+        name: "Think Celestial", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "colorful", 
+        photos: ["images/thinkcelestial1.jpg", "images/thinkcelestial2.jpg"], 
+        desc: "'Think Celestial' sticker inspired by Russel M. Nelson's general conference address. Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 1.05 inches",
+        reviews: ["Very cute, and looks great on my water bottle! - Jeanette M.", "We really wanted something to help remind my YW to Think Celestial and these were perfect! Shipping was quick and quality was great! - Michelle D."] 
+    },
+    { 
+        id: 39, 
+        stripePriceId: "price_1TyBmORo3U7iX6n7APUmuLl4", 
+        name: "Spoiler Alert: He Lives", 
+        price: 3.99, 
+        isCustomizable: false, 
+        category: "religious", 
+        color: "blue", 
+        photos: ["images/spoiler1.jpg"], 
+        desc: "Easter themed sticker printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.09 inches x 0.98 inches",
+        reviews: ["Very cute, and looks great on my water bottle! - Jeanette M."] 
+    },
 
     // --- EXCLUSIVE CART-ONLY MYSTERY STICKER ---
     {
