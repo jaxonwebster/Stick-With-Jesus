@@ -327,7 +327,7 @@ const STICKER_PRODUCTS = [
         isCustomizable: false, 
         category: "religious", 
         color: "beige", 
-        photos: ["images/hand1.jpg", "images/hand2.jpg"], 
+        photos: ["images/hand1.webp", "images/hand2.jpg"], 
         desc: "What's better than someone saying 'I love you'? Jesus saying 'I love you'! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 2.31 inches x 2.75 inches",
         reviews: ["These cute stickers shipped so fast, and they are exactly what I imagined! Will defintiely be buying more stickers from here! - Mary K."] 
     },
@@ -351,7 +351,7 @@ const STICKER_PRODUCTS = [
         isCustomizable: false, 
         category: "religious", 
         color: "blue", 
-        photos: ["images/gotthis1.jpg", "images/gotthis2.jpg", "images/gotthis3.jpg"], 
+        photos: ["images/gotthis1.jpg", "images/gotthis2.webp", "images/gotthis3.webp"], 
         desc: "'God's Got This' sticker printed on waterproof and scratch resistant laminated sticker paper.",
         reviews: ["Very cute, and looks great on my water bottle! - Jeanette M."] 
     },
