@@ -2599,3 +2599,13 @@ footer {
   height: 100%;
   text-decoration: none;
 }
+.designer-link {
+  color: var(--brand-purple); /* Or a bright highlight color like #8a4baf */
+  text-decoration: underline;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.designer-link:hover {
+  opacity: 0.8;
+}
