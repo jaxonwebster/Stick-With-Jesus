@@ -2090,7 +2090,7 @@ footer {
 @media (max-width: 768px) {
     .site-footer {
         padding: 44px 20px 24px;
-        text-align: center;
+        text-align: left;
     }
 
     .footer-top {
@@ -2099,11 +2099,11 @@ footer {
         padding-bottom: 12px;
     }
 
-    /* Center Brand Section Items */
+    /* Left-Align Brand Section Items */
     .footer-brand {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .footer-logo-circle {
@@ -2116,7 +2116,7 @@ footer {
     }
 
     .social-links {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     /* Column Tweaks for Easy Tapping */
@@ -2130,11 +2130,13 @@ footer {
 
     .footer-col ul li a {
         padding: 6px 0; /* Larger touch area for mobile thumbs */
+        display: inline-block; /* Ensures clean tap area alignment */
     }
 
     .footer-bottom {
         margin-top: 24px;
         font-size: 0.8rem;
+        text-align: left;
     }
 }
 /* ==========================================
