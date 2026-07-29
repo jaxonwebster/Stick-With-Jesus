@@ -1362,7 +1362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'returns',
       question: 'Can I track my order?',
-      answer: 'To keep our costs low, we do not offer tracking. We do, however, offer tracking on larger orders for a more expensive shipping fee. Submit bulk/custom orders on our Custom Orders page!'
+      answer: 'To keep our costs low, we do not offer tracking. We do, however, offer tracking on larger orders for a more expensive shipping fee. Submit bulk/custom orders on our Contact Us page!'
     },
     {
       id: 'coupon',
