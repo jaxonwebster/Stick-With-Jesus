@@ -981,14 +981,14 @@ function renderProductDetails(id) {
                     <option value="1" selected>1 Sticker</option>
                     <option value="2">2 Stickers</option>
                     <option value="3">3 Stickers</option>
-                    <option value="6">6 Stickers (10% wholesale discount)</option>
-                    <option value="12">12 Stickers (20% wholesale discount)</option>
-                    <option value="18">18 Stickers (20% wholesale discount)</option>
-                    <option value="24">24 Stickers (30% wholesale discount)</option>
-                    <option value="30">30 Stickers (30% wholesale discount)</option>
-                    <option value="50">50 Stickers (40% wholesale rate)</option>
-                    <option value="75">75 Stickers (40% wholesale rate)</option>
-                    <option value="100">100 Stickers (50% wholesale bulk rate)</option>
+                    <option value="6">6 Stickers</option>
+                    <option value="12">12 Stickers</option>
+                    <option value="18">18 Stickers</option>
+                    <option value="24">24 Stickers</option>
+                    <option value="30">30 Stickers</option>
+                    <option value="50">50 Stickers (contact us for bulk order discounts)</option>
+                    <option value="75">75 Stickers (contact us for bulk order discounts)</option>
+                    <option value="100">100 Stickers (contact us for bulk order discounts)</option>
                 </select>
             </div>
 
