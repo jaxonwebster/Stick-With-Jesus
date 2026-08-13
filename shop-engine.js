@@ -596,8 +596,8 @@ const STICKER_PRODUCTS = [
         category: "other", 
         color: "yellow", 
         photos: ["images/rat1.jpg", "images/rat2.jpg"], 
-        desc: "Having both served church missions in New York City, subways rats oddly feel very sacred to us! Including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.5 inches x 1.85 inches", 
-        reviews: ["I love my rat sticker! Makes me think of NYC subways and how much I love the city. Veyr cute, durable, and I get so many compliments on it. - Anne R.", "Loved this adorable sticker! Better than all souvenirs I got from my actual trip to New York! - Derek K.", "Super cute, and looks perfect on my computer. - Shelby A.", "Very good product, thank you! - Alexis M."] 
+        desc: "Having both served church missions in New York City, subway rats oddly feel very sacred to us! Including a few New York inspired stickers on our shop pays homage to our story and our tesimonies. We didn't know it at the time, but this sticker has become one of our bestsellers! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3.5 inches x 1.85 inches", 
+        reviews: ["I love my rat sticker! Makes me think of NYC subways and how much I love the city. Very cute, durable, and I get so many compliments on it. - Anne R.", "Loved this adorable sticker! Better than all souvenirs I got from my actual trip to New York! - Derek K.", "Super cute, and looks perfect on my computer. - Shelby A.", "Very good product, thank you! - Alexis M."] 
     },
     { 
         id: 50, 
