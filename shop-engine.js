@@ -218,7 +218,7 @@ const STICKER_PRODUCTS = [
         isCustomizable: false, 
         category: ["youth", "primary"],
         color: "black", 
-        photos: ["images/futuremissionary1.jpg"], 
+        photos: ["images/future1.jpg", "images/future2.jpg", "images/future3.jpg"], 
         desc: "'Future Missionary' sticker for aspiring missionaries of any age! Printed on waterproof and scratch resistant laminated sticker paper. Sizing: 3 inches x 2 inches", 
         reviews: ["The seller was AMAZING and so accomodating! Thank you! - Jordan T.", "Stickers are great! I am very excited to pass them out this Sunday. - Kristy L.", "They were able to help me last minute and were so accomodating - Brandon H.", "Great quality! - Carrie R."] 
     },
